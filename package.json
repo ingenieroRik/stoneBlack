@@ -4,7 +4,8 @@
   "description": "TEMATICA: Venta de ropa unisex para todas las temporadas del año. Para el rango de edades de 16 años en adelante. Publicidad a travéz de redes sociales.",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon ./src/app.js"
+    "test": "nodemon src/app.js",
+    "start": "node src/app.js"
   },
   "repository": {
     "type": "git",
