@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('../partials/head.ejs') %>
+    <link rel="stylesheet" href="/css/listadoProductos.css" />
+    <link rel="stylesheet" href="/css/listarProdBuscado.css" />
+    
+    <title>Listado de productos </title>
+</head>
+<body>
+
+    <!------------------------------------ sin header ------------------------------------------------------>
+   
+    <!--------------------------------main ------------------------------------->
+    <main>
+
+    <div class="titulo">
+        <h1>Listado de productos disponibles</h1>
+    </div>
+
+    <section class="seccion1">
+
+        
+        <% for(let i=0; i < allProducts.length; i++) {%>
+            
+            <section class="container1">
+
+                
+                <div class="container2">
+                   
+                    <img src="/images/<%= allProducts[i].img%>" class="img1" alt="imagen" />
+                   
+                </div>
+                <div class="container3">       
+                    <section class="precio-dto">
+                        <p class="descripcion"><%= "Descripcion: "+ allProducts[i].descripcion %></p>
+                        <h4 class="precio"><%= "Precio = $ " + allProducts[i].precio %></h4>
+                        <p class="descuento"><%= "Descuento: " + allProducts[i].descuento %></p>
+                        <p class="cuotas"><%= "Cuotas: " + allProducts[i].cuotas %></p>
+                        
+                        
+                    
+                    </section>
+                </div>
+            </section>
+            <%}%>
+    </section>
+
+        <div class="volver-buscar">
+        <button class="envio botonL" type="submit" ><a href="/" title="Close" id="close">Volver</a></button>   
+        </div>
+
+    </main>
+</body>
+</html>

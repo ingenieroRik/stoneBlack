@@ -1,0 +1,99 @@
+* {
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+	text-decoration: none;
+	list-style-type: none;
+  }
+  :root {
+  --gris: #686963;
+  --morning-blue: #8aa29e;
+  --black-coral: #3d5467;
+  --silver-chalice: #a9aca9; 
+  --granite-gray:#6c6061;
+  --independence: #525b76;  
+  }
+body {
+    font-family: "Roboto", sans-serif;
+  }
+  .btn-volver{
+    display: block;
+    margin-bottom: 20px;
+    margin-top: 30px;
+    height: 30px;
+    text-align: center;
+  }
+    main {
+      width: 100%;
+      margin: auto;
+      box-sizing: border-box; 
+     padding-bottom:30px;
+    } 
+    .container3 {
+      padding-top: 30px; 
+    }
+    .encabezado {
+      height: 30px;
+      background-color: black;
+      color: white;
+      font-size: 24px;
+      border-radius: 7px;
+    }
+    .tablaUsuarios {
+      background-color: #dee1d8; 
+      border-radius: 7px;
+      margin: auto;
+      border: solid 5px var(--granite-gray) ;
+    }
+    .fila{
+      text-align: center;
+    }
+    .botonVolver {
+      width: 20%;
+      height: 30px;
+      border-radius: 10px;
+    }
+    .botones {
+      display: flex;
+    }
+    #volver{
+      color:var(--black-coral);
+    }
+    .botonEditar {
+      margin: 4px;
+      background-color:lightgreen;
+      color: white;
+      border-radius: 5px;
+    }
+    .botonBorrar {
+      margin: 4px;
+      background-color:orangered;
+      color: white;
+      border-radius: 5px;
+    }
+    .titulos {
+      border-style:solid;
+      border-width: 1px;
+      border-color: black;
+      padding: 10px;
+    }
+    .datosUsuario {
+      font-size: 20px;
+    }
+    
+    /*  tablets    */
+    @media (min-width:426px){
+     
+    }
+    
+    /*   notebook   */
+    @media (min-width:769px){
+      .botonVolver {
+        width: 10%;
+      }
+    }
+    @media (min-width: 1200px){
+     
+    }
+    
+    

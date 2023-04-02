@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    
+    <%- include('../partials/head.ejs') %>
+
+    <link rel="stylesheet" href="/css/header.css" />
+    
+    <title>Clave incorrecta</title>
+</head>
+<body>
+<!------------------------------------ header ------------------------------------------------------>
+<%- include('../partials/header.ejs') %>
+
+<main>
+        <form action="/formClaveIncorrecta" method="GET">
+         <div class=" control-login">
+             <input type="email" name="email" class="control boton3" placeholder="e-mail" required>
+        </div>
+            <div class="control-login">
+             <button class="envio" type="reset" ><a href="/" title="Close" id="close">Volver</a></button>
+             <input type="submit" class="envio"></input> 
+            </div>
+        </form>
+</main>
+
+  <!--------------------------------- footer --------------------------------------------------------------->
+  <%- include('../partials/footer.ejs') %>
+</body>
+
+</html>

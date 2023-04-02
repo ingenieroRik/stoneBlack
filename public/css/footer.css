@@ -1,0 +1,77 @@
+
+/*--------------------------footer--------------------*/
+footer{
+    box-sizing: border-box;
+    padding-bottom: 10px;
+    flex-direction: column;
+  }
+  .pie-pagina {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+  }
+  .sector-footer{
+    text-align: center;
+    width:100%;
+    padding: 10px;
+  }
+  .sector-footer img{
+    width: 44px;
+  }
+  .icono-footer{
+    color:var(--azul);
+    font-size:x-large;
+    margin: 10px;
+  }
+  .titulo-footer {
+    font-size: 16px;
+    padding-bottom: 15px;
+  }
+  .texto-footer {
+    font-size: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  /* para agrandar y achicar figura  20% */
+  .icono-footer:hover {
+  -webkit-transform: scale(1.2);
+  color: var(--celeste);
+  }
+  
+  .container1:hover{
+    border: solid 1px var(--independence); 
+    }
+    
+  /*  tablets    */
+  @media (min-width:426px){
+    .footer {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: nowrap;
+        flex-direction: row;
+      }
+      .texto-footer{
+        font-size: 14px;
+      }
+      .sector-footer img{
+        width: 52px;
+      }
+
+
+    }
+    
+/*   notebook   */
+@media (min-width:968px){
+    .footer {
+      max-width: 80%;
+      margin: auto;
+    }
+    .sector-footer img{
+        width: 65px;
+      }
+      
+    }

@@ -1,0 +1,156 @@
+[
+ {
+  "id": 1,
+  "nombreYapellido": "Ricardo",
+  "email": "ingeniero_rik@hotmail.com",
+  "numeroDeFactura": "121212",
+  "clave": "1234",
+  "rol": "usuario"
+ },
+ {
+  "id": 2,
+  "imagenUsuario": " ",
+  "email": "carlosmartin@hotmail.com",
+  "rol": "usuario"
+ },
+ {
+  "id": 3,
+  "email": "carlosalberto@hotmail.com",
+  "rol": "usuario"
+ },
+ {
+  "id": 4,
+  "email": "armando@hotmail.com",
+  "rol": "usuario"
+ },
+ {
+  "id": 5,
+  "email": "carlosalber@hotmail.com",
+  "rol": "usuario"
+ },
+ {
+  "id": 6,
+  "email": "rr@hotmail.com",
+  "rol": "usuario"
+ },
+ {
+  "id": 7,
+  "nombreYapellido": "Jazmideferwer",
+  "email": "jazmin@hotmail.com",
+  "numeroDeFactura": "121212",
+  "clave": "1234",
+  "rol": "usuario"
+ },
+ {
+  "id": 8,
+  "nombreYapellido": "Caos Rodriguez",
+  "email": "cars@hotmail.com",
+  "numeroDeFactura": "1313",
+  "clave": "1234",
+  "rol": "usuario"
+ },
+ {
+  "id": 9,
+  "nombreYapellido": "dfssdfdsfsdf",
+  "email": "trtr@hotmail.com",
+  "numeroDeFactura": "1212",
+  "clave": "1234",
+  "rol": "usuario"
+ },
+ {
+  "id": 10,
+  "nombreYapellido": "asdsadasdasd",
+  "email": "dsd@hotmail.com",
+  "numeroDeFactura": "13412",
+  "clave": "1234",
+  "rol": "usuario"
+ },
+ {
+  "id": 11,
+  "nombreYapellido": "weaweweeqwell",
+  "email": "qwqw@hotmail.co",
+  "numeroDeFactura": "152323",
+  "clave": "1234",
+  "rol": "usuario"
+ },
+ {
+  "id": 12,
+  "nombreYapellido": "pldpsldplslpdlspld",
+  "email": "sdsds@hotmail.com",
+  "numeroDeFactura": "0230203",
+  "clave": "1234",
+  "rol": "usuario"
+ },
+ {
+  "id": 13,
+  "nombreYapellido": "erwrwerwrwrr",
+  "email": "pepep@hotmail.com",
+  "numeroDeFactura": "232323",
+  "clave": "1234",
+  "rol": "usuario"
+ },
+ {
+  "id": 14,
+  "nombreYapellido": "skdlsdklsdlsdsldklsdk",
+  "email": "sasas@homtail.com",
+  "numeroDeFactura": "121212",
+  "clave": "1234",
+  "rol": "usuario"
+ },
+ {
+  "id": 15,
+  "nombreYapellido": "Carlos Rodriguez",
+  "email": "carlos@hotmail.com",
+  "numeroDeFactura": "232323233",
+  "clave": "1234",
+  "rol": "usuario"
+ },
+ {
+  "id": 16,
+  "nombreYapellido": "fkmekdmkrmekd",
+  "email": "dksmdsmd@hotmaiil.com",
+  "numeroDeFactura": "152323",
+  "clave": "1234",
+  "rol": "usuario"
+ },
+ {
+  "id": 17,
+  "nombreYapellido": "Carlos Rodriguez",
+  "email": "carlos@hotmail.com",
+  "numeroDeFactura": "0230203",
+  "clave": "1234",
+  "rol": "usuario"
+ },
+ {
+  "id": 18,
+  "nombreYapellido": "peeppepepepe",
+  "email": "loec@hotmail.com",
+  "numeroDeFactura": "32422432",
+  "clave": "1234",
+  "rol": "usuario"
+ },
+ {
+  "id": 19,
+  "nombreYapellido": "Carlos Rodriguez",
+  "email": "carlos@hotmail.com",
+  "numeroDeFactura": "152323",
+  "clave": "1234",
+  "rol": "usuario"
+ },
+ {
+  "id": 20,
+  "nombreYapellido": "carlos_rodriguez",
+  "email": "carlos@hotmail.com",
+  "numeroDeFactura": "1212",
+  "clave": "1234",
+  "rol": "usuario"
+ },
+ {
+  "id": 21,
+  "nombreYapellido": "carlos_rodriguez",
+  "email": "carlos@hotmail.com",
+  "numeroDeFactura": "1212",
+  "clave": "1234",
+  "rol": "usuario"
+ }
+]

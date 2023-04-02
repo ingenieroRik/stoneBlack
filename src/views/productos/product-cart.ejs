@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    
+    <%- include('../partials/head.ejs') %>
+
+    <link rel="stylesheet" href="/css/product-cart.css"/>
+    
+    <title>product-cart</title>
+</head>
+<body>
+<!------------------------------------ header ------------------------------------------------------>
+<%- include('../partials/header.ejs') %>
+  
+    <main>
+
+        <div id="carrito">
+        <div class="contenedor1">
+            <%  if (locals.usuarioLogueado) {%> 
+            <div class="foto">
+                <img src="/images/usuarios/<%= locals.usuarioLogueado.imagenUsuario%>" alt="FOTO">
+                <p class="carro">Carrito de Compras de  <%= locals.usuarioLogueado.nombreYapellido %></p>
+            </div>
+            <% } else { %>
+            <div class="foto">
+                <img src="/images/usuarios/hijitus2.jpg" alt="FOTO">
+                <p class="carro">Carrito de Compras de isuario no registrado</p>
+            </div>
+            <% } %> 
+            
+
+            <div class="contenedor2">
+                <div class="imagen">
+                    <img src="\images\ac_dc.jpg" class="imagen2" alt="foto">
+                </div>
+                <div class="descripcion">
+                    <p class="articulo">Remera Hombre logo AC DC</p>
+                    <p class="talle">Talle: M</p>
+                    <p class="cantidad">Cantidad: 4</p>
+                </div>
+                <div class="info-precio">
+                    <p class="precioIndividual">$2.625,00</p>
+                </div>
+            </div>
+
+            <div class="info-costo">
+                <p class="Subtotal">Subtotal</p>
+                <p class="precio">$ 10.500,00</p>
+            </div>
+
+            <div class="off">
+                <p class="Descuento">Descuento</p>
+                <p class="porcentaje">30%</p>
+            </div>
+
+            <div class="info-total">
+                <p class="total">Total</p>
+                <p class="monto">$7.350,00</p>
+            </div>
+
+            <form class="compra">
+                <button type="submit" class="boton">Comprar</button>
+            </form>
+
+        </div>
+    </div>
+    </main>
+
+    <!--------------------------------- footer --------------------------------------------------------------->
+    <%- include('../partials/footer.ejs') %>
+    <script src="/js/product-cart1.js"></script>
+</body>
+
+</html>
+
+
+

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <%- include('../partials/head.ejs') %>
+    <link rel="stylesheet" href="/css/listadoUsuarios.css" />
+    
+    <title>Listado de usuarios</title>
+</head>
+<body>
+<!--------------------------- modal tabla de devoluciones-------------------------------------->
+
+<section class="container3">
+    
+    <table class="tablaUsuarios" >
+        <caption class="encabezado">Listado de devolucion</caption>
+        <tr>
+          <th class="titulos">-    Nombre y Apellido    -</th>
+          <th class="titulos">-    Email    -</th>
+          <th class="titulos">-    Número de factura    -</th>
+          <th class="titulos">-    Fecha    -</th>
+          <th class="titulos">-   Producto   -</th>
+        </tr>
+         <form action="/listaUsuariosDevolucion" method="POST">
+        <tr>
+            <% for(let i=0; i < devolucionesSolas.length; i++) {%>
+          <td class="fila"><%=devolucionesSolas[i].nombre_y_apellido  %></td>
+          <td class="fila"><%= devolucionesSolas[i].email%></td>
+          <td class="fila"><%= devolucionesSolas[i].numero_factura %></td>
+          <td class="fila"><%= devolucionesSolas[i].fecha %></td >
+          <td class="fila"><%= devolucionesSolas[i].id_producto %></td >
+          <td class="botones">
+          </form>
+           
+          </td>
+        </tr>
+        <%}%>
+    </table>
+    
+      <div class="nombre-usuario">
+        <button class="botonVolver" type="reset"><a href="/listadoProductos" id="volver" >Volver</a></button>     
+        </div>
+    
+    </section>
+    
+    
+    
+    </body>
+    </html>
+

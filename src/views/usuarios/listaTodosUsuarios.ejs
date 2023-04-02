@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <%- include('../partials/head.ejs') %>
+    <link rel="stylesheet" href="/css/listadoTodosUsuarios.css" />
+    
+    <title>Listado de usuarios</title>
+</head>
+<body>
+<!--------------------------- modal para agregar administrador ------------------------->
+<section id="formAdmin" class="modalDialog">
+    <div class="modal">
+        <form action="/listaTodosUsuarios#formAdmin" method="POST" class="formulario">
+            <div class="nombre">   
+                
+                
+                <input type="text" name="nombreYapellido" class="boton3" id="nombre" 
+                            class="form-control <%= locals.errors && errors.nombreYapellido ? 'is-invalid' : null %>" placeholder="nombre y apellido"
+                            value="<%= locals.oldData ? oldData.nombreYapellido : null %>" > 
+                      <%  if (locals.errors && errors.nombreYapellido) {  %> 
+                
+                    <div class="pie-form">
+                        <p class="credenciales-invalidas" ><%= errors.nombreYapellido.msg %> </p>
+                    </div>
+                    <% } %> 
+            </div>
+            <div class="nombre-usuario">
+                <input outline="none"  type="text" name="nombreUsuario" class="boton3" id="nombreUsuario" value="<%= locals.oldData ? oldData.nombreUsuario : null %>" placeholder="Nombre de Usuario">
+                <%  if (locals.errors && errors.nombreUsuario) {  %> 
+                    <div class="pie-form">
+                        <p class="credenciales-invalidas" ><%= errors.nombreUsuario.msg %> </p>
+                    </div>
+                    <% } %> 
+            </div>
+              
+        
+            <div class="nombre">
+                <input type="email" name="email" class="boton3" id="email" value="<%= locals.oldData ? oldData.email : null %>" placeholder="e-mail" >
+
+                <%  if (locals.errors && errors.email) {  %> 
+                    <div class="pie-form">
+                        <p class="credenciales-invalidas" ><%= errors.email.msg %> </p>
+                    </div>
+                    <% } %> 
+
+
+
+            </div>
+            <div class="nombre">
+                <input type="password" name="clave" class="boton3" id="password"  value="<%= locals.oldData ? oldData.clave : null %>" placeholder="Contraseña">
+                <%  if (locals.errors && errors.clave) {  %> 
+                    <div class="pie-form">
+                        <p class="credenciales-invalidas" ><%= errors.clave.msg %> </p>
+                    </div>
+                    <% } %> 
+            </div>
+            <div class="nombre">
+                <input type="password" name="confirmarClave" class="boton3" id="confirmarpassword"  placeholder="Confirmar">
+                <%  if (locals.errors && errors.confirmarClave) {  %> 
+                    <div class="pie-form">
+                        <p class="credenciales-invalidas" ><%= errors.confirmarClave.msg %> </p>
+                    </div>
+                    <% } %> 
+            </div>
+            
+            <div class="reg-reset">
+                <button class="reset" type="reset" ><a href="/listaTodosUsuarios" title="Close" id="close">Volver</a></button>
+                <button class="register" type="submit">Enviar</button>
+            </div>
+
+            
+            <%  if (locals.errors && errors.pieForm) {  %> 
+    
+                <div name="pieForm">
+                    <p class="pie-form" ><%= errors.pieForm.msg %> </p>
+                </div>
+                <% } %> 
+              
+        </form>
+    </div>
+    
+</section>
+<!------------------------------------------------------------------------------------------------------------------------->
+
+<!---------------------------------------------- parte principal de tabla lista de todos los usuarios y administradores --------------------------------------------------------->
+<section class="container3">
+    
+<table class="tablaUsuarios" >
+    <caption class="encabezado">Listado de usuarios y administradores </caption>
+    <tr>
+      <th class="titulos"> ---  Nombre y Apellido  --- </th><th class="titulos">---  Nombre de usuario  ---</th><th class="titulos">---  Categoría  ---</th>
+      <th class="titulos">---  email  --- </th><th class="titulos">---  clave  ---</th>
+    </tr>
+    <tr>
+        <% for(let i=0; i < usuariosSolos.length; i++) {%>
+      <td class="fila"><%=usuariosSolos[i].nombre_y_apellido  %></td>
+      <td class="fila"><%= usuariosSolos[i].nombre_usuario %></td>
+      <td class="fila"><%= usuariosSolos[i].rol %></td>
+      <td class="fila"><%= usuariosSolos[i].email %></td>
+      
+      <td class="botones">
+        <form action="/listaTodosUsuarios/<%= usuariosSolos[i].id %>?_method=DELETE" method="POST" class="form-borrar-admin">
+                    <button class="botonBorrar" type="submit" onclick="eliminar_admin(event);" >Borrar</button>
+        </form>
+        </td>
+    </tr>
+    <%}%>
+</table>
+<div class="nombre-usuario">
+    <button class="botonVolver" type="submit"><a href="#formAdmin">Agregar administrador</a></button>     
+    </div>
+  <div class="nombre-usuario">
+    <button class="botonVolver" type="submit"><a href="/">Volver</a></button>     
+    </div>
+    
+</section>
+
+
+<script  defer src="/js/borrarAdmin.js"></script>
+</body>
+</html>

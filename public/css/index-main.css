@@ -1,0 +1,148 @@
+
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+/* -------------------------main ---------------------*/
+main {
+  width: 100%;
+  margin: auto;
+  box-sizing: border-box; 
+ padding-bottom:30px;
+  background-color: var(--grisClaro);
+}
+.division {
+  background-color: var(--granite-gray);
+  color: white;
+  height: 50px;
+  text-align: center;
+  align-items: center;
+  font-size: 14px;
+  padding-top: 10px;
+  width: 100%;
+}
+.img1 {
+  width: 100%;
+  height: 300px;
+  border-radius: 7px;
+}
+.seccion1 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  padding-top: 45px; 
+}
+.seccion2 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0;
+  padding:0;
+}
+.container1{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 95%;
+  border: solid 1px var(--granite-gray) ;
+  margin: auto;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  text-align: center;
+  border-radius: 7px;
+}
+.container2{
+  width: 100%;
+}
+.container3{
+  width: 100%;
+}
+.comprar{
+  color:green; 
+  margin-top: 8px;
+}
+.circulo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: solid 1px green;
+  text-align: center;
+  margin: auto;
+  font-size: 24px;
+}
+.circulo:hover {
+  color:blue;
+  transform: scale(1.2);
+}
+.mostrar-mas {
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  padding-top: 25px;
+  color: var(--black-coral);
+  font-size: 24px;
+}
+.mostrar-mas:hover {
+  color:green;
+  font-weight: bold;
+}
+.descuento {
+  color: var(--verde);
+  font-size:14px ;
+}
+.descripcion {
+  font-size: 12px;
+}
+
+/*  tablets    */
+@media (min-width:426px){
+  .container1{box-shadow: 0px 0px 10px rgb(100, 100, 100);
+  }
+  .division{
+    font-size: 18px;
+    padding-top: 36px;
+    height: 100px;
+  }
+  .ofertas {
+    font-size: 14px;
+  padding-top: 3PX;
+  }
+  
+  .container1 {
+    width: 48%;
+  }
+  
+}
+
+/*   notebook   */
+@media (min-width:769px){
+  
+  .division{
+    font-size: 38px;
+    padding-top: 16px;
+  }
+  .ofertas {
+    font-size: 12px;
+    padding-top: 5px;
+  }
+  .container1{
+    width:23%;
+  }
+  .img1{
+    height: 420px;
+  }
+  
+}
+@media (min-width: 1200px){
+  .navbar, .buscar-lupa {
+    max-width: 1200px;  
+  }
+}
+
+

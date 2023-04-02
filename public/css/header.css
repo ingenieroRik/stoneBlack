@@ -1,0 +1,412 @@
+
+* {
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+	text-decoration: none;
+	list-style-type: none;
+  }
+  :root {
+  --gris: #686963;
+  --morning-blue: #8aa29e;
+  --black-coral: #3d5467;
+  --silver-chalice: #a9aca9; 
+  --granite-gray:#6c6061;
+  --independence: #525b76;  
+  }
+
+/* ------------------- para ventanas modales --------------------------*/
+.modalDialog {
+	position: fixed;
+	font-family: Arial, Helvetica, sans-serif;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 99999;
+	opacity:0;
+	-webkit-transition: opacity 400ms ease-in;
+	-moz-transition: opacity 400ms ease-in;
+	transition: opacity 400ms ease-in;
+	pointer-events: none;
+}
+.modalDialog:target {
+	opacity:1;
+	pointer-events: auto;
+}
+.modalDialog > div {
+	border: solid #6c6061;
+	width:360px;
+	position: relative;
+	margin: auto;
+	padding: 5px 20px 13px 20px;
+	border-radius: 10px;
+	background: #fff;
+	background: -moz-linear-gradient(#fff, #999);
+	background: -webkit-linear-gradient(#fff, #7c7071);
+	background: -o-linear-gradient(#fff, #999);
+  -webkit-transition: opacity 400ms ease-in;
+-moz-transition: opacity 400ms ease-in;
+transition: opacity 400ms ease-in;
+}
+#close {
+	color: #FFFFFF;
+	line-height: 25px;
+	right: -12px;
+	text-align: center;
+	top: -10px;
+	width: 24px;
+	text-decoration: none;
+	font-weight: bold;
+	border-radius: 12px;
+	border-radius: 12px;
+	box-shadow: 1px 1px 3px #000;
+}
+#close1 {
+	text-decoration: none;
+	color: #FFFFFF;
+}
+
+/* ------------------------ para emergente buscar -------------------------- */
+
+#buscar{	
+	margin-top: 200px;
+}
+.control-buscar {
+    margin-top: 20px;
+    text-align: center;
+}
+
+
+/* ---------------------- para emergente devolver --------------------------*/
+#devolver {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-bottom: 20px;
+    width:100%;
+    margin: auto;
+	margin-top: 100px;
+}
+.formulario-devolver {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.nombre, .nombre-usuario{
+    display: block;
+    margin-bottom: 20px;
+    margin-top: 30px;
+    height: 30px;
+    text-align: center;
+}
+.boton3 {
+    width: 70%;
+    padding: 10px;
+    color:var(--black-coral);
+    border: none;
+    outline: none;
+    background-color:var(--silver-chalice);
+	border-radius: 10px;
+	text-align: center;
+}
+.reg-reset {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.register , .reset {
+	margin-top: 15px;
+    background-color: var(--granite-gray);
+    color:white;
+    width:50%;
+    border-radius: 20px;
+    height: 40px;
+    width: 130px;
+    margin: 15px;  
+    border: none;
+}
+.register:hover , .reset:hover, .envio:hover{
+    background-color: #0022AA;  
+}
+.fecha{
+	width: 80%;             /* <--------------------------------se agrego */
+}
+
+/* ---------------------- para emergente de registrar ------------------- */
+#registro-usuario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-bottom: 20px;
+    width:100%;
+    margin: auto;
+	margin-top: 100px;
+}
+.formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+label, .foto {
+    margin-top: 25px;
+}
+.fechaNacimiento{
+    margin-top:10px;
+}
+.foto {
+    text-align: center;
+}
+.pie-form {
+    color:yellow;
+  }
+/*----------------------------------------------------------------------*/
+
+/* ------------------para emergente de inicio de sesion (login) -------- */
+#inicio-sesion {
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-bottom: 20px;
+    width:100%;
+    margin: auto;
+	margin-top: 100px;
+
+}
+
+.control-login {
+    margin-bottom: 0px;
+    text-align: center;
+}
+.sesion {
+    font-size: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    border: solid black 2px;
+    border-radius: 20px;
+    margin: 20px;
+    margin-bottom: 40px;
+    background-attachment: white;
+}
+.control {
+    width: 90%;
+    padding: 10px;
+    border-radius: 10px;
+    border: solid #F4F4F4 3px;
+    margin-top: 10px;
+    background-color:#F4F4F4;
+    color: black
+}
+.olvido {
+    padding-top:20px;
+    margin-right: 10px;
+    font-size: 0.9rem;
+}
+.contraseña {
+	text-align: right;
+}
+.texto-advertencia{
+	margin-top: 10px;
+	color:rgb(13, 25, 97);
+}
+.envio {
+    height: 30px;
+    width: 100px;
+    font-size: 26cpx;
+    border: solid black 1px;
+    border-radius: 15px;
+    color: white;
+    background-color: #525b76;
+    margin-top:35px;
+	margin-left: 25px;  /* <----------fijo 25 antes 10px */  
+}
+.credenciales-invalidas {
+    color: red;
+    padding-top: 10px;
+	text-align: center;
+  }
+  .recordar-box{
+	margin-right: 10px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+  }
+
+/*-----fin emergente login-------------------------------------------*/
+
+/*-------------------- sigue el header ----------------------------------*/
+.marquesina {
+	position: fixed; /* <--- posicion fija arriba */
+	height: 40px;
+	background-color: var(--independence);
+	color: white;
+	padding-top:12px ;
+  }
+  .texto-marquesina {
+	font-size: 16px;
+  }
+  .cabecera {
+	position: fixed; /* <--- posicion fija arriba */
+	margin-top: 40px; /*  <------- para acomodarla */
+	background-color: white; /* <----------  fondo blanco */
+	display: flex;
+	align-items: space-between;
+	align-items: center;
+	width: 100%;
+	padding: 8px 30px ;  /* <-------------- fijo 8px antes 15  */
+	text-decoration: none;
+  }
+  .logo {
+	width: 100px;
+	height: 30px;
+	margin-left: -20px;
+  }
+  .logo:hover {
+	transform: scale(1.2);
+  }
+  
+  .lupa {
+	color:black;
+	font-size: 20px;
+	margin-left:auto;
+  }
+  .lupa-logged {
+	display: none;
+	color:black;
+	font-size: 20px;
+	margin-left:auto;
+  }
+  .carrito {
+	color:black;
+	margin-left: 25px;
+	font-size: 20px;
+  }
+  .carrito:hover, .lupa:hover {
+	transform: scale(1.3);
+	color: green;
+  }
+  .burger-menu {
+	text-align: center;
+	margin-left: 20px;
+	color: white;
+  }
+  .burger {
+	background-color: var(--gris);
+	border-radius: 10%;
+	padding: 10px; 
+  }
+  .barra-menu{
+	margin-top: 90px; /* <-----------   para header fijo  */
+	position: fixed;
+	background-color: white; /* <---------------- para que se vea imagen y nombre debe ser tranaparent pero lo correjimos en el ejs */
+	width: 100%;
+	height: 30px;
+	margin-bottom: 20px;
+
+  }
+  .menu{
+	display: none;
+  }
+  .menu_visible{
+	display: flex;
+	flex-direction:row;
+	align-items: center;
+  }
+  .boton-inicio, .registrarse, .devolver{
+	color: var(--silver-chalice);
+	border-radius: 3px;
+	font-size: 14px;
+	padding: 10px;
+  }
+  .boton-inicio:hover, .registrarse:hover, .devolver:hover{
+  color: white;
+  background-color: var(--independence);
+  }
+  .img-ban {
+	margin-top: 140px; /*  <----    para header fijo   */
+	width: 100%;
+	height: auto;
+  }
+  /*  -----------------------------   TABLETAS ----------------------------- */
+  @media (min-width:426px){
+	  .cabecera {
+		  padding-left: 60px;
+		  padding-right: 60px;
+		}
+		.logo {
+		  width: 120px;
+		  height: 40px;
+		}
+		.burger-menu{
+		  display: none;
+		}
+		.carrito, .lupa {
+		  font-size: 30px;
+		}
+		.barra-menu ul{
+		  display: flex;
+		  flex-direction: row;
+		  justify-content: space-around;
+		  align-items: center;
+		}
+		.barra-menu{   /*  <-----------   HEADER FIJO  */
+			margin-top: 100px;
+			background-color: white;
+		}
+		.banner {
+		  display: block;
+		}
+		.navbar {
+		  display: flex;
+		  justify-content: space-between;
+		  margin-bottom: 20px;
+		}
+		.navbar ul {
+		  list-style: none;
+		  display: flex;
+		}
+		.navbar li{
+		  margin: 0 8px;
+		}
+		.navbar a{
+		  color: #111;
+		  font-size: 14px;
+		}
+		.boton-inicio, .registrarse, .devolver{
+			font-size: 20px;
+		  }
+		
+	  }
+
+/* -----------------------------  notebook -----------------------------------------  */
+@media (min-width:968px){
+	  .navbar ul {
+		  display: flex;
+		}
+		.logo {
+		  width: 150px;
+		  height: 45px;
+		}
+		.carrito, .lupa {
+		  font-size: 40px;
+		}
+		.burger-menu{
+		  display: none;
+		}
+		.boton-inicio, .registrarse, .devolver{
+			font-size: 24px;
+		  }
+	  }
+	  @media (min-width:1200px){
+		.lupa-logged {
+			display: block;
+	  }
+	  .barra-menu{   /*  <-----------   HEADER FIJO  */
+		background-color:transparent;	
+	}
+	}
+	  /* ---------------------------fin header---------------------------------------*/

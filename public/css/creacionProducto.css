@@ -1,0 +1,111 @@
+*{
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+.body {
+    font-family: "Roboto", sans-serif;
+  }
+
+main {
+    max-width: 90%;
+}
+
+  /* CAJA GENERAL FORMULARIO */
+.caja-formulario {
+    display: flex;
+    flex-direction: column;
+    margin-left: 5%;
+} 
+
+/* ACOMODANDO IMAGEN CON FORMULARIO */
+.form-imagen {
+    display: flex;
+    flex-direction: column;
+}
+
+.imagen-art img {
+    /* max-width: 90%; */
+    margin-left: 5%;
+    margin-bottom: 10%;
+}
+
+.imagen-art label {
+    margin-left: 5%;
+}
+
+/* SEPARACION ENTRE CAMPOS A RELLENAR */
+.caja-formulario div {
+    margin-top: 5%;
+}
+
+/* TITULO PRINCIPAL */
+.titulo-principal {
+    text-align: center;
+}
+
+/* TITULO FOTO PRODUCTO */
+.titulo-foto {
+    margin: 0px;
+}
+
+/* ERRORES */
+.errores {
+    margin: 0%;
+    margin-left: 5%;
+    color: #ff5e00
+}
+
+/* CAJA FLEX PARA BOTONES */
+
+.caja-botones {
+    display: flex;
+    margin: 50px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.espacio-botones {
+    margin-right: 10px;
+}
+
+.boton-eliminar {
+    margin-left: 10px;
+}
+
+/* COLORES BOTONES CARGAR Y RESTABLECER */
+.btn-primary {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #656f78;
+    --bs-btn-border-color: #656f78;
+}
+
+/* LAPTOP */
+
+@media (min-width: 769px) {
+    main {
+      max-width: 37%;
+      margin: 6%;
+    }
+
+    .form-imagen {
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .imagen-art {
+        display: flex;
+        flex-direction: column;
+        margin-left: 60px;
+    }
+    
+    .imagen-art img {
+        width: 150%;
+    }
+    
+    .imagen-art label {
+        margin-left: 5%;
+        margin-top: 5%;
+    }
+  }

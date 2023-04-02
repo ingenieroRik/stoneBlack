@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <%- include('../partials/head.ejs') %>
+    <link rel="stylesheet" href="/css/header.css" />
+    <title>Devolucion</title>
+</head>
+<body>
+
+    <section id="devolver" class="modalDialog" >
+        <div class="modal">
+    
+    
+            <h4 class="tiulo-modal">Solicitud de cancelación de compra</h4>
+            <p class="subtitulo-modal">La solicitud tendrá validez si es realizada dentro de
+                los plazos determinados en la <a
+                    href="https://www.boletinoficial.gob.ar/detalleAviso/primera/235729/20201005"
+                    style="text-decoration: underline;color: blue;">Resolución 424/2020</a> de la Secretaría
+                de Comercio Interior y no se traten de productos exceptuados como productos personalizados y
+                todos los comprendidos en el art. 1116 del Código Civil y Comercial.</p>
+    
+            <form action="/formUsuarioDevolución/<%=devoluciones.id %>" method="POST" class="formulario">
+                <div class="nombre">
+    
+                    <input type="text"  name="nombreYapellido" class="boton3" id="nombre" value="<%=devoluciones.nombre_y_apellido %>" placeholder="nombre y apellido" required
+                        minlength="12">
+                </div>
+                <div class="nombre-usuario">
+                    <input outline="none" type="email" class="boton3" name="email" id="email" value="<%=devoluciones.email %>" 
+                        placeholder="email" required>
+                </div>
+                <div class="nombre-usuario">
+                    <input outline="none" type="text" class="boton3" name="numeroDeFactura" id="numeroFactura" value="<%=devoluciones.numeroDeFactura %>" 
+                        placeholder="Numero de factura" required>
+                </div>
+    
+    
+                <div class="nombre">
+                    <input type="password" name="clave" class="boton3" id="password" value="<%=devoluciones.clave %>"  placeholder="Contraseña" required>
+                </div>
+                <div class="nombre">
+                    <input type="password" name="confirmarClave" class="boton3" id="confirmarpassword"
+                        placeholder="Confirmar contraseña" required>
+                </div>
+    
+                <div class="reg-reset">
+                    <button class="reset" type="reset"><a href="/" title="Close" id="close">Volver</a></button>
+                    <button class="register" type="submit">Enviar</button>
+                </div>
+    
+            </form>
+        </div>
+    </section>
+
+    
+</body>
+</html>

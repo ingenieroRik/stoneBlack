@@ -1,0 +1,129 @@
+
+  [
+    {
+     "id": 1,
+     "nombreYapellido": "Ricardo",
+     "nombreUsuario": "Ricardo",
+     "imagenUsuario": "comisario.jpg",
+     "email": "ingeniero_rik@hotmail.com",
+     "clave": "1234",
+     "rol": "administrador"
+    },
+    {
+     "id": 2,
+     "nombreYapellido": "Matias",
+     "nombreUsuario": "Matias",
+     "imagenUsuario": "oaky.jpg",
+     "email": "matiasalemany2@gmail.com",
+     "clave": "12345",
+     "rol": "administrador"
+    },
+    {
+     "id": 3,
+     "nombreYapellido": "Pedro",
+     "nombreUsuario": "pppp",
+     "imagenUsuario": "pucho.jpg",
+     "email": "pedro@hotmail.com",
+     "clave": "123",
+     "rol": "usuario"
+    },
+    {
+     "id": 5,
+     "nombreYapellido": "Leonardo",
+     "nombreUsuario": "Leonardo",
+     "imagenUsuario": "hijitus.jpg",
+     "email": "leo@hotmail.com",
+     "clave": "1234",
+     "rol": "usuario"
+    },
+    {
+     "id": 6,
+     "nombreYapellido": "leonardo",
+     "nombreUsuario": "leonardo",
+     "imagenUsuario": "largirucho.jpg",
+     "email": "tt@kk.com",
+     "clave": "2316",
+     "rol": "usuario"
+    },
+    {
+     "id": 7,
+     "nombreYapellido": "leonardo",
+     "nombreUsuario": "leonardo",
+     "imagenUsuario": "goldsilver.jpg",
+     "email": "l@h.com",
+     "clave": "7777",
+     "rol": "usuario"
+    },
+    {
+     "id": 8,
+     "nombreYapellido": "leonardo",
+     "nombreUsuario": "leonardo",
+     "imagenUsuario": "neurus.jpg",
+     "email": "kkkkk@h.com",
+     "clave": "88888",
+     "rol": "usuario"
+    },
+    {
+     "id": 9,
+     "nombreYapellido": "leonardo",
+     "nombreUsuario": "leonard",
+     "imagenUsuario": "imagenUsuarioEditada-1673830015524.jpg",
+     "email": "leo@h.com",
+     "clave": "88888",
+     "rol": "usuario"
+    },
+    {
+     "id": 10,
+     "nombreYapellido": "leonardo",
+     "nombreUsuario": "leonard",
+     "imagenUsuario": "imagenUsuarioEditada-1673830005185.jpg",
+     "email": "leo@hotm.com",
+     "clave": "5555",
+     "rol": "usuario"
+    },
+    {
+     "id": 11,
+     "nombreYapellido": "Neurus",
+     "nombreUsuario": "Neurus",
+     "imagenUsuario": "imagenUsuarioEditada-1673829996591.jpg",
+     "email": "neurus@trulala.com",
+     "clave": "6666",
+     "rol": "usuario"
+    },
+    {
+     "id": 12,
+     "nombreYapellido": "cacha",
+     "nombreUsuario": "cacha",
+     "imagenUsuario": "imagenUsuarioEditada-1673829988682.jpg",
+     "email": "c@bacha.com",
+     "clave": "1111",
+     "rol": "usuario"
+    },
+    {
+     "id": 13,
+     "nombreYapellido": "julieta",
+     "nombreUsuario": "July",
+     "imagenUsuario": "imagenUsuarioEditada-1673829981734.jpg",
+     "email": "hj@h.com",
+     "clave": "1111",
+     "rol": "usuario"
+    },
+    {
+     "id": 14,
+     "nombreYapellido": "julieta",
+     "nombreUsuario": "July",
+     "imagenUsuario": "imagenUsuarioEditada-1673829967723.jpg",
+     "email": "juli@n.com",
+     "clave": "3333",
+     "rol": "usuario"
+    },
+    {
+     "id": 15,
+     "nombreYapellido": "Matias",
+     "nombreUsuario": "Maty",
+     "imagenUsuario": "imagenUsuario-1673830065925.jpg",
+     "email": "matias@m.com",
+     "clave": "2222",
+     "rol": "usuario"
+    }
+   ] 

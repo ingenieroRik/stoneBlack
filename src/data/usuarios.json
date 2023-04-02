@@ -1,0 +1,65 @@
+[
+ {
+  "id": 17,
+  "nombreYapellido": "pedro",
+  "nombreUsuario": "pedro",
+  "imagenUsuario": "imagenUsuario-1674620268239.jpg",
+  "email": "pedro@hotmail.com",
+  "clave": "$2a$10$2bkhQEwVLOEvhjp5KuGT2.FoA0lh0RHek0HNOLWGnvw76J.PTeAbq",
+  "rol": "usuario"
+ },
+ {
+  "id": 18,
+  "nombreYapellido": "julieta",
+  "nombreUsuario": "July",
+  "imagenUsuario": "imagenUsuario-1674623264785.jpg",
+  "email": "juli@juli.com",
+  "clave": "$2a$10$p2Ho/4dWbOqsQk6VZ0VQreEyjjI.YzWuepAQURD6bAFjgYawEoDUG",
+  "rol": "usuario"
+ },
+ {
+  "id": 20,
+  "nombreYapellido": "pedro",
+  "nombreUsuario": "pedro",
+  "imagenUsuario": "imagenUsuario-1674688856199.jpg",
+  "email": "pedro@pedro.com",
+  "clave": "$2a$10$iNXo61Dfa9sSJxWX20CICem4xIgcqnltaNfUYOI5SKJDzDeezgysm",
+  "rol": "usuario"
+ },
+ {
+  "id": 21,
+  "nombreYapellido": "julieta",
+  "nombreUsuario": "July",
+  "imagenUsuario": "imagenUsuario-1675031154844.jpg",
+  "email": "julieta@julieta.com",
+  "clave": "$2a$10$j19jK1KOMLDfPehbweeEg.pk1IE65zna7I2ISGg1OYlk2LQPBrfhW",
+  "rol": "usuario"
+ },
+ {
+  "id": 22,
+  "nombreYapellido": "matias",
+  "nombreUsuario": "matias",
+  "imagenUsuario": " ",
+  "email": "matias@matias.com",
+  "clave": "$2a$10$TAHE9nXPcgsjg16O9GZ/PeObbWqAhj1JqHsl.Hp/ZYWFn2mtBdUM6",
+  "rol": "administrador"
+ },
+ {
+  "id": 23,
+  "nombreYapellido": "nico",
+  "nombreUsuario": "nico",
+  "imagenUsuario": " ",
+  "email": "nico@nico.com",
+  "clave": "$2a$10$EQwCoJYoTJDLFMviVFPet.7O5bpWtnS5WzexyrEEA65ne86Qyfnzq",
+  "rol": "usuario"
+ },
+ {
+  "id": 24,
+  "nombreYapellido": "ricardo",
+  "nombreUsuario": "ricardo",
+  "imagenUsuario": " ",
+  "email": "ingeniero_rik@hotmail.com",
+  "clave": "$2a$10$r9Rg7rxcp/R5Z5zd5MaheOM9zfb9br/lCHXy6xp4GobjnHXFSgjma",
+  "rol": "administrador"
+ }
+]

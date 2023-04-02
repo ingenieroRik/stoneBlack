@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <%- include('../partials/head.ejs') %>
+    <link rel="stylesheet" href="/css/listadoUsuarios.css" />
+    
+    <title>Listado de usuarios</title>
+</head>
+<body>
+
+<!-----------------------------------------------------parte principal de tabla lista de usuarios --------------------------------------------------------->
+<section class="container3">
+    
+<table class="tablaUsuarios" >
+    <caption class="encabezado">Listado de usuarios</caption>
+    <tr>
+      <th class="titulos">Nombre y Apellido</th><th class="titulos">Nombre de usuario</th><th class="titulos">Categoría</th>
+      <th class="titulos">email</th><th class="titulos">Acción</th>
+    </tr>
+    <tr>
+        <% for(let i=0; i < usuariosSolos.length; i++) {%>
+      <td class="fila"><%=usuariosSolos[i].nombre_y_apellido  %></td>
+      <td class="fila"><%= usuariosSolos[i].nombre_usuario %></td>
+      <td class="fila"><%= usuariosSolos[i].rol %></td>
+      <td class="fila"><%= usuariosSolos[i].email %></td>
+     
+      <td class="botones">
+        <button class="botonEditar" type="submit"  data-dismiss="modal"><a href="/formUsuario/<%= usuariosSolos[i].id %> ">Editar</a></button>
+        <form action="/listaUsuarios/<%= usuariosSolos[i].id %>?_method=DELETE" method="POST" class="form-borrar" >
+                    <button class="botonBorrar" type="submit" onclick="eliminar_usuario(event);" >Borrar</button>
+        </form>
+        </td>
+    </tr>
+    <%}%>
+</table>
+
+  <div class="btn-volver">
+    <button class="botonVolver" type="reset"><a href="/listadoProductos">Volver</a></button>     
+    </div>
+
+</section>
+
+
+<script  defer src="/js/borrarUsuario.js"></script>
+</body>
+</html>

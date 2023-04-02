@@ -1,0 +1,360 @@
+
+<link rel="stylesheet" href="/css/header.css" />
+
+
+<header>
+<!--------------------------codigo de ventana emergente buscar ------------------------>
+<section id="buscar" class="modalDialog">
+    <div class="modal">
+        <form action="/buscarProd#buscar" method="GET">
+         <div class=" control-buscar  ">
+             <input type="text" name="buscar" class="control boton3" placeholder="Ingrese descripción" required>
+        </div> 
+        
+        <%  if (locals.errors && errors.buscar) {  %> 
+            <div class="texto-advertencia">
+                <p class="credenciales-invalidas" ><%= errors.buscar.msg %> </p>
+            </div>
+        <% } %>  
+
+
+
+            <div class="control-login">
+             <button class="envio" type="reset" ><a href="/" title="Close" id="close1">Volver</a></button>
+             <button type="submit" class="envio" title="buscar" id="">Buscar</button>
+            </div>
+        </form>
+    </div>
+</section>
+
+<!----------------------------------------------------------------------------------------------->
+
+<!--------------------------codigo de ventana emergente de inicio de sesion - LOGIN ------------------------>
+
+<% if (locals.isLogged) {   %> 
+
+
+    <% } else {%> 
+<section id="inicio-sesion" class="modalDialog">
+    <div class="modal">
+        <form action="/#inicio-sesion"  class="form-login"  method="POST">
+         <div class=" control-login">
+             <input type="email" name="email" id="form-control-login" class="control boton3" <%= locals.errors && errors.email ? 'is-invalid' : null %>"
+                             placeholder="e-mail" value="<%= locals.oldData ? oldData.email : null %>">
+                    <%  if (locals.errors && errors.email) {  %> 
+                        <div class="texto-advertencia">
+                            <p class="credenciales-invalidas" ><%= errors.email.msg %> </p>
+                        </div>
+                    <% } %>        
+                        <div class="texto-advertencia"> 
+                            <small class="errorNombreLogin"></small>
+                        </div>
+                    
+
+        </div>
+          <div class="control-login">
+                <input type="password" id="clave-login" name="clave" class="control boton3" placeholder="Contraseña" >
+            </div>
+            <div class="control-login">
+
+                    <%  if (locals.errors && errors.clave) {  %> 
+                        <div class="texto-advertencia">
+                            <p class="credenciales-invalidas" ><%= errors.clave.msg %> </p>
+                        </div>
+                    <% } %> 
+                        <div  class="texto-advertencia">
+                            <small class="errorClaveLogin"></small>
+                        </div>
+
+
+             <button class="envio" type="reset" ><a href="/" title="Close" id="close1">Volver</a></button>
+             <button type="submit" id="btn-envio-login" class="envio">Enviar</button> 
+            </div>
+
+            <div class="">
+                <label class="">
+                    <input type="checkbox" class="recordar-box" name="recordarme">Recordar mi usuario
+                </label>
+            </div>
+        </form>
+        <div class="contraseña">
+            <p href="" class="olvido"></p> <a class="olvido"   href="/olvidoClave">Has olvidado tu contraseña?</a>
+        </div>
+    </div>
+</section>
+<% } %>
+<!---------------------------------------------------------------------------------------------------->
+
+<!--------------------------codigo de ventana emergente de  registro de usuario------------------------>
+
+<section id="registro-usuario" class="modalDialog">
+    <div class="modal">
+        <form action="/modalUsuario#registro-usuario" method="POST" class="formulario" enctype="multipart/form-data">
+            <div class="nombre">   
+                
+                
+                <input type="text" name="nombreYapellido" class="boton3" id="nombre" 
+                            class="form-control <%= locals.errors && errors.nombreYapellido ? 'is-invalid' : null %>" placeholder=" nombre y apellido "
+                            value="<%= locals.oldData ? oldData.nombreYapellido : null %>" > 
+                      <%  if (locals.errors && errors.nombreYapellido) {  %> 
+                
+                    <div class="pie-form">
+                        <p class="credenciales-invalidas" ><%= errors.nombreYapellido.msg %> </p>
+                    </div>
+                    <% } %> 
+                    <div  class="texto-advertencia">
+                        <small class="errorNombreRegUser"></small>
+                    </div>
+            </div>
+
+            <div class="nombre-usuario">
+                <input outline="none"  type="text" name="nombreUsuario" class="boton3" id="nombreUsuario" value="<%= locals.oldData ? oldData.nombreUsuario : null %>" placeholder=" Nombre de Usuario ">
+                <%  if (locals.errors && errors.nombreUsuario) {  %> 
+                    <div class="pie-form">
+                        <p class="credenciales-invalidas" ><%= errors.nombreUsuario.msg %> </p>
+                    </div>
+                    <% } %> 
+                    <div  class="texto-advertencia">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+                        <small class="errorNombreUsuarioRegUser"></small>
+                    </div>
+            </div>
+              
+                
+        <div class="foto">
+            <label for="imagenUsuario">Foto de perfil</label>
+            <input type="file" name="imagenUsuario" class="boton3" id="foto" >
+            
+        </div>
+            
+            <div class="nombre">
+                <input type="email" name="email" class="boton3" id="emailUser" value="<%= locals.oldData ? oldData.email : null %>" placeholder="e-mail" >
+
+                <%  if (locals.errors && errors.email) {  %> 
+                    <div class="pie-form">
+                        <p class="credenciales-invalidas" ><%= errors.email.msg %> </p>
+                    </div>
+                    <% } %> 
+                    <div  class="texto-advertencia">
+                        <small class="errorEmailRegUser"></small>
+                    </div>
+            </div>
+
+            <div class="nombre">
+                <input type="password" name="clave" class="boton3" id="password"  value="<%= locals.oldData ? oldData.clave : null %>" placeholder="Contraseña">
+                <%  if (locals.errors && errors.clave) {  %> 
+                    <div class="pie-form">
+                        <p class="credenciales-invalidas" ><%= errors.clave.msg %> </p>
+                    </div>
+                    <% } %> 
+                    <div  class="texto-advertencia">
+                        <small class="errorClaveRegUser"></small>
+                    </div>
+            </div>
+
+            <div class="nombre">
+                <input type="password" name="confirmarClave" class="boton3" id="confirmarpassword"  placeholder="Confirmar">
+                <%  if (locals.errors && errors.confirmarClave) {  %> 
+                    <div class="pie-form">
+                        <p class="credenciales-invalidas" ><%= errors.confirmarClave.msg %> </p>
+                    </div>
+                    <% } %> 
+                    <div  class="texto-advertencia">
+                        <small class="errorVerifClaveRegUser"></small>
+                    </div>
+            </div>
+            
+            <div class="reg-reset">
+                <button class="reset" type="reset" ><a href="/" title="Close" id="close1">Volver</a></button>
+                <button class="register" id="btn-reg-user" type="submit">Enviar</button>
+            </div>
+
+            
+            <%  if (locals.errors && errors.pieForm) {  %> 
+    
+                <div name="pieForm">
+                    <p class="pie-form" ><%= errors.pieForm.msg %> </p>
+                </div>
+                <% } %> 
+              
+        </form>
+    </div>
+    
+</section>
+
+<!-------------------------------------------------------------------------------------------------->
+
+
+<!----------------- aca esta el codigo de ventana emergente devolucion ------------------------------>
+<section id="devolver" class="modalDialog" >
+    <div class="modal">
+
+        <h4 class="tiulo-modal">Solicitud de cancelación de compra</h4>
+        <p class="subtitulo-modal">La solicitud tendrá validez si es realizada dentro de
+            los plazos determinados en la <a
+                href="https://www.boletinoficial.gob.ar/detalleAviso/primera/235729/20201005"
+                style="text-decoration: underline;color: blue;">Resolución 424/2020</a> de la Secretaría
+            de Comercio Interior y no se traten de productos exceptuados como productos personalizados y
+            todos los comprendidos en el art. 1116 del Código Civil y Comercial.</p>
+
+        <form action="/crearDevolucion#devolver" method="POST" class="formulario-devolver">
+            
+            <div class="nombre">
+                <input type="text"  name="nombreYapellido" id="nombre-dev" class="boton3" class="form-control <%= locals.errors && errors.nombreYapellido ? 'is-invalid' : null %>"
+                      id="nombre" value="<%= locals.oldData ? oldData.nombreYapellido : null %>" placeholder="nombre y apellido">
+           
+                 <%  if (locals.errors && errors.nombreYapellido) {  %> 
+                
+                <div class="pie-form">
+                    <p class="credenciales-invalidas" ><%= errors.nombreYapellido.msg %> </p>
+                </div>
+                <% } %> 
+                <div  class="texto-advertencia">
+                    <small class="errorNombreDev"></small>
+                </div>
+            </div>
+
+            <div class="nombre-usuario">
+                <input outline="none" type="email" class="boton3" name="email" id="email-user-dev" value="<%= locals.oldData ? oldData.email : null %>"
+                    placeholder="email">
+                    <%  if (locals.errors && errors.email) {  %> 
+                        <div class="pie-form">
+                            <p class="credenciales-invalidas" ><%= errors.email.msg %> </p>
+                        </div>
+                        <% } %> 
+                        <div  class="texto-advertencia">
+                            <small class="errorEmailDev"></small>
+                        </div>
+
+            </div>
+
+            <div class="nombre-usuario">
+                <input outline="none" type="text" class="boton3" id="fact-dev" name="numeroDeFactura" value="<%= locals.oldData ? oldData.numeroDeFactura : null %>" id="numeroFactura"
+                    placeholder="Numero de factura" >
+                    <%  if (locals.errors && errors.numeroDeFactura) {  %> 
+                        <div class="pie-form">
+                            <p class="credenciales-invalidas" ><%= errors.numeroDeFactura.msg %> </p>
+                        </div>
+                        <% } %> 
+                        <div  class="texto-advertencia">
+                            <small class="errorFactDev"></small>
+                        </div>
+            </div>
+
+            <div class="nombre-usuario">
+                <input type="text" name="idProducto" class="boton3"   id="id-prod-dev" placeholder="ID de producto" 
+                value="<%= locals.oldData ? oldData.idProducto : null %>">  
+                <%  if (locals.errors && errors.idProducto) {  %> 
+                    <div class="pie-form">
+                        <p class="credenciales-invalidas" ><%= errors.idProducto.msg %> </p>
+                    </div>
+                    <% } %>   
+                    <div  class="texto-advertencia">
+                        <small class="errorIdProdDev"></small>
+                    </div>                                         
+            </div>
+
+            <div class="nombre-usuario fecha">
+                <input type="date" name="fechaDeCompra" class="boton3"   id="fecha-dev" placeholder="Fecha de compra"
+                value="<%= locals.oldData ? oldData.fechaDeCompra : null %>" > 
+                <%  if (locals.errors && errors.fechaDeCompra) {  %> 
+                    <div class="pie-form">
+                        <p class="credenciales-invalidas" ><%= errors.fechaDeCompra.msg %> </p>
+                    </div>           
+                    <% } %> 
+                    <div  class="texto-advertencia">
+                        <small class="errorFechaDev"></small>
+                    </div>
+            </div>
+            
+            <%  if (locals.errors && errors.pieForm) {  %> 
+    
+                <div name="pieForm">
+                    <p class="pie-form"> <%= errors.pieForm.msg %> </p>
+                </div>
+                <% } %> 
+
+            <div class="reg-reset">
+                <button class="reset" type="reset"><a href="/" title="Close" id="close1">Volver</a></button>
+                <button class="register" id="btn-dev-prod" type="submit">Enviar</button>
+            </div>
+
+        </form>
+    </div>
+</section>
+
+
+
+
+<!----------------------------------------------------------------------------------------->
+<!---------------sigue el header-------------------------------------------------->
+
+
+<marquee scrollamount="10" class="marquesina">
+    <div>
+        <% if (locals.isLogged) {   %>
+            <p class="texto-marquesina">Hola <%= locals.usuarioLogueado.nombre_y_apellido %></p>
+        <% } else { %>
+        <p class="texto-marquesina">Semana de ofertas increibles en StoneBlack!!!</p>
+
+        <% } %>
+    </div>
+</marquee>
+
+<section class="cabecera">
+    <a href="/">
+    <img class="logo" src="/images/StoneBlack.png" alt="logo"/></a>
+        
+
+    <% if (locals.isLogged) {   %> 
+        <div class="lupa-logged">
+            <img src="/images/usuarios/<%= locals.usuarioLogueado.uri_avatar %>" width="70px" style="border-radius: 100%;margin-left:40px;">
+                    
+        </div>
+       
+    <% } %>
+    <div class="lupa">
+        <a href="#buscar"><i class="fas fa-search"></i></a></div>
+    
+    <div class="carrito-compras">
+        <a href="/product-cart">
+        <i class="fa-solid fa-cart-shopping carrito"></i></a>
+    </div>
+
+    <div class="burger-menu">
+        <button class="abrir-menu" aria-label="Abrir menú">
+        <i class="fa fa-bars burger"></i></button>
+    </div>
+</section>
+
+    <% if (locals.isLogged) {   %>
+    <section class="barra-menu">
+    <% } else { %>
+              <section class="barra-menu" style="background-color:white" >  
+    <% } %> 
+    
+            <ul class="menu"> 
+
+        <% if (locals.isLogged) {   %> 
+            <li class="menu-item"><a href="/logout" class="boton-inicio">Terminar sesion</a></li>
+        <% } else {%> 
+            <li class="menu-item" ><a href="#inicio-sesion" class="boton-inicio">Inicio de sesion</a></li> <!----para formulario loginUsuario href=loginUsuario  -->
+
+            <li class="menu-item"><a href="#registro-usuario" class="registrarse">Registrarse</a></li><!----para formulario loginUsuario href="/usuarios/registroUsuario"  -->
+
+        <% } %> 
+            
+          
+
+        
+        <li class="menu-item"><a href="#devolver" class="devolver">Devolver</a></li>
+    </ul>
+</section>
+
+<div class="banner">
+    <img src="/images/banner.jpg"  class="img-ban" alt="banner" />
+</div>
+
+</header>
+<!----------------------------- fin del header ----------------------------------------------------------------->
+
+    

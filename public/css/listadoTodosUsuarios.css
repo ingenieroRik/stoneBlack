@@ -1,0 +1,218 @@
+* {
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+	text-decoration: none;
+	list-style-type: none;
+  }
+  :root {
+  --gris: #686963;
+  --morning-blue: #8aa29e;
+  --black-coral: #3d5467;
+  --silver-chalice: #a9aca9; 
+  --granite-gray:#6c6061;
+  --independence: #525b76;  
+  }
+body {
+    font-family: "Roboto", sans-serif;
+  }
+  /* ------------------- para ventanas modales --------------------------*/
+.modalDialog {
+	position:absolute;
+	font-family: Arial, Helvetica, sans-serif;
+	top: 50px;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 99999;
+	opacity:0;
+	-webkit-transition: opacity 400ms ease-in;
+	-moz-transition: opacity 400ms ease-in;
+	transition: opacity 400ms ease-in;
+	pointer-events: none;
+}
+.modalDialog:target {
+	opacity:1;
+	pointer-events: auto;
+}
+.modalDialog > div {
+	width:360px;
+	position: relative;
+	margin: auto;
+	padding: 5px 20px 13px 20px;
+	border-radius: 10px;
+	background: #fff;
+	background: -moz-linear-gradient(#fff, #999);
+	background: -webkit-linear-gradient(#fff, #6c6061);
+	background: -o-linear-gradient(#fff, #999);
+  -webkit-transition: opacity 400ms ease-in;
+-moz-transition: opacity 400ms ease-in;
+transition: opacity 400ms ease-in;
+}
+#close {
+	color: #FFFFFF;
+	line-height: 25px;
+	right: -12px;
+	text-align: center;
+	top: -10px;
+	width: 24px;
+	text-decoration: none;
+	font-weight: bold;
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+	-moz-box-shadow: 1px 1px 3px #000;
+}
+/* ---------------------- para emergente de editarRegistro ------------------- */
+#registro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-bottom: 20px;
+  width:100%;
+  margin: auto;
+margin-top: 100px;
+}
+.borrar-usuario {
+  background-color: orange;
+  width: 80%;
+  padding: 10px;
+  color:var(--black-coral);
+  border: none;
+  outline: none;
+border-radius: 10px;
+text-align: center;
+}
+label, .foto {
+  margin-top: 25px;    
+}
+.fechaNacimiento{
+  margin-top:10px;
+}
+
+.foto {
+  text-align: center;
+}
+.nombre, .nombre-usuario{
+  display: block;
+  margin-bottom: 20px;
+  margin-top: 30px;
+  height: 30px;
+  text-align: center;
+}
+
+.boton3 {
+  width: 80%;
+  padding: 10px;
+  color:var(--black-coral);
+  border: none;
+  outline: none;
+  background-color:var(--silver-chalice);
+border-radius: 10px;
+text-align: center;
+}
+.reg-reset {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+ 
+}
+.register , .reset {
+margin-top: 15px;
+  background-color: var(--granite-gray);
+  color:white;
+  width:50%;
+  border-radius: 20px;
+  height: 40px;
+  width: 130px;
+  margin: 15px;  
+  border: none;
+}
+.register:hover , .reset:hover, .envio:hover{
+  background-color: #0022AA;
+  
+}
+.credenciales-invalidas {
+  color: red;
+  margin-top: 5px;
+}
+.pie-form {
+  color:yellow;
+  text-align: center;
+}
+/*----------------------------------------------------------------------*/
+  /* -------------------------main ---------------------*/
+  main {
+    width: 100%;
+    margin: auto;
+    box-sizing: border-box; 
+   padding-bottom:30px;
+  } 
+  .container3 {
+    padding-top: 30px;
+  }
+  .encabezado {
+    height: 30px;
+    background-color: black;
+    color: white;
+    font-size: 24px;
+    border-radius: 7px;
+  }
+  .tablaUsuarios {
+    border: solid 5px var(--granite-gray) ;
+    margin: auto;
+    background-color: #dee1d8; 
+    border-radius: 7px;
+
+  }
+  .fila{
+    text-align: center;
+  }
+  .botonVolver {
+    width: 10%;
+    height: 30px;
+    border-radius: 10px;
+  }
+  .botones {
+    display: flex;
+    text-align: center;
+  }
+  #volver{
+    color:var(--black-coral);
+  }
+  
+  .botonBorrar {
+    margin: 4px;
+    margin-left: 20px;
+    background-color:orangered;
+    color: white;
+    border-radius: 5px;
+ 
+  }
+  .titulos {
+    border-style:solid;
+    border-width: 1px;
+    border-color: black;
+    padding: 10px;
+  }
+  .datosUsuario {
+    font-size: 20px;
+  }
+
+  
+  /*  tablets    */
+  @media (min-width:426px){
+   
+  }
+  
+  /*   notebook   */
+  @media (min-width:769px){
+    
+  }
+  @media (min-width: 1200px){
+   
+  }
+  
+  
