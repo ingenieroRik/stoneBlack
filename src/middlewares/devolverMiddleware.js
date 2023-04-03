@@ -13,6 +13,6 @@ const devolverMiddleware = [
 	body('fechaDeCompra').notEmpty().withMessage('Confirma tu clave')
 	
 ]
-console.log("entro a devolverMiddleware");
+//console.log("entro a devolverMiddleware");
 
 module.exports = devolverMiddleware;
