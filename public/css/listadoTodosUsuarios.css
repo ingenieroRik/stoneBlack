@@ -171,9 +171,10 @@ margin-top: 15px;
     text-align: center;
   }
   .botonVolver {
-    width: 10%;
+    width: 40%;
     height: 30px;
     border-radius: 10px;
+    margin-left: 200px;
   }
   .botones {
     display: flex;
@@ -209,10 +210,15 @@ margin-top: 15px;
   
   /*   notebook   */
   @media (min-width:769px){
-    
+    .botonVolver {
+      width: 30%;
+      margin-left: 0;
+    }
   }
   @media (min-width: 1200px){
-   
+    .botonVolver {
+      width: 20%;
+    }
   }
   
   

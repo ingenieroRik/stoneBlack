@@ -37,7 +37,7 @@
 .modalDialog > div {
 	border: solid #6c6061;
 	width:360px;
-	position: relative;
+	position: absolute;
 	margin: auto;
 	padding: 5px 20px 13px 20px;
 	border-radius: 10px;
