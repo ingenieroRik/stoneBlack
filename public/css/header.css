@@ -17,9 +17,9 @@
 
 /* ------------------- para ventanas modales --------------------------*/
 .modalDialog {
-	position: fixed;
+	position:fixed;
 	font-family: Arial, Helvetica, sans-serif;
-	top: 0;
+	top: -60px;
 	right: 0;
 	bottom: 0;
 	left: 0;
@@ -146,6 +146,7 @@ transition: opacity 400ms ease-in;
     margin: auto;
 	margin-top: 100px;
 }
+
 .formulario {
     display: flex;
     flex-direction: column;
@@ -175,7 +176,6 @@ label, .foto {
     width:100%;
     margin: auto;
 	margin-top: 100px;
-
 }
 
 .control-login {
@@ -379,6 +379,10 @@ label, .foto {
 		.boton-inicio, .registrarse, .devolver{
 			font-size: 20px;
 		  }
+		  .modalDialog{
+			top:0;
+		  }
+	
 		
 	  }
 

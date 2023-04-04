@@ -20,7 +20,7 @@ body {
 .modalDialog {
 	position:absolute;
 	font-family: Arial, Helvetica, sans-serif;
-	top: 50px;
+	top: -50px;
 	right: 0;
 	bottom: 0;
 	left: 0;
@@ -37,7 +37,7 @@ body {
 }
 .modalDialog > div {
 	width:360px;
-	position: relative;
+	position: absolute;
 	margin: auto;
 	padding: 5px 20px 13px 20px;
 	border-radius: 10px;
@@ -205,20 +205,20 @@ margin-top: 15px;
   
   /*  tablets    */
   @media (min-width:426px){
-   
-  }
-  
-  /*   notebook   */
-  @media (min-width:769px){
     .botonVolver {
       width: 30%;
       margin-left: 0;
     }
   }
-  @media (min-width: 1200px){
+  
+  /*   notebook   */
+  @media (min-width:769px){
     .botonVolver {
       width: 20%;
     }
+  }
+  @media (min-width: 1200px){
+    
   }
   
   
