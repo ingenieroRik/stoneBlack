@@ -35,7 +35,7 @@
 	pointer-events: auto;
 }
 .modalDialog > div {
-	border: solid #6c6061;
+	border: solid 3px #6c6061;
 	width:360px;
 	position: absolute;
 	margin: auto;

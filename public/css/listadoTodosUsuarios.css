@@ -20,7 +20,7 @@ body {
 .modalDialog {
 	position:absolute;
 	font-family: Arial, Helvetica, sans-serif;
-	top: -50px;
+	top: 0;
 	right: 0;
 	bottom: 0;
 	left: 0;
@@ -36,8 +36,9 @@ body {
 	pointer-events: auto;
 }
 .modalDialog > div {
+  border: solid 3px #6c6061;
 	width:360px;
-	position: absolute;
+	position: relative;
 	margin: auto;
 	padding: 5px 20px 13px 20px;
 	border-radius: 10px;
@@ -172,9 +173,9 @@ margin-top: 15px;
   }
   .botonVolver {
     width: 40%;
-    height: 30px;
+    height: 40px;
     border-radius: 10px;
-    margin-left: 200px;
+    margin-left: 160px;
   }
   .botones {
     display: flex;
@@ -208,6 +209,9 @@ margin-top: 15px;
     .botonVolver {
       width: 30%;
       margin-left: 0;
+    }
+    .modalDialog{
+      top: 100px;
     }
   }
   
