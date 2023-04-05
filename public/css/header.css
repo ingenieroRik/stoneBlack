@@ -70,6 +70,10 @@ transition: opacity 400ms ease-in;
 /* ------------------------ para emergente buscar -------------------------- */
 
 #buscar{	
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
 	margin-top: 200px;
 }
 .control-buscar {
@@ -102,7 +106,7 @@ transition: opacity 400ms ease-in;
     text-align: center;
 }
 .boton3 {
-    width: 70%;
+    width: 80%;
     padding: 10px;
     color:var(--black-coral);
     border: none;

@@ -78,7 +78,7 @@ const productsController = {
       where: {id: productoId}
     }).then
 
-     return res.redirect("/")
+     return res.redirect("/listadoProductos.ejs")
   
   },
   
