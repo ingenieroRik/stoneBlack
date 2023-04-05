@@ -106,7 +106,7 @@ transition: opacity 400ms ease-in;
     text-align: center;
 }
 .boton3 {
-    width: 80%;
+    width: 100%;
     padding: 10px;
     color:var(--black-coral);
     border: none;
@@ -327,8 +327,9 @@ label, .foto {
 	padding: 10px;
   }
   .boton-inicio:hover, .registrarse:hover, .devolver:hover{
-  color: white;
-  background-color: var(--independence);
+	color: #2b2c29;
+	/*transform: scale(1.2);  */
+
   }
   .img-ban {
 	margin-top: 140px; /*  <----    para header fijo   */
