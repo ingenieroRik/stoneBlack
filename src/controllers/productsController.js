@@ -169,6 +169,38 @@ const productsController = {
     });
   },
   
+  /*
+  listarVentas: async (req, res) => {
+    var ventasTodas =  await db.Ventas.findAll({attributes :["numero_factura" ,  "fecha" , "total", "id_usuario"]});
+    return res.render("./productos/listadoVentas.ejs", {
+      ventas: ventasTodas,
+    });
+  },
+ */
+  listarVentas: (req, res) => {
+    db.Ventas.findAll(
+      {attributes :["numero_factura" ,  "fecha" , "total", "id_usuario"]},// * si no restrinjo atributos marca error de campo id
+      {raw: true} // <-------  se agrega para que no traiga todos los metadatos que no usamos
+    )
+      .then((ventasTodas) => {
+        return res.render("./productos/listadoVentas.ejs", {
+          ventas: ventasTodas,
+        });
+      })
+      .catch((err) => {
+        res.send(err);
+      });
+  },
+
+
+
+
+
+
+
+
+
+
 };
 
 module.exports = productsController;

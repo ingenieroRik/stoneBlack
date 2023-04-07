@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <%- include('../partials/head.ejs') %>
+    <link rel="stylesheet" href="/css/listadoUsuarios.css" />
+    
+    <title>Listado de ventas</title>
+</head>
+<body>
+
+<!-----------------------------------------------------parte principal de tabla de ventas --------------------------------------------------------->
+<section class="container3">
+    
+<table class="tablaUsuarios" >
+    <caption class="encabezado">Listado de Ventas</caption>
+    <tr>
+      <th class="titulos">Número de Factura</th><th class="titulos">Fecha  de  Compra</th><th class="titulos">Total en $</th>
+      <th class="titulos"> ID Usuario</th>
+    </tr>
+    <tr>
+        <% for(let i=0; i < ventas.length; i++) {%>
+      <td class="fila"><%= ventas[i].numero_factura  %></td>
+      <td class="fila"><%= ventas[i].fecha %></td>
+      <td class="fila"><%= ventas[i].total %></td>
+      <td class="fila"><%= ventas[i].id_usuario %></td>
+         
+    </tr>
+    <%}%>
+</table>
+
+  <div class="btn-volver">
+    <button class="botonVolver" type="reset"><a href="/listadoProductos">Volver</a></button>     
+    </div>
+
+</section>
+
+
+
+</body>
+</html>

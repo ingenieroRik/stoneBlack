@@ -46,6 +46,10 @@ router.get ('/creacionProduct', adminMiddleware, productsController.creacionProd
 router.post ('/creacionProduct', upload.single("imagenProducto"), validacionesForm, productsController.procesoCreacion)
 
 
+// ************************* listado de ventas ***************************
+router.get ('/listadoVentas', adminMiddleware, productsController.listarVentas); //<-----  solo el administrador ingresa
+
+
 // ********************* Devolver todos los productos *********************** 
 //procesa el pedido get con ruta /
 router.get ('/listadoProductos', adminMiddleware, productsController.listaProduct); //<-----  solo el administrador ingresa

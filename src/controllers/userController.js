@@ -316,7 +316,7 @@ procesoEdicionUsuario: (req, res) => {
       .then(() => {
         return res.redirect("/listaUsuarios");
       })
-      .catch((error) => res.send(error));
+      .catch((error) => res.send("No se puede eliminar este usuario, tiene facturas asociadas"));
   },
 
   // *********************************************************************************************************************
@@ -326,7 +326,7 @@ procesoEdicionUsuario: (req, res) => {
       .then(() => {
         return res.redirect("/listaTodosUsuarios");
       })
-      .catch((error) => res.send(error));
+      .catch((error) => res.send("No se puede eliminar este usuario, tiene facturas asociadas"));
   },
 
   // **********************************************************************************************************************
