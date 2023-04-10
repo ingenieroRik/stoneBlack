@@ -15,7 +15,7 @@ const usuariosAPIController = {
                 meta: {
                     status : 200,
                     total: usuarios.length,
-                    url: 'api/usuarios'
+                    url: 'https://stoneblack.onrender.com/api/usuarios'
                 },
                 data: usuarios
             }
