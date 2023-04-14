@@ -19,7 +19,7 @@
 .modalDialog {
 	position:fixed;
 	font-family: Arial, Helvetica, sans-serif;
-	top: -60px;
+	top: -63px;
 	right: 0;
 	bottom: 0;
 	left: 0;
@@ -133,7 +133,7 @@ transition: opacity 400ms ease-in;
     border: none;
 }
 .register:hover , .reset:hover, .envio:hover{
-    background-color: #0022AA;  
+    background-color:var(--independence) ;  
 }
 .fecha{
 	width: 80%;             /* <--------------------------------se agrego */
@@ -274,10 +274,13 @@ label, .foto {
   }
   
   .lupa {
-	color:black;
+	
 	font-size: 20px;
 	margin-left:auto;
   }
+  .lupa1 {
+	color:#7c7071;
+   }
   .lupa-logged {
 	display: none;
 	color:black;
@@ -285,13 +288,17 @@ label, .foto {
 	margin-left:auto;
   }
   .carrito {
-	color:black;
+	color:#7c7c7c;
 	margin-left: 25px;
 	font-size: 20px;
   }
-  .carrito:hover, .lupa:hover {
+  .lupa1:hover{
+	transform: scale(1.2);
+	color: var(--independence);
+  }
+  .carrito:hover {
 	transform: scale(1.3);
-	color: green;
+	color: var(--independence);
   }
   .burger-menu {
 	text-align: center;
@@ -385,7 +392,7 @@ label, .foto {
 			font-size: 20px;
 		  }
 		  .modalDialog{
-			top:0;
+			top:-30px;
 		  }
 	
 		

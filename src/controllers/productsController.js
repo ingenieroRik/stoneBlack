@@ -12,9 +12,9 @@ const {validationResult, body} = require('express-validator');
 
 /* En la constante "remeras" ya tenemos los productos que están 
 guardados en la carpeta data como Json (un array de objetos literales) */
-const remerasFilePath = path.join(__dirname, "../data/dataRemeras.json");
-const usuariosFilePath = path.join(__dirname, "../data/usuarios.json");
-const remeras = JSON.parse(fs.readFileSync(remerasFilePath, "utf-8"));
+//const remerasFilePath = path.join(__dirname, "../data/dataRemeras.json");
+//const usuariosFilePath = path.join(__dirname, "../data/usuarios.json");
+//const remeras = JSON.parse(fs.readFileSync(remerasFilePath, "utf-8"));
 //const usuariosJS = JSON.parse(fs.readFileSync(usuariosFilePath, "utf-8"));
 
 /* BASE DE DATOS */
@@ -84,16 +84,16 @@ const productsController = {
   
   buscarProd: async (req, res) => {
     // en loBuscado esta la descripcion que viene del formulario html
-    let loBuscado = req.query.buscar;
+    let loBuscado = req.query.buscar.toLowerCase();
     //creo array vacio donde pondremos los productos encontrado
     let resultadoBuscar = [];
 
 
     var remerasTodas =  await db.Productos.findAll();
     // recorremos las remeras buscando coincidencia
-    for (let i = 0; i < remeras.length; i++) {
-      if (remeras[i].descripcion.includes(loBuscado)) {
-        resultadoBuscar.push(remeras[i]);
+    for (let i = 0; i < remerasTodas.length; i++) {
+      if (remerasTodas[i].descripcion.toLowerCase().includes(loBuscado) || remerasTodas[i].nombre.toLowerCase().includes(loBuscado) ) {
+        resultadoBuscar.push(remerasTodas[i]);
       }
     }
     // si el array resultadoBuscar no es cero lo mostramos
