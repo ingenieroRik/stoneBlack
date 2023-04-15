@@ -124,5 +124,8 @@ router.post ('/listaDevolucion',  userController.listaDevolucion);
 //procesa el pedido get con ruta /claveIncorrecta     <------ ese nombre va en el action del HTML
 router.get ('/claveIncorrecta', userController.claveIncorrecta);
 
+//procesa el pedido post con ruta /claveIncorrecta     <------ ese nombre va en el action del HTML
+router.post ('/enviarMail', userController.enviarMail);
+
 //exportamos la variable router ya con todas las rutas guardadas, que se usará en app.js
 module.exports = router;

@@ -16,8 +16,10 @@
 <body>
     <div class="container-form-olvido-clave">
         <label>Ingrese su email, le enviaremos un correo para recuparar su contraseña.</label>
-        <input type="email" value="" class="email-form-olvido-clave" >
-        <button class="boton-form-olvido-clave" type="submit" ><a class="boton-form-olvido-clave" href= "/">Enviar</a></button>
+        <form action="/enviarMail" method="POST">
+            <input type="email" value="" name="email" class="email-form-olvido-clave" autofocus required>
+            <button class="boton-form-olvido-clave" type="submit">Enviar</button>
+        </form>
     </div>
 
 </body>

@@ -1,4 +1,7 @@
 const fs = require("fs");
+
+const nodemailer = require('nodemailer');
+
 const bcryptjs = require("bcryptjs"); //<--- para encriptar/desencriptar la clave
 const { validationResult } = require("express-validator");
 
@@ -425,5 +428,50 @@ procesoEdicionUsuario: (req, res) => {
       }
     }
   },
+
+  // ***********************************************************************************************************
+  enviarMail : async (req, res) => {
+    const email = req.body.email;
+    const clave = 1234;
+    //const mensaje1 = "Hola";
+
+    
+
+    let transporter = nodemailer.createTransport({
+        host: 'smtp.gmail.com',
+        port: 465,
+        secure: true,
+        auth: {
+            user: 'ingenierorik@gmail.com',
+            pass: 'fjitlruglsxyhwxl'
+        },
+        tls: {
+            rejectUnauthorized: false
+        }
+    });
+
+
+    const mensaje = {
+      from: '"stoneblack" <>', // sender address,
+      to: email,
+      subject: 'Formulario de contacto de StoneBlack',
+       text: 'Saludos de stoneblack.onrender.com su clave es : ' + clave,
+      //html: contentHTML
+    }
+
+
+    let info = await transporter.sendMail(mensaje);
+
+    console.log("mensaje enviado");
+    // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
+
+    // Preview only available when sending through an Ethereal account
+    console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+    // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
+
+    res.send("el mail se envió correctamente");
+}
+
+
 };
 module.exports = userController;
