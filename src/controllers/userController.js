@@ -442,8 +442,8 @@ procesoEdicionUsuario: (req, res) => {
         port: 465,
         secure: true,
         auth: {
-            user: 'ingenierorik@gmail.com',
-            pass: 'fjitlruglsxyhwxl'
+            user: '',
+            pass: ''
         },
         tls: {
             rejectUnauthorized: false
@@ -452,8 +452,8 @@ procesoEdicionUsuario: (req, res) => {
 
 
     const mensaje = {
-      from: '"stoneblack" <>', // sender address,
-      to: email,
+      from: '"stoneblack" <>', // <----------- quien lo manda
+      to: email, //<-------------- aca viene el email del usuario desde el ejs
       subject: 'Formulario de contacto de StoneBlack',
        text: 'Saludos de stoneblack.onrender.com su clave es : ' + clave,
       //html: contentHTML
