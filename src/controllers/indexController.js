@@ -81,7 +81,7 @@ const indexController = {
       }
 
       var usuarioBD = usuario;  //<----- acá guardo los datos del usuario que vienen de la BD
-      console.log(usuarioBD);//<---------- lo imprimo para ver si esta
+     // console.log(usuarioBD);//<---------- lo imprimo para ver si esta
       //console.log(usuarioBD.rol);
 
 // *******************  supervisor  ********************************************
@@ -141,11 +141,7 @@ const indexController = {
       res.send(err)
       });
 },
-//-------------------------------------------------------------------------------------------------------------------------
-   olvidoClave : (req, res) => {
 
-    return res.render("./usuarios/formOlvidoClave.ejs");
-      },
  // ---------------------------------------------------------------------------------------------------------
   logout: (req,res) => {
       //console.log("se borra sesion " );

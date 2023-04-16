@@ -1,10 +1,15 @@
-.container{
+* {
+
+	text-decoration: none;
+	list-style-type: none;
+  }
+.container-form-olvido-clave{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     padding-bottom: 20px;
-    width:90%;
+    width:95%;
     margin: auto;
     padding-top: 20px;
     margin-top: 80px;
@@ -14,32 +19,57 @@
     font-size: 18px;
     text-align: center;
 }
-.boton{
+.boton-form-olvido-clave{
 margin-top: 20px;
 background-color: aqua;
 border-radius: 4px;
 width: 30%;
 height: 30px;
 font-size: 20px;
-text-decoration: none;
+
 }
-.email{
+.boton-form-olvido-clave-volver{
     margin-top: 20px;
-    width: 80%;
+    background-color: rgb(190, 240, 140);
+    border-radius: 4px;
+    width: 25%;
+    height: 30px;
+    font-size: 20px;
+    
+    }
+.email-form-olvido-clave{
+    margin-top: 20px;
+    width: 94%;
     height: 30px;
     border-radius: 5px;
     font-size: 20px;
    
 }
+.pie-error {
+    color:red;
+    text-align: center;
+  }
+
+  .pie-form {
+    color:green;
+    text-align: center;
+  }
 @media (min-width:426px){
-.container{
-    width: 70%;
+.container-form-olvido-clave{
+    width: 90%;
 }
+.boton-form-olvido-clave{
+    width: 40%;
+}
+.boton-form-olvido-clave-volver{
+    width: 14%;
+}
+
+
+
 }
 @media (min-width:968px){
-    .container{ width: 50%;
+    .container-form-olvido-clave{ width: 50%;
     }
-    .boton{
-        width: 20%;
-    }
+   
 }

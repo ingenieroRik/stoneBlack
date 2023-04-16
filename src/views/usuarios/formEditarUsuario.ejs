@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+   
+    <link rel="stylesheet" href="/css/formUsuario.css" >
+
+    <title>Edicion de Usuario</title>
+</head>
+<body>
+
+
+
+
+
+<section id="registro-usuario" class="modalDialog">
+    <div class="modal">
+        <form action="/formEditarUsuario/<%= usuario.id %>?_method=PUT" method="POST" class="formEdicionUsuario" enctype="multipart/form-data">
+            <div class="nombre">   
+                
+                
+                <input type="text" name="nombreYapellido" class="boton3" id="nombre" 
+                            class="form-control <%= locals.errors && errors.nombreYapellido ? 'is-invalid' : null %>" placeholder=""
+                            value="<%= usuario.nombre_y_apellido %> " > 
+                      <%  if (locals.errors && errors.nombreYapellido) {  %> 
+                
+                    <div class="pie-form">
+                        <p class="credenciales-invalidas" ><%= errors.nombreYapellido.msg %> </p>
+                    </div>
+                    <% } %> 
+                    <div  class="texto-advertencia">
+                        <small class="errorNombreEdic"></small>
+                    </div>
+            </div>
+
+            <div class="nombre-usuario">
+                <input outline="none"  type="text" name="nombreUsuario" class="boton3" id="nombreUsuario" value="<%= usuario.nombre_usuario  %>" 
+                        placeholder="">
+                <%  if (locals.errors && errors.nombreUsuario) {  %> 
+                    <div class="pie-form">
+                        <p class="credenciales-invalidas" ><%= errors.nombreUsuario.msg %> </p>
+                    </div>
+                    <% } %> 
+                    <div  class="texto-advertencia">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+                        <small class="errorNombreUsuarioEdic"></small>
+                    </div>
+            </div>
+              
+                
+        <div class="foto">
+            <label for="imagenUsuario">Foto de perfil</label>
+            <input type="file" name="imagenUsuario" class="boton3" id="foto" >
+            
+        </div>
+            
+            <div class="nombre">
+                <input type="email" name="email" class="boton3" id="emailUser" value="<%= usuario.email %>" placeholder="" >
+
+                <%  if (locals.errors && errors.email) {  %> 
+                    <div class="pie-form">
+                        <p class="credenciales-invalidas" ><%= errors.email.msg %> </p>
+                    </div>
+                    <% } %> 
+                    <div  class="texto-advertencia">
+                        <small class="errorEmailEdic"></small>
+                    </div>
+            </div>
+
+            <div class="nombre">
+                <input type="password" name="clave" class="boton3" id="password"  value="" placeholder="Contraseña">
+                <%  if (locals.errors && errors.clave) {  %> 
+                    <div class="pie-form">
+                        <p class="credenciales-invalidas" ><%= errors.clave.msg %> </p>
+                    </div>
+                    <% } %> 
+                    <div  class="texto-advertencia">
+                        <small class="errorClaveEdic"></small>
+                    </div>
+            </div>
+
+            <div class="nombre">
+                <input type="password" name="confirmarClave" class="boton3" id="confirmarpassword"  placeholder="Confirmar contraseña">
+                <%  if (locals.errors && errors.confirmarClave) {  %> 
+                    <div class="pie-form">
+                        <p class="credenciales-invalidas" ><%= errors.confirmarClave.msg %> </p>
+                    </div>
+                    <% } %> 
+                    <div  class="texto-advertencia">
+                        <small class="errorVerifClaveEdic"></small>
+                    </div>
+            </div>
+            
+            <div class="reg-reset">
+                <button class="reset" type="reset" ><a href="/" title="Close" id="close">Volver</a></button>
+                <button class="register" id="btn-edic-user" type="submit">Guardar</button>
+            </div>
+
+            
+            <%  if (locals.errors && errors.pieForm) {  %> 
+    
+                <div name="pieForm">
+                    <p class="pie-form" ><%= errors.pieForm.msg %> </p>
+                </div>
+                <% } %> 
+              
+        </form>
+    </div>
+    
+    </section>
+
+    <script src="/js/edicionUsuario.js"></script>
+    
+</body>
+</html>

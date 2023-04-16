@@ -48,13 +48,12 @@
                     <% } %>        
                         <div class="texto-advertencia"> 
                             <small class="errorNombreLogin"></small>
-                        </div>
-                    
-
+                        </div>        
         </div>
-          <div class="control-login">
+
+        <div class="control-login">
                 <input type="password" id="clave-login" name="clave" class="control boton3" placeholder="Contraseña" >
-            </div>
+            
             <div class="control-login">
 
                     <%  if (locals.errors && errors.clave) {  %> 
@@ -66,20 +65,24 @@
                             <small class="errorClaveLogin"></small>
                         </div>
 
+            </div>
 
              <button class="envio" type="reset" ><a href="/" title="Close" id="close1">Volver</a></button>
              <button type="submit" id="btn-envio-login" class="envio">Enviar</button> 
-            </div>
+        </div>
 
             <div class="">
                 <label class="">
                     <input type="checkbox" class="recordar-box" name="recordarme">Recordar mi usuario
                 </label>
             </div>
+
         </form>
+
         <div class="contraseña">
             <p href="" class="olvido"></p> <a class="olvido"   href="/olvidoClave">Has olvidado tu contraseña?</a>
         </div>
+
     </div>
 </section>
 <% } %>
@@ -336,6 +339,12 @@
 
         <% if (locals.isLogged) {   %> 
             <li class="menu-item"><a href="/logout" class="boton-inicio">Terminar sesion</a></li>
+
+            <li class="menu-item"><a href="/formEditarUsuario/<%= usuarioLogueado.id %> " class="boton-inicio">
+                <img src="/images/usuarios/<%= locals.usuarioLogueado.uri_avatar %>" width="70px" 
+                    style="border-radius: 100%;margin-top: -20px;margin-bottom: -30px;"></a></li>
+
+
         <% } else {%> 
             <li class="menu-item" ><a href="#inicio-sesion" class="boton-inicio">Inicio de sesion</a></li> <!----para formulario loginUsuario href=loginUsuario  -->
 

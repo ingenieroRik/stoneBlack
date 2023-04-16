@@ -201,14 +201,14 @@ const userController = {
   },
 
   // ***********************************************************************************************************
-  editarUsuario: (req, res) => {
+  editarUsuarioAdmin: (req, res) => {
     db.Usuarios.findByPk(req.params.id).then((usuarioFiltrado) => {
       res.render("./usuarios/formUsuario.ejs", { usuario: usuarioFiltrado });
     });
   },
 
   // ************************************************************************************************************************
-  procesoEdicionUsuario: async (req, res) => {
+  procesoEdicionUsuarioAdmin: async (req, res) => {
     //console.log(req.body);
 
     //traemos todos los usuarios menos el editado, para que no nos diga que el usuario existe
@@ -309,6 +309,90 @@ procesoEdicionUsuario: (req, res) => {
      })    
     },
 */
+    // ***********************************************************************************************************
+editarUsuarioUser: (req, res) => {
+  db.Usuarios.findByPk(req.params.id).then((usuarioFiltrado) => {
+    res.render("./usuarios/formEditarUsuario.ejs", { usuario: usuarioFiltrado });
+  });
+},
+
+// ************************************************************************************************************
+procesoEdicionUsuarioUser: async (req, res) => {
+  //console.log(req.body);
+
+  //traemos todos los usuarios menos el editado, para que no nos diga que el usuario existe
+  var usuariosBD = await db.Usuarios.findAll({
+    where: { id: { [Op.ne]: req.params.id } },
+  });
+
+  const resultadosValidacion = validationResult(req);
+
+  if (resultadosValidacion.errors.length > 0) {
+    return res.render("./usuarios/formEditarUsuario.ejs", {
+      usuario: req.params.id,
+      errors: resultadosValidacion.mapped(),
+      oldData: req.body,
+    });
+  } else {
+    //primero chequeamos que el usuario no exista, lo que no se debe repetir es el email
+    for (let i = 0; i < usuariosBD.length; i++) {
+     // console.log("entro al for");
+      //console.log(usuariosBD[i].email + req.body.email);
+
+      if (usuariosBD[i].email == req.body.email) {
+        console.log(usuariosBD[i].email);
+
+        return res.render("./usuarios/formEditarUsuario.ejs", {
+          usuario: req.params.id,
+          errors: {
+            pieForm: {
+              msg: "el usuario con " + req.body.email + " ya existe",
+            },
+          },
+          oldData: req.body,
+        });
+      }
+    }
+  }
+
+  console.log(req.body.clave);
+  console.log(req.body.confirmarClave);
+
+  if (req.body.clave == req.body.confirmarClave) {
+    //<----- se crea el usuario
+
+    console.log("claves iguales");
+
+    db.Usuarios.update(
+      {
+        nombre_y_apellido: req.body.nombreYapellido,
+        nombre_usuario: req.body.nombreUsuario,
+        uri_avatar: req.body.uri_avatar,
+        email: req.body.email,
+        clave: bcryptjs.hashSync(req.body.clave, 10), // <------------ se encripta la clave
+        rol: "usuario",
+      },
+      {
+        where: { id: req.params.id }, //<--------- el id viene en la url
+      }
+    )
+      .then(function () {
+        res.redirect("/");
+      })
+      .catch((err) => {
+        res.send(err);
+      });
+  } else {
+    console.log("claves distintas");
+
+    return res.render("./usuarios/formEditarUsuario.ejs", {
+      usuario: req.params.id,
+      errors: { confirmarClave: { msg: "la clave no coincide" } },
+      oldData: req.body,
+    });
+  }
+},
+
   // ***********************************************************************************************************************
   eliminarUsuario: function (req, res) {
     let usuarioId = req.params.id;
@@ -408,22 +492,96 @@ procesoEdicionUsuario: (req, res) => {
       });
   },
 
-  // ********************************************************************************************************
-  formClaveIncorrecta: (req, res) => {
-    console.log(req.body.email);
-    return res.render("./usuarios/formClaveIncorrecta.ejs");
-  },
+  // **********************************************************
+  olvidoClave : (req, res) => {
 
-  // *******************************************************************************************************
-  claveIncorrecta: (req, res) => {
-    const usuariosJS = JSON.parse(fs.readFileSync(usuariosFilePath, "utf-8"));
-    for (let i = 0; i < usuariosJS.length; i++) {
-      console.log(req.body.email);
-      if (req.body.email == usuariosJS[i].email) {
-        //return res.render("./usuarios/formClaveIncorrecta.ejs")
-        return res.render("./usuarios/formClaveIncorrecta");
-      }
+    return res.render("./usuarios/formOlvidoClave.ejs");
+      },
+ 
+  // ***********************************************************************************************************
+  enviarMail : async (req, res) => {
+    const email = req.body.email;
+    const clave = 1111;
+    //const mensaje1 = "Hola";
+
+    console.log("entro a enviar mail a :" + email)
+    // verificamos si el usuario existe
+
+    const usuarioDevuelve = await db.Usuarios.findOne({
+      where: { email: email },
+      raw: true,
+    });
+
+    if (usuarioDevuelve == null) {
+      // <--------- si existe el email creamos la devolucion
+      console.log("el usuario no existe")
+
+      return res.render("./usuarios/formOlvidoClave.ejs"
+      , {
+        errors:{ pieError: { msg: 'El usuario: '+ email + "  , no esta registrado."}} 
+        }
+      );
     }
-  },
+
+    //const clave = usuarioDevuelve.clave;
+
+    let transporter = nodemailer.createTransport({
+        host: 'smtp.gmail.com',
+        port: 465,
+        secure: true,
+        auth: {
+            user: 'ingenierorik@gmail.com',
+            pass: 'fjitlruglsxyhwxl'
+        },
+        tls: {
+            rejectUnauthorized: false
+        }
+    });
+
+
+    const mensaje = {
+      from: '"stoneblack" <>', // <----------- quien lo manda
+      to: email, //<-------------- aca viene el email del usuario desde el ejs
+      subject: 'Formulario de contacto de StoneBlack',
+       text: 'Saludos de stoneblack.onrender.com su clave es : ' + clave + ' , cambiela por seguridad',
+      //html: contentHTML
+    }
+
+      
+
+
+
+    let info = await transporter.sendMail(mensaje);
+
+    console.log("mensaje enviado");
+    // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
+
+    // Preview only available when sending through an Ethereal account
+    console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+    // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
+
+    //res.send("el mail se envió correctamente");
+
+     db.Usuarios.update(
+      {
+        clave: clave, // <------------ se encripta la clave
+      },
+      {
+        where: {  email : email}, 
+      }
+    ).then
+
+    return res.render("./usuarios/formOlvidoClave.ejs", {
+      
+      errors: { pieForm: { msg: "El mail se envió correctamente" } },
+    
+    }).catch((err) => {
+      res.send(err);
+    });
+
+
+}
+
+
 };
 module.exports = userController;

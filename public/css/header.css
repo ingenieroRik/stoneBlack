@@ -133,7 +133,7 @@ transition: opacity 400ms ease-in;
     border: none;
 }
 .register:hover , .reset:hover, .envio:hover{
-    background-color: #0022AA;  
+    background-color:var(--independence) ;  
 }
 .fecha{
 	width: 80%;             /* <--------------------------------se agrego */
@@ -272,9 +272,11 @@ label, .foto {
   .logo:hover {
 	transform: scale(1.2);
   }
-  
+  .lupa1 {
+	color:#7c7071;
+   }
   .lupa {
-	color:black;
+	
 	font-size: 20px;
 	margin-left:auto;
   }
@@ -285,14 +287,19 @@ label, .foto {
 	margin-left:auto;
   }
   .carrito {
-	color:black;
+	color:#7c7c7c;
 	margin-left: 25px;
 	font-size: 20px;
   }
-  .carrito:hover, .lupa:hover {
-	transform: scale(1.3);
-	color: green;
+  .lupa1:hover{
+	transform: scale(1.2);
+	color: var(--independence);
   }
+  .carrito:hover {
+	transform: scale(1.3);
+	color:var(--independence);
+  }
+  
   .burger-menu {
 	text-align: center;
 	margin-left: 20px;
@@ -419,3 +426,52 @@ label, .foto {
 	}
 	}
 	  /* ---------------------------fin header---------------------------------------*/
+
+	  /* --------------------------- form olvido clave ---------------------------------- */
+
+
+	  .container-form-olvido-clave{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: flex-start;
+		padding-bottom: 20px;
+		width:90%;
+		margin: auto;
+		padding-top: 20px;
+		margin-top: 80px;
+		border: solid black 4px;
+		border-radius: 4px;
+		background-color:#b9bcb9;  
+		font-size: 18px;
+		text-align: center;
+	}
+	.boton-form-olvido-clave{
+	margin-top: 20px;
+	background-color: aqua;
+	border-radius: 4px;
+	width: 30%;
+	height: 30px;
+	font-size: 20px;
+	text-decoration: none;
+	}
+	.email-form-olvido-clave{
+		margin-top: 20px;
+		width: 80%;
+		height: 30px;
+		border-radius: 5px;
+		font-size: 20px;
+	   
+	}
+	@media (min-width:426px){
+	.container-form-olvido-clave{
+		width: 70%;
+	}
+	}
+	@media (min-width:968px){
+		.container-form-olvido-clave{ width: 50%;
+		}
+		.boton-form-olvido-clave{
+			width: 20%;
+		}
+	}
