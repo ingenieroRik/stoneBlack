@@ -3,6 +3,14 @@
 body {
   font-family: "Roboto", sans-serif;
 }
+:root {
+  --gris: #686963;
+  --morning-blue: #8aa29e;
+  --black-coral: #3d5467;
+  --silver-chalice: #a9aca9; 
+  --granite-gray:#6c6061;
+  --independence: #525b76;  
+  }
 
 /* -------------------------main ---------------------*/
 main {
@@ -64,14 +72,14 @@ main {
   width: 100%;
 }
 .comprar{
-  color:green; 
+  color:var(--independence); 
   margin-top: 8px;
 }
 .circulo {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border: solid 1px green;
+  border: solid 1px var(--independence);
   text-align: center;
   margin: auto;
   font-size: 24px;
@@ -89,7 +97,7 @@ main {
   font-size: 24px;
 }
 .mostrar-mas:hover {
-  color:green;
+  color:#7c7071;
   font-weight: bold;
 }
 .descuento {

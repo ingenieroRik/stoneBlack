@@ -1,4 +1,7 @@
 const fs = require("fs");
+
+const nodemailer = require('nodemailer');
+
 const bcryptjs = require("bcryptjs"); //<--- para encriptar/desencriptar la clave
 const { validationResult } = require("express-validator");
 
