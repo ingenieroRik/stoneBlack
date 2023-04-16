@@ -19,17 +19,24 @@ body {
   /* ------------------- para ventanas modales --------------------------*/
 .modalDialog {
 	position:absolute;
-  
 	font-family: Arial, Helvetica, sans-serif;
-	top: 50px;
+	top: 450px;
 	right: 0;
 	bottom: 0;
 	left: 0;
 }
 	
 .modalDialog > div {
+  display: flex;
+  flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    transform: scale(2.5);
+   
+
   border: solid #6c6061;
 	width:360px;
+
 	position: relative;
 	margin: auto;
 	padding: 5px 20px 13px 20px;
@@ -51,8 +58,7 @@ body {
 	font-weight: bold;
 	
 }
-/* ---------------------- para emergente de editarRegistro ------------------- */
-
+/* ---------------------- para editar usuario por usuario  ------------------- */
 
 label, .foto {
   margin-top: 25px;    
@@ -87,8 +93,6 @@ text-align: center;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-
- 
 }
 .register , .reset {
 margin-top: 15px;
@@ -105,18 +109,8 @@ margin-top: 15px;
   background-color:var(--silver-chalice) ;
   
 }
-/*----------------------------------------------------------------------*/
   /* -------------------------main ---------------------*/
-  main {
-    width: 100%;
-    margin: auto;
-    box-sizing: border-box; 
-   padding-bottom:30px;
-  } 
-  .container3 {
-    padding-top: 30px;
-  }
-  
+ 
   .botonVolver {
     width: 10%;
     height: 30px;
@@ -128,22 +122,18 @@ margin-top: 15px;
     text-align: center;
   }
 
-  
   /*  tablets    */
   @media (min-width:426px){
-   
-    
   }
   
   /*   notebook   */
-  @media (min-width:769px){
-
-   
-   
-    
+  @media (min-width:769px){  
   }
   @media (min-width: 1200px){
-   
+    .modalDialog > div {
+     transform: scale(1.3); 
+    }
+    .modalDialog{
+      top: 100px;
+    }
   }
-  
-  
