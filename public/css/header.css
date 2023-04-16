@@ -272,9 +272,7 @@ label, .foto {
   .logo:hover {
 	transform: scale(1.2);
   }
-  .lupa1 {
-	color:#7c7071;
-   }
+  
   .lupa {
 	
 	font-size: 20px;
@@ -300,9 +298,8 @@ label, .foto {
   }
   .carrito:hover {
 	transform: scale(1.3);
-	color:var(--independence);
+	color: var(--independence);
   }
-  
   .burger-menu {
 	text-align: center;
 	margin-left: 20px;
@@ -324,6 +321,7 @@ label, .foto {
   }
   .menu{
 	display: none;
+	
   }
   .menu_visible{
 	display: flex;
@@ -362,6 +360,10 @@ label, .foto {
 		.carrito, .lupa {
 		  font-size: 30px;
 		}
+		.menu{
+			margin-top: -30px;
+			
+		  }
 		.barra-menu ul{
 		  display: flex;
 		  flex-direction: row;
@@ -429,6 +431,7 @@ label, .foto {
 	}
 	}
 	  /* ---------------------------fin header---------------------------------------*/
+
 
 	  /* --------------------------- form olvido clave ---------------------------------- */
 

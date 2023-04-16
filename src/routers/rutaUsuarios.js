@@ -76,7 +76,7 @@ router.get ('/registroUsuario/',userController.verFormulario);
 router.post ('/modalUsuario', upload.single("imagenUsuario"), imageValidatorMiddleware, validaciones,  userController.crearUsuario);// <----- validaciones
 
 //procesa el pedido post con ruta /formUsuario ------> ese nombre va en el action del HTML
-router.put ('/listaUsuarios/:id', userController.editarUsuario);
+router.put ('/listaUsuarios/:id', userController.editarUsuarioUser);
 
 
 // ******************* crear administrador *********************
@@ -93,10 +93,10 @@ router.get ('/formEditarUsuario/:id', userController.editarUsuarioUser); //<----
 router.put ('/formEditarUsuario/:id', upload.single("imagenUsuarioEditada"), userController.procesoEdicionUsuarioUser);
 
 //procesa el pedido get con ruta /formUsuario ------> ese nombre va en el action del HTML
-router.get ('/formUsuario/:id', userController.editarUsuario);
+router.get ('/formUsuario/:id', userController.editarUsuarioAdmin);
 
 //procesa el pedido post con ruta /formUsuario ------> ese nombre va en el action del HTML
-router.put ('/formUsuario/:id', upload.single("imagenUsuarioEditada"), userController.procesoEdicionUsuario);
+router.put ('/formUsuario/:id', upload.single("imagenUsuarioEditada"), userController.procesoEdicionUsuarioAdmin);
 
 
 // *************** eliminar un usuario *********************
