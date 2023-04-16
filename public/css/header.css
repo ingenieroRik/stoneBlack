@@ -272,6 +272,9 @@ label, .foto {
   .logo:hover {
 	transform: scale(1.2);
   }
+  .avatar-usuario{  
+	width :40px
+ }
   
   .lupa {
 	
@@ -321,10 +324,8 @@ label, .foto {
   }
   .menu{
 	display: none;
+	
   }
-  .avatar-usuario{  
-	width :40px
- }
   .menu_visible{
 	display: flex;
 	flex-direction:row;
@@ -363,9 +364,11 @@ label, .foto {
 		  font-size: 30px;
 		}
 		.menu{
-			margin-top: -30px;
-			
+			margin-top: -30px;	
 		  }
+		  .avatar-usuario{  
+			width :70px
+		 }
 		.barra-menu ul{
 		  display: flex;
 		  flex-direction: row;
@@ -414,9 +417,6 @@ label, .foto {
 		  width: 150px;
 		  height: 45px;
 		}
-		.avatar-usuario{  
-			width :70px
-		 }
 		.carrito, .lupa {
 		  font-size: 40px;
 		}
@@ -506,12 +506,4 @@ label, .foto {
 	.boton-form-olvido-clave-volver{
 		width: 14%;
 	}
-	
-	
-	
-	}
-	@media (min-width:968px){
-		.container-form-olvido-clave{ width: 50%;
-		}
-	   
-	}
+}
