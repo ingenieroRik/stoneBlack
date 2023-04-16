@@ -565,7 +565,7 @@ procesoEdicionUsuarioUser: async (req, res) => {
 
     //res.send("el mail se envió correctamente");
 
-     db.Usuarios.update(
+     await db.Usuarios.update(
       {
         clave: clave, // <------------ se encripta la clave
       },
@@ -578,10 +578,7 @@ procesoEdicionUsuarioUser: async (req, res) => {
       
       errors: { pieForm: { msg: "El mail se envió correctamente" } },
     
-    }).catch((err) => {
-      res.send(err);
-    });
-
+    })
 
 }
 
