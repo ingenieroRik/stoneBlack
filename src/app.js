@@ -25,7 +25,7 @@ app.set('views', './src/views');
 // o tambien asi :
 //app.set('views', path.join(__dirname,'../src/views'));
 
-app.use (cors);
+app.use(cors());
 
 // usando los recursos estaticos css,images,etc
 app.use(cookieParser());
