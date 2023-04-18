@@ -6,7 +6,8 @@ const session = require('express-session');
 const usuarioLogueadoMiddleware = require('./middlewares/usuarioLogueadoMiddleware.js');
 const loginVacioMiddleware = require ( './middlewares/loginVacioMiddleware.js');
 const cookieParser = require ('cookie-parser');
-
+require('dotenv').config();
+const cors = require ('cors') // <--------- para que puedan ver los datos de nuestra api  hacer  --> npm i cors
 
 //const { cookie } = require('express-validator'); // <------------- ver que es?
 
