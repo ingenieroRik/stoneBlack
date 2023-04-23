@@ -1,7 +1,9 @@
 const express = require ('express');
 const router = express.Router();
 
-router.get ("/product/:id", controller.product);
-router.post ("/checkout", controller.checkout);
+const apiController = require("../controllers/apiController");
+
+router.get ("/product/:id", apiController.product);
+router.post ("/checkout", apiController.checkout);
 
 module.exports = router;

@@ -295,6 +295,10 @@ label, .foto {
 	margin-left: 25px;
 	font-size: 20px;
   }
+  .cart-number{
+	color: red;
+	font-size: 18px;
+  }
   .lupa1:hover{
 	transform: scale(1.2);
 	color: var(--independence);
@@ -323,7 +327,7 @@ label, .foto {
 
   }
   .menu{
-	display: none;
+	display: none;/* <---------- baja y sube el menu  inicio...        registrar   devolver  */
 	
   }
   .menu_visible{
@@ -364,7 +368,9 @@ label, .foto {
 		  font-size: 30px;
 		}
 		.menu{
-			margin-top: -30px;	
+			margin-top: -50px;/* <---------- baja y sube el menu  inicio...        registrar   devolver  */
+			margin-left: 160px;
+			margin-right: 160px;
 		  }
 		  .avatar-usuario{  
 			width :70px
@@ -427,10 +433,16 @@ label, .foto {
 			font-size: 24px;
 		  }
 	  }
-	  @media (min-width:1200px){
+
+
+	  @media (min-width:1440px){
 		.lupa-logged {
 			display: block;
 	  }
+	  .menu{                      /* <---------- baja y sube el menu  inicio...        registrar   devolver  */
+		margin-top: -55px;	
+	  }
+
 	  .barra-menu{   /*  <-----------   HEADER FIJO  */
 		background-color:transparent;	
 	}
@@ -496,6 +508,14 @@ label, .foto {
 		color:green;
 		text-align: center;
 	  }
+
+	  #recaptcha{
+		
+		text-align: center;
+		margin-left:10px;
+	}
+
+
 	@media (min-width:426px){
 	.container-form-olvido-clave{
 		width: 90%;
@@ -506,4 +526,9 @@ label, .foto {
 	.boton-form-olvido-clave-volver{
 		width: 14%;
 	}
+}
+@media (min-width:968px){
+    .container-form-olvido-clave{ width: 50%;
+    }
+   
 }

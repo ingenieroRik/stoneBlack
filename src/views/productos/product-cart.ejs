@@ -6,6 +6,9 @@
     <%- include('../partials/head.ejs') %>
 
     <link rel="stylesheet" href="/css/product-cart.css"/>
+
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
     
     <title>product-cart</title>
 </head>
@@ -19,17 +22,17 @@
         <div class="contenedor1">
             <%  if (locals.usuarioLogueado) {%> 
             <div class="foto">
-                <img src="/images/usuarios/<%= locals.usuarioLogueado.imagenUsuario%>" alt="FOTO">
+                
                 <p class="carro">Carrito de Compras de  <%= locals.usuarioLogueado.nombreYapellido %></p>
             </div>
             <% } else { %>
             <div class="foto">
-                <img src="/images/usuarios/hijitus2.jpg" alt="FOTO">
-                <p class="carro">Carrito de Compras de Usuario no registrado</p>
+                
+                <p class="carro">Carrito de Compras de Usuario no registrado, debe iniciar sesion para comprar</p>
             </div>
             <% } %> 
             
-
+<!--
             <div class="contenedor2">
                 <div class="imagen">
                     <img src="\images\ac_dc.jpg" class="imagen2" alt="foto">
@@ -55,13 +58,58 @@
             </div>
 
             <div class="info-total">
-                <p class="total">Total</p>
-                <p class="monto">$7.350,00</p>
+                <p class="total"></p>
+                <h2>Total: <span class="monto  total totalAmount">$ 0</span></h2>
+                <p class="monto total  total-amount"></p>
             </div>
 
-            <form class="compra">
-                <button type="submit" class="boton">Comprar</button>
+-->
+                <div class="card-body">
+                    <table class="table table-responsive-md mb-0">
+                        <thead>
+                            <tr>
+                                <th style="width: 50px;">
+                                    <strong>#</strong>
+                                </th>
+                                <th class="th-lg">
+                                    <strong>Producto</strong>
+                                </th>
+                                <th class="th-lg ">
+                                    <strong>Precio</strong>
+                                </th>
+                                <th class="text-center">
+                                    <strong>Cantidad</strong>
+                                </th>
+                                <th class="text-center">
+                                    <strong>Subtotal</strong>
+                                </th>
+                                <th style="width: 50px;"></th>
+                            </tr>
+                        </thead>
+                        <tbody class="cartRows">
+                        </tbody>
+                    </table>
+                    <div class="card-footer text-right">
+                        <h2>Total: <span class="totalAmount">$ 0</span></h2>
+                    </div>
+                </div>
+
+
+
+
+
+            <%  if (locals.usuarioLogueado) {%> 
+
+                <form class="compra" id="checkoutCart">
+                    <button type="submit" class="boton" >Comprar</button>
+                </form>
+
+                <% } else { %>
+
+            <form class="compra" id="checkoutCart">
+                <button type="submit" class="boton"><a class="boton" href="/#inicio-sesion">Comprar</a></button>
             </form>
+            <% } %> 
 
         </div>
     </div>
@@ -69,10 +117,10 @@
 
     <!--------------------------------- footer --------------------------------------------------------------->
     <%- include('../partials/footer.ejs') %>
-    <script src="/js/product-cart1.js"></script>
+    
+    <script src="/js/comprarCarrito.js"></script>
 </body>
 
 </html>
-
 
 

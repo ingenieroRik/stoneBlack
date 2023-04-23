@@ -6,7 +6,7 @@ const path = require('path');
 const Op = sequelize.Op;
 
 const productosAPIController = {
-  'list': (req, res) => {
+  list : (req, res) => {
     db.Productos.findAll()
     .then(productos => {
       let respuesta = {
@@ -29,13 +29,14 @@ const productosAPIController = {
           meta: {
             status: 200,
             total: productos.length,
-            url: "/api/productos/:id",
+            url: "https://stoneblack.onrender.com/api/productos/:id",
           },
           data: productos,
         };
         res.json(respuesta);
       });
   },
+ 
 };
 
 

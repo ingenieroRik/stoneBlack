@@ -40,8 +40,8 @@
                         <h4 class="precio">$<%= allProducts[i].precio %></h4>
                         <p class="descuento"><%= allProducts[i].descuento %>% OFF</p>
                         <p class="cuotas"><%= allProducts[i].cuotas %></p>
-                        <a href="/product-cart" class="add-to-a-cart">
-                        <div class="circulo"><i class="fa-solid fa-cart-plus comprar"></i></div>
+                        <a href="/" class="add-to-a-cart agregar_carrito ">
+                        <div class="circulo"><i class="fa-solid fa-cart-plus comprar"  data-id="<%= allProducts[i].id %>"></i></div>
                         </a>
                     </section>
                 </div>
@@ -89,6 +89,7 @@
 
    <!--------------------------------- footer --------------------------------------------------------------->
    <%- include('partials/footer.ejs') %> 
+   <script src="/js/carrito.js"></script>
     
 </body>
 

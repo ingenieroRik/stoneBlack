@@ -9,6 +9,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/css/header.css" />
 
+    <script  src="https://www.google.com/recaptcha/api.js" async defer></script>  
+    
+    <script>
+        function enviar(token){
+            document.getElementById("olvido-form").submit();
+        }
+    </script>
 
     <title>Olvido Clave</title>
    
@@ -16,7 +23,7 @@
 <body>
     <div class="container-form-olvido-clave">
         <label>Ingrese su email, le enviaremos un correo para recuparar su contraseña.</label>
-        <form action="/enviarMail" method="POST">
+        <form action="/enviarMail" method="POST"  id="olvido-form">
             <input type="email" value="" name="email" class="email-form-olvido-clave" placeholder="ingrese mail"
                               autofocus required> 
                      
@@ -37,6 +44,19 @@
                     
                    
             <button class="boton-form-olvido-clave" type="submit">Enviar</button>
+
+                
+                    <!-- 
+                         
+            <span class="msg-error error"></span>
+            <div id="recaptcha" class="g-recaptcha" data-sitekey="6LePUZclAAAAADM5KeN0J_9WtZXvCWOzoWGB-g_X" ></div>
+                            
+                    -->
+            <button class="g-recaptcha" data-sitekey="6Lfe85slAAAAAP2G5Y51LvWFEBeUy_cKGqU5zV92" 
+            data-callback="enviar" ></button>            
+
+
+
         </form>
 
         
