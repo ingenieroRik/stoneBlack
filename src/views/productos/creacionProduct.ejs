@@ -14,6 +14,10 @@
 
 <body class="body">
     <main>
+        <div class="logo-ext">
+        <a href="/">
+            <img class="logo" src="/images/StoneBlack.png" alt="logo"/></a>
+        </div>
         <div>
             <h2 class="titulo-principal">SUBI TU NUEVO PRODUCTO:</h2>
         </div>
@@ -76,19 +80,19 @@
                             <!-- FOTO DE PRODUCTO -->
                             <div class="foto">
                                 <label for="foto">Fotos de producto:</label>
-                                <input type="text" name="img" value="<%= locals.old && locals.img ? old.img : '' %>"
-                                    class="form-control" id="img" />
+                                <input type="file" name="img" value="<%= locals.old && locals.img ? old.img : '' %>"
+                                    class="form-control" id="img" multiple="multiple" accept="image/*" />
                             </div>
                             <!-- FOTO DE PRODUCTO -->
-                            <div class="foto">
+                            <!-- <div class="foto">
                                 <label for="foto">Fotos de producto:</label>
-                                <input type="text" name="uri_foto2" class="form-control" id="img2" />
-                            </div>
+                                <input type="file" name="uri_foto2" class="form-control" id="img2" />
+                            </div> -->
                             <!-- FOTO DE PRODUCTO -->
-                            <div class="foto">
+                            <!-- <div class="foto">
                                 <label for="foto">Fotos de producto:</label>
-                                <input type="text" name="uri_foto3" class="form-control" id="img3" />
-                            </div>
+                                <input type="file" name="uri_foto3" class="form-control" id="img3" />
+                            </div> -->
                         </div>
 
                         <!-- CAJA BOTONES -->

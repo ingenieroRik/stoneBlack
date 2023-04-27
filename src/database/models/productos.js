@@ -13,7 +13,7 @@ let alias = "Productos";
 
     nombre: {type: DataTypes.STRING(45), notNull : true},
     talle: {type: DataTypes.INTEGER, notNull : true},
-    color: {type: DataTypes.STRING(12), notNull : true },
+    color: {type: DataTypes.STRING(50), notNull : true },
     precio: {type: DataTypes.DECIMAL, notNull : true },
     descripcion:{type: DataTypes.STRING(200), notNull: true},
     descuento:{type: DataTypes.DECIMAL, notNull: true},  

@@ -28,7 +28,7 @@ const validacionesForm = [
     body('precio').notEmpty().withMessage("Completa el precio"),
     body('talle').notEmpty().withMessage("Completa el talle"),
     body('color').notEmpty().withMessage("Completa el color"),
-    body('img').notEmpty().withMessage("Debes tener al menos una imagen"),
+    //body('img').notEmpty().withMessage("Debes tener al menos una imagen"),
 ]
 
 // ******************* mostrar un producto ************************
@@ -43,7 +43,7 @@ router.post ('/productDetail/:id', productsController.detalleProd);
 //Renderiza la pagina creacion producto
 router.get ('/creacionProduct', adminMiddleware, productsController.creacionProd); //<-----  solo el administrador ingresa
 //Procesa la creacion del producto
-router.post ('/creacionProduct', upload.single("imagenProducto"), validacionesForm, productsController.procesoCreacion)
+router.post ('/creacionProduct', upload.any(), validacionesForm, productsController.procesoCreacion)
 
 
 // ************************* listado de ventas ***************************

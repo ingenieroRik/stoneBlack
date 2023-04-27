@@ -130,17 +130,17 @@ const productsController = {
     if(errors.isEmpty()){
             await Productos.create({
                   nombre: req.body.nombre,
-                  img: req.body.img,
+                  img: req.files ? req.files[0].filename : " ",
                   descripcion: req.body.descripcion,
                   precio: req.body.precio,
                   descuento: req.body.descuento,
                   talle: req.body.talle,
                   color: req.body.color,
-                  uri_foto2: req.body.uri_foto2,
-                  uri_foto3: req.body.uri_foto3
+                  uri_foto2: req.files ? req.files[1].filename : " ",
+                  uri_foto3:  req.files ? req.files[2].filename : " ",
     })
-    .then
-    res.redirect("/");
+    
+    return res.render("./productos/creacionProduct");
     } else {
       console.log(Productos.PRIMARY)
      return res.render("./productos/creacionProduct", 

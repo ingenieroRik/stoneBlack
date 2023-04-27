@@ -80,7 +80,19 @@ main {
     --bs-btn-bg: #656f78;
     --bs-btn-border-color: #656f78;
 }
-
+.logo-ext{
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.logo {
+    width: 150px;
+    height: 45px;
+    margin-top: 0px;
+    margin-bottom: 30px;
+  }
 /* LAPTOP */
 
 @media (min-width: 769px) {

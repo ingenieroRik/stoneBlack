@@ -83,14 +83,23 @@
             <h4>DESCRIPCION DEL PRODUCTO:</h4>
             <p><%= Productos.descripcion%></p>
         </div>
+    </form>
+
 
         <!-- BOTON AGREGAR A CARRITO -->
+        <a href="/" class="add-to-a-cart agregar_carrito ">
+            <div class=""><input type="submit" class=" boton-comprar comprar" value="AGREGAR AL CARRITO" data-id="<%= Productos.id %>">
+            </div>
+            </a>
+
+        <!--
         <div>
-            <a href="/product-cart">
-                <input type="submit" class="boton-comprar" value="AGREGAR AL CARRITO">
+            <a href="/product-cart" class="agregar-carrito ">
+                <input type="submit" class="boton-comprar comprar " value="AGREGAR AL CARRITO"  data-id="<%= Productos.id %>" >
             </a>
         </div>
-    </form>
+        -->
+    
 
         <!-- Productos RELACIONADOS: FUTURO CARRUSEL -->
         <div>
@@ -112,7 +121,9 @@
     </main>
 <!--------------------------------- footer --------------------------------------------------------------->
 <%- include('../partials/footer.ejs') %>
-<script src="/js/productDetail.js"></script>
+
+<script src="/js/carrito.js"></script>
+
 </body>
 
 </html>
