@@ -23,7 +23,7 @@ function removeItem(index) {
   function setCarritoVacio() {
     cartRows.innerHTML = `
     <tr>     
-        <td colspan="5"><div class="alert alert-warning my-2 text-center">No tienes products en el carrito</div></td>
+        <td colspan="7"><div class="alert alert-warning my-2 text-center">No tienes products en el carrito</div></td>
     </tr>            
     `;
   }
@@ -58,6 +58,10 @@ function removeItem(index) {
               <tr id="row${index}">
                   <th scope="row">${index + 1}</th>
                   <td>${product.data.nombre}</td>
+                  <td>${product.data.talle}</td>
+
+                  <td>${product.data.color}</td>
+
                   <td>$ ${product.data.precio}</td>
                   <td class="text-center">${item.cantidad}</td>
                   <td class="text-center">$ ${parseFloat(
@@ -70,6 +74,8 @@ function removeItem(index) {
             products.push({
               productId: product.data.id,
               nombre: product.data.nombre,
+              talle: product.data.talle,
+              color: product.data.color,
               precio: product.data.precio,
               cantidad: item.cantidad,
             });

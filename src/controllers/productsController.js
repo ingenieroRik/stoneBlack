@@ -111,11 +111,11 @@ const productsController = {
 
   destroy: async (req, res) => {
     let id = req.params.id;
-
+    console.log("entro a borrar");
     await Productos
     .destroy({where: {id: id}, force: true}) // force: true es para asegurar que se ejecute la acción
-    .then(()=>{
-        return res.redirect('/')})
+    
+    return res.render("index.ejs", { allProducts: remerasTodas })
 
   },
 
@@ -126,6 +126,10 @@ const productsController = {
   procesoCreacion: async (req, res) => {
     /* const remeras = JSON.parse(fs.readFileSync(remerasFilePath, "utf-8")); */
     let errors = validationResult(req);
+     /* console.log(req.files[0]) */
+     console.log(req.files[1]) 
+     /* console.log(req.files[2]) */
+ 
 
     if(errors.isEmpty()){
             await Productos.create({

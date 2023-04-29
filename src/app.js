@@ -105,8 +105,8 @@ var conexion = mysql2.createConnection({
 
 
 // ponemos a escuchar el servidor
-app.listen(process.env.PORT || 3041, () =>  // si subimos a un hosting este nos dará el puerto, sinó sera 3041
-console.log('Servidor corriendo en http://localhost:3041')
+app.listen(process.env.PORT || 3044, () =>  // si subimos a un hosting este nos dará el puerto, sinó sera 3041
+console.log('Servidor corriendo en http://localhost:3044')
 );
 
 // subido a RENDER  como  https://stoneblack.onrender.com
