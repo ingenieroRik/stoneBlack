@@ -46,21 +46,32 @@
                     <input outline="none" type="text" name="descripcion" class="form-control" id="descripcion"
                         placeholder="Descripcion de articulo" value="<%= Productos.descripcion %>" required />
                 </div>
-                <!-- FOTO DE PRODUCTO -->
+                <!-- FOTOS DE PRODUCTO -->
                 <div class="foto">
+                    <label for="foto">Fotos de producto:</label>
+                    <input type="file" name="img" value=""
+                        class="form-control" id="img" multiple="multiple" accept="image/*" />
+                </div>
+
+
+
+                <!-- FOTO DE PRODUCTO -->
+                <!--<div class="foto">
                     <label for="foto">Fotos de producto:</label>
                     <input type="text" name="img" id="img" class="form-control" value="<%= Productos.img %>"/>
-                </div>
+                </div>-->
                 <!-- FOTO DE PRODUCTO 2-->
-                <div class="foto">
+                <!--<div class="foto">
                     <label for="foto">Fotos de producto:</label>
                     <input type="text" name="uri_foto2" id="img2" class="form-control" placeholder="Introduce tu URL" value="<%= Productos.uri_foto2 %>"/>
-                </div>
+                </div>-->
                 <!-- FOTO DE PRODUCTO 3-->
-                <div class="foto">
+                <!--<div class="foto">
                     <label for="foto">Fotos de producto:</label>
                     <input type="text" name="uri_foto3" id="img3" class="form-control" placeholder="Introduce tu URL" value="<%= Productos.uri_foto3 %>"/>
-                </div>
+                </div>-->
+
+
                 <!-- PRECIO ARTICULO -->
                 <div>
                     <label for="">Precio articulo:</label>

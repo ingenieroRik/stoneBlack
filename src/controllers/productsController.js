@@ -59,10 +59,11 @@ const productsController = {
 
   procesoEdicion: async (req, res) => {
     let productoId = req.params.id;
-
+    
      await Productos
     .update(
-      {
+      {  
+        /*
       id: req.body.id,
       nombre: req.body.nombre,
       imagenUsuario: req.body.img,
@@ -73,13 +74,28 @@ const productsController = {
       color: req.body.color,
       uri_foto2: req.body.uri_foto2,
       uri_foto3: req.body.uri_foto3
+     */
+     
+      id: req.body.id,
+      nombre: req.body.nombre,
+      img: req.files ? req.files[0].filename : " ",
+      descripcion: req.body.descripcion,
+      precio: req.body.precio,
+      descuento: req.body.descuento,
+      talle: req.body.talle,
+      color: req.body.color,
+      uri_foto2: req.files ? req.files[1].filename : " ",
+      uri_foto3: req.files ? req.files[2].filename : " ",
+    
     },
     {
       where: {id: productoId}
-    }).then
+    });
 
-     return res.redirect("/listadoProductos.ejs")
+    var remerasTodas =  await db.Productos.findAll();
+    return res.render("./productos/listadoProductos.ejs", {allProducts: remerasTodas});
   
+    //return res.redirect("/");
   },
   
   buscarProd: async (req, res) => {
@@ -127,7 +143,7 @@ const productsController = {
     /* const remeras = JSON.parse(fs.readFileSync(remerasFilePath, "utf-8")); */
     let errors = validationResult(req);
      /* console.log(req.files[0]) */
-     console.log(req.files[1]) 
+     //console.log(req.files[1]) 
      /* console.log(req.files[2]) */
  
 
@@ -141,12 +157,12 @@ const productsController = {
                   talle: req.body.talle,
                   color: req.body.color,
                   uri_foto2: req.files ? req.files[1].filename : " ",
-                  uri_foto3:  req.files ? req.files[2].filename : " ",
+                  uri_foto3: req.files ? req.files[2].filename : " ",
     })
     
     return res.render("./productos/creacionProduct");
     } else {
-      console.log(Productos.PRIMARY)
+      //console.log(Productos.PRIMARY)
      return res.render("./productos/creacionProduct", 
 			{errors: errors.array(),
 			old: req.body })

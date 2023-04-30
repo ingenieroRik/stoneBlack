@@ -173,10 +173,13 @@ const userController = {
 
   // ****************************************************************************************************************
   listarUsuarios: (req, res) => {
-    db.Usuarios.findAll({
-      where: { rol: "usuario" }, //<---- busco en la tabla usuarios si existe el mail que viene del body
-      raw: true, // <-------  se agrega para que no traiga todos los metadatos que no usamos
+    db.Usuarios.findAll({ 
+              where: { rol: "usuario" }, //<---- busco en la tabla usuarios si existe el mail que viene del body
+              raw: true,                 // <-------  se agrega para que no traiga todos los metadatos que no usamos
+
+              order : [['nombre_y_apellido' ,'ASC']]   // ordenado alfabeticamente
     })
+
       .then((usuarios) => {
         return res.render("./usuarios/listaUsuarios.ejs", {
           usuariosSolos: usuarios,
@@ -191,7 +194,8 @@ const userController = {
   listarTodos: (req, res) => {
     db.Usuarios.findAll({
       where: { rol: { [Op.ne]: "supervisor" } }, //el supervisor no debe aparecer en la lista
-      raw: true, // <-------  se agrega para que no traiga todos los metadatos que no usamos
+      raw: true,                                 // <-------  se agrega para que no traiga todos los metadatos que no usamos
+      order : [['nombre_y_apellido' ,'ASC']]    // ordenado alfabeticamente
     })
       .then((usuariosTodos) => {
         return res.render("./usuarios/listaTodosUsuarios.ejs", {
@@ -504,7 +508,7 @@ procesoEdicionUsuarioUser: async (req, res) => {
   // ***********************************************************************************************************
   enviarMail : async (req, res) => {
     const email = req.body.email;
-    const clave = 1111;
+    //const clave = 1111;
     //const mensaje1 = "Hola";
 
     console.log("entro a enviar mail a :" + email)
@@ -533,8 +537,8 @@ procesoEdicionUsuarioUser: async (req, res) => {
         port: 465,
         secure: true,
         auth: {
-            user: 'ingenierorik@gmail.com',
-            pass: ''  //<------------- aca va la clave
+          user: process.env.USER ,//<-------------  mail desde donde se envia
+          pass: process.env.PASS  // <-----------  clave proporcionada por gamil
         },
         tls: {
             rejectUnauthorized: false
@@ -564,6 +568,7 @@ procesoEdicionUsuarioUser: async (req, res) => {
     // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
 
     //res.send("el mail se envió correctamente");
+    const clave1111 ="1111";
 
      await db.Usuarios.update(
       {

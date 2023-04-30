@@ -28,9 +28,11 @@ function productosEnElCarrito() {
           // lo hago con findindex que si encuentra un valor con esa propiedad devuelve el id de esa propiedad
           // y sinó devuelve -1
           let index = carrito.findIndex((prod) => prod.id == e.target.dataset.id); //
-          
+       
           if (index != -1) {
             carrito[index].cantidad = carrito[index].cantidad + 1;   // le sumo uno al carrito
+
+           
           } else {
             // sino lo agrego con push
             carrito.push({ id: e.target.dataset.id, cantidad: 1 });

@@ -80,7 +80,7 @@ function removeItem(index) {
               cantidad: item.cantidad,
             });
 
-            console.log(products);
+            //console.log(products);
 
           } else {
             carrito.splice(index, 1);
