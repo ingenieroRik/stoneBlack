@@ -7,25 +7,10 @@ function productosEnElCarrito() {
   }
   
   window.addEventListener("load", function () {
-    //  Animations initialization 
-    //new WOW().init();
-  
-
-    /* Toastr Initialization */
-    /*
-    toastr.options = {
-      positionClass: "toast-bottom-right",
-      fadeIn: 300,
-      fadeOut: 1000,
-      timeOut: 5000,
-      extendedTimeOut: 1000,
-    };
-    */
+    
     /* Selecciono todos los productos de la página */
     let botonesComprar = document.querySelectorAll(".agregar_carrito");
 
-    
-  
     /* Creo un event listener por cada boton */
     botonesComprar.forEach((producto) => {
       // escuchar el click
@@ -35,8 +20,6 @@ function productosEnElCarrito() {
 
         console.log(e);
      
-
-    
         // ¿hay carrito en el localstorage?
         if (localStorage.carrito) {
           // veremos que hacemos si  ya hay carrito
@@ -46,12 +29,6 @@ function productosEnElCarrito() {
           // y sinó devuelve -1
           let index = carrito.findIndex((prod) => prod.id == e.target.dataset.id); //
           
-        
-
-         
-
-
-          //
           if (index != -1) {
             carrito[index].cantidad = carrito[index].cantidad + 1;   // le sumo uno al carrito
           } else {
@@ -66,7 +43,7 @@ function productosEnElCarrito() {
           );
         }
         cartNumber.innerText = productosEnElCarrito();
-        //toastr.success("Se agregó este producto al carrito");
+           alert("Se agregó este producto al carrito");
       });
     });
   
