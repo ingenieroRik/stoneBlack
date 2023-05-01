@@ -53,5 +53,7 @@ function productosEnElCarrito() {
   
     let cartNumber = document.querySelector(".cart-number");
     cartNumber.innerText = productosEnElCarrito();
-    
+
+
+
   });

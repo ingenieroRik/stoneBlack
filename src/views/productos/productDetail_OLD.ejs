@@ -1,3 +1,7 @@
+
+
+
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -7,101 +11,6 @@
     <link rel="stylesheet" href="/css/productDetail.css" /> 
 
     <title>Detalle de Producto</title>
-
-    <style>
-/* custom radio */
-.radio {
-    display: block;
-    position: relative;
-    padding-left: 35px;
-    margin-bottom: 12px;
-    cursor: pointer;
-    height: 35px;
-    line-height: 50px;   
-    margin-right: 3%;
-    margin-top: 1%;  
-}
-
-/* create custom radio */
-.radio1 .check {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 30px;
-    width: 30px;
-    background-color:red;
-    border: 1px solid red;
-    border-radius: 50%;
-}
-.radio2 .check {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 30px;
-    width: 30px;
-    background-color:black;
-    border: 1px solid black;
-    border-radius: 50%;
-}
-.radio3 .check {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 30px;
-    width: 30px;
-    background-color:gray;
-    border: 1px solid gray;
-    border-radius: 50%;
-}
-.radio4 .check {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 30px;
-    width: 30px;
-    background-color:white;
-    border: 1px solid black;
-    border-radius: 50%;
-}
-/* on mouse-over, add border color */
-.radio1:hover input ~ .check {
-    border: 3px solid black;
-}
-.radio2:hover input ~ .check {
-    border: 3px solid white;
-    
-}
-.radio3:hover input ~ .check {
-    border: 3px solid black;
-}
-.radio4:hover input ~ .check {
-    border: 3px solid black;
-}
-/* add background color when the radio is checked */
-.radio1 input:checked ~ .check {
-    background-color: red;
-  
-    height: 45px;
-    width: 45px;
-}
-.radio2 input:checked ~ .check {
-    background-color: black;
-   
-    height: 45px;
-    width: 45px;
-}
-.radio3 input:checked ~ .check {
-    background-color: gray;
-   
-    height: 45px;
-    width: 45px;
-}
-.radio4 input:checked ~ .check {
-    background-color: white;
-    height: 45px;
-    width: 45px;
-}
-    </style>
 </head>
 
 <body>
@@ -146,7 +55,7 @@
         <!-- TALLES -->       
         <div class="talle talle1">
             <div class="caja-talles">
-             <h4 style="margin-right: 10px; margin-top: 3px;">ELEGI TU TALLE:</h4>
+             <h4>ELEGI TU TALLE:</h4>
              <select id="talle" name="talle">
                 <option class="listado-talles" value="S">S</option>
                 <option  class="listado-talles" value="M">M</option>
@@ -158,52 +67,12 @@
 
         <!-- COLORES -->
         <div class="talle talle1">
-            <h4>AHORA TU COLOR:</h4>
+            <h4 style="margin-right: 10px; margin-top: 3px;">AHORA TU COLOR:</h4>
             <div class="caja-talles">
-
-
-                <label class="radio1 radio">
-                    
-                    <input type="radio"  name="radio" 
-                    
-                    <% if (Productos.color == "Rojo") {%>
-                    checked="<%="checked" %>" <% } %>>
-                    <span class="check"></span>
-                </label>
-
-                <label class="radio2 radio">
-                    <input type="radio" name="radio"
-                    <% if (Productos.color == "Negro") {%>
-                        checked="<%="checked" %>" <% } %>>
-                    <span class="check"></span>
-                </label>
-
-                <label class="radio3 radio">
-                    <input type="radio" name="radio"
-                    <% if (Productos.color == "Gris") {%>
-                        checked="<%="checked" %>" <% } %>>
-                    <span class="check"></span>
-                </label>
-
-                <label class="radio4 radio">
-                    <input type="radio" name="radio"
-                    <% if (Productos.color == "Blanco") {%>
-                        checked="<%="checked" %>" <% } %>>
-                    <span class="check"></span>
-                </label>
-
-
-
-            <!-- 
-           <input class="listado-color1"  type="radio" id="Rojo" name="color" value="Rojo" >
-           <span class="check"></span>
-            <input type="radio" class="listado-color2" id="Negro" name="color" value="Negro" checked="checked">
-            <input type="radio" class="listado-color3" id="Gris" name="color" value="Gris">
-            <input type="radio" class="listado-color4" id="Blanco" name="color" value="Blanco">
-             -->
-
-
-
+            <label for="Rojo" id="label" class="listado-color1"><input type="checkbox" id="Rojo" name="color" value="Rojo"></label>
+            <label for="Negro" id="label" class="listado-color2"><input type="checkbox" id="Negro" name="color" value="Negro"></label>
+            <label for="Gris" id="label" class="listado-color3"><input type="checkbox" id="Gris" name="color" value="Gris"></label>
+            <label for="Blanco" id="label" class="listado-color4"><input type="checkbox" id="Blanco" name="color" value="Blanco"></label>
             </div>
         </div>
 
@@ -265,4 +134,4 @@
 
 </body>
 
-</html>
+</html> 
