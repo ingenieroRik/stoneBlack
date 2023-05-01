@@ -508,7 +508,7 @@ procesoEdicionUsuarioUser: async (req, res) => {
   // ***********************************************************************************************************
   enviarMail : async (req, res) => {
     const email = req.body.email;
-    //const clave = 1111;
+    const clave = 1111;
     //const mensaje1 = "Hola";
 
     console.log("entro a enviar mail a :" + email)
