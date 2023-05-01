@@ -48,8 +48,9 @@ let rutaUsuarios = require('./routers/rutaUsuarios.js');
 let rutaProductos = require ('./routers/rutaProductos.js');
 
 //Aquí llamo a la ruta de las api de usarios para consumir en el dashboard con react
-const apiUsuariosRouter = require('./routers/api/usuarios.js')
-const apiProductosRouter = require('./routers/api/productos.js')
+const apiUsuariosRouter = require('./routers/api/usuarios.js');
+const apiProductosRouter = require('./routers/api/productos.js');
+const apiVentasRouter = require('./routers/api/ventas.js');
 
 //Aqui llamo a la ruta para la api de consumo del carrito
 const apiController = require('./routers/api.js')
@@ -62,6 +63,7 @@ app.use(rutaProductos);
 //Aquí creo los recursos de mis APIs para consumir en el dashboard con react
 app.use('/api/usuarios', apiUsuariosRouter);
 app.use("/api/productos", apiProductosRouter);
+app.use("/api/ventas", apiVentasRouter);
 
 //Aquí creo los recursos de mi API local
 app.use('/api/product', apiController);
