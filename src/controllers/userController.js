@@ -538,7 +538,7 @@ procesoEdicionUsuarioUser: async (req, res) => {
         secure: true,
         auth: {
           user: process.env.USER ,//<-------------  mail desde donde se envia
-          pass: process.env.PASS  // <-----------  clave proporcionada por gamil
+          pass: process.env.PASS  // <-----------  clave proporcionada por gmail
         },
         tls: {
             rejectUnauthorized: false
