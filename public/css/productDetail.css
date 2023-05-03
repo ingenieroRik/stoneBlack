@@ -47,14 +47,16 @@ display: none;
   align-items: center;
 }
 
-.titulo-articulo {
-  
+.titulo-articulo, .precio-articulo {
+  font-size: 26px;
   margin: 7px;
+  color: var(--granite-gray);
+  padding-top: 15px;
 }
 
 .precio-articulo {
-  margin: 7px;
-  font-size: 14px;
+  font-size: 32px;
+  padding-bottom: 10px;
 }
 /* MENU DERECHA */
 

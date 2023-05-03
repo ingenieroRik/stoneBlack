@@ -59,7 +59,7 @@ body {
   color:var(--black-coral);
 }
   .titulo {
-   
+   color: var(--gris);
     text-align: center;
     margin: auto;
     padding-top: 15px;
@@ -103,12 +103,14 @@ body {
     margin-top: 8px;
   }
 
-  .descuento {
-    color: var(--verde);
-    font-size:14px ;
+  .descuento, .descripcion, .precio {
+    color: var(--gris);
+    font-size:24px ;
+    padding-top: 8px;
+    padding-bottom: 8px;
   }
   .descripcion {
-    font-size: 12px;
+    padding-top: 30px;
   }
   
   /*  tablets    */

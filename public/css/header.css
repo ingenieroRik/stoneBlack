@@ -246,7 +246,7 @@ label, .foto {
 .marquesina {
 	position: fixed; /* <--- posicion fija arriba */
 	height: 40px;
-	background-color: var(--independence);
+	background-color: var(--granite-gray);
 	color: white;
 	padding-top:12px ;
   }
@@ -282,7 +282,7 @@ label, .foto {
 	margin-left:auto;
   }
   .lupa1 {
-	color:#7c7071;
+	color:var(--silver-chalice);
    }
   .lupa-logged {
 	display: none;
@@ -291,7 +291,7 @@ label, .foto {
 	margin-left:auto;
   }
   .carrito {
-	color:#7c7c7c;
+	color: var(--silver-chalice);
 	margin-left: 25px;
 	font-size: 20px;
   }

@@ -75,24 +75,13 @@ main {
   color:var(--independence); 
   margin-top: 8px;
 }
-.circulo {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: solid 1px var(--independence);
-  text-align: center;
-  margin: auto;
-  font-size: 24px;
-}
-.circulo:hover {
-  color:blue;
-  transform: scale(1.2);
-}
+
 .mostrar-mas {
   width: 100%;
   margin: auto;
   text-align: center;
   padding-top: 25px;
+  padding-bottom: 25px;
   color: var(--black-coral);
   font-size: 24px;
 }
@@ -100,13 +89,18 @@ main {
   color:#7c7071;
   font-weight: bold;
 }
-.descuento {
-  color: var(--verde);
-  font-size:14px ;
+.descuento, .precio, .descripcion{
+	color: var(--silver-chalice);
+  font-size:24px ;
+  padding-top: 15px;
+  padding-bottom: 15px;
+
 }
-.descripcion {
-  font-size: 12px;
+.precio{
+font-size: 32px;
+
 }
+
 
 /*  tablets    */
 @media (min-width:426px){
