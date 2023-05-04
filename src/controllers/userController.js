@@ -557,33 +557,43 @@ procesoEdicionUsuarioUser: async (req, res) => {
       
 
 
+    try {
+      let info = await transporter.sendMail(mensaje);
 
-    let info = await transporter.sendMail(mensaje);
+   
 
-    console.log("mensaje enviado");
-    // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
+      console.log("mensaje enviado");
+      // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
 
-    // Preview only available when sending through an Ethereal account
-    console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
-    // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
+      // Preview only available when sending through an Ethereal account
+      console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+      // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
 
-    //res.send("el mail se envió correctamente");
-    const clave1111 ="1111";
+      //res.send("el mail se envió correctamente");
+      const clave1111 ="1111";
 
-     await db.Usuarios.update(
-      {
-         clave: bcryptjs.hashSync(clave1111, 10), // <------------ se encripta la clave
-      },
-      {
-        where: {  email : email}, 
-      }
-    ).then
+        await db.Usuarios.update(
+          {
+            clave: bcryptjs.hashSync(clave1111, 10), // <------------ se encripta la clave
+          },
+          {
+            where: {  email : email}, 
+          }
+        )
 
-    return res.render("./usuarios/formOlvidoClave.ejs", {
-      
-      errors: { pieForm: { msg: "El mail se envió correctamente" } },
+        return res.render("./usuarios/formOlvidoClave.ejs", {
+          
+          errors: { pieForm: { msg: "El mail se envió correctamente" } },
+        })
+
+
+        } catch {
+
+          return res.redirect ("/")
+
+    }
     
-    })
+   
 
 }
 
