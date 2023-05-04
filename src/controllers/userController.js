@@ -589,7 +589,9 @@ procesoEdicionUsuarioUser: async (req, res) => {
 
         } catch {
 
-          return res.redirect ("/")
+          return res.render("./usuarios/formOlvidoClave.ejs", {
+          
+            errors: { pieForm: { msg: "El mail no se pudo enviar" } },
 
     }
     
