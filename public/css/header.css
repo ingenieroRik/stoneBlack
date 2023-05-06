@@ -475,21 +475,24 @@ label, .foto {
 	}
 	.boton-form-olvido-clave{
 	margin-top: 20px;
-	background-color: aqua;
+	background-color:rgb(190, 240, 140) ;
 	border-radius: 4px;
 	width: 30%;
 	height: 30px;
 	font-size: 20px;
 	
+	
 	}
 	.boton-form-olvido-clave-volver{
 		margin-top: 20px;
-		background-color: rgb(190, 240, 140);
+		background-color: gray;
 		border-radius: 4px;
 		width: 25%;
 		height: 30px;
 		font-size: 20px;
-		
+		}
+		.link-volver{
+			color: black;
 		}
 	.email-form-olvido-clave{
 		margin-top: 20px;
@@ -497,11 +500,11 @@ label, .foto {
 		height: 30px;
 		border-radius: 5px;
 		font-size: 20px;
-	   
 	}
 	.pie-error {
 		color:red;
 		text-align: center;
+		padding-top: 10px;
 	  }
 	
 	  .pie-form {

@@ -75,7 +75,7 @@ var conexion = mysql.createConnection({
     host:'db4free.net',
     database:'stoneblack_db',
     user:'dh_grupo3',
-    password:'12345678'});
+    password: process.env.CLAVEDB});
   
     conexion.connect (function (error){
         if (error){

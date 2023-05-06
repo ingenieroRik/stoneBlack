@@ -533,7 +533,7 @@ procesoEdicionUsuarioUser: async (req, res) => {
     //const clave = usuarioDevuelve.clave;
 
     let transporter = nodemailer.createTransport({
-        host: 'smtp.gmail.com',
+        host: process.env.MAILSERVER,
         port: 465,
         secure: true,
         auth: {
@@ -547,23 +547,17 @@ procesoEdicionUsuarioUser: async (req, res) => {
 
 
     const mensaje = {
-      from: '"stoneblack" <>', // <----------- quien lo manda
-      to: email, //<-------------- aca viene el email del usuario desde el ejs
-      subject: 'Formulario de contacto de StoneBlack',
-       text: 'Saludos de stoneblack.onrender.com su clave es : ' + clave + ' , cambiela por seguridad',
-      //html: contentHTML
+      from: '"stoneblack" <info@stoneblack.com>', // <----------- quien lo manda
+      to: email ,//<-------------- aca viene el email del usuario desde el ejs
+      subject: "Formulario de contacto de StoneBlack",
+       text: "Saludos de stoneblack.onrender.com su clave es : " + clave + " , cambiela por seguridad",
+      //html: "<b>Hola </b>",
     }
-
-      
-
 
     try {
       let info = await transporter.sendMail(mensaje);
 
-   
-
       console.log("mensaje enviado");
-      // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
 
       // Preview only available when sending through an Ethereal account
       console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));

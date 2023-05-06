@@ -118,7 +118,7 @@ main{
     justify-content: space-evenly
 }
 
-.boton {
+.boton-comprar-logged, .boton {
     height: 60px;
     width: 250px;
     font-size: 26px;
@@ -128,10 +128,11 @@ main{
     background-color: rgb(106, 217, 128);
     padding-bottom:5px;
     margin-top: 40px;
+    text-decoration: none;
   
 }
-.boton2{
-    text-decoration: none;
+.boton-comprar-nologged{
+   text-decoration: none;
     color: black;
 }
 .barra-menu,  .lupa,  .carrito-compras{
