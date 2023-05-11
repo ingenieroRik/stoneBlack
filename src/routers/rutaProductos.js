@@ -75,6 +75,8 @@ router.delete('/delete/:id', adminMiddleware, productsController.destroy); //<--
 //procesa el pedido get con ruta /product-cart  <------ ese nombre va en el action del HTML
 router.get ('/product-cart', productsController.detalleCarrito);
 
+//muestra el pedido despues de realizar la compra
+router.get("/ordenCompra", productsController.pedido);
 
 
 //exportamos la variable router ya con todas las rutas guardadas, que se usará en app.js

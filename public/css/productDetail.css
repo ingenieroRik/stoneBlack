@@ -205,7 +205,7 @@ display: none;
 
 .descripcion-articulo p {
   margin-top: 10px;
-  font-size: 12px;
+  font-size: 16px;
 }
 
 
@@ -296,6 +296,113 @@ color: var(--celeste);
   .select-css option {
     font-weight:normal;
   }
+
+ 
+/* custom radio */
+.radio {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  height: 35px;
+  line-height: 50px;   
+  margin-right: 3%;
+  margin-top: 1%;  
+}
+
+/* create custom radio */
+.radio1 .check {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 30px;
+  width: 30px;
+  background-color:red;
+  border: 1px solid red;
+  border-radius: 50%;
+
+}
+.radio2 .check {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 30px;
+  width: 30px;
+  background-color:black;
+  border: 1px solid black;
+  border-radius: 50%;
+
+
+}
+.radio3 .check {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 30px;
+  width: 30px;
+  background-color:gray;
+  border: 1px solid gray;
+  border-radius: 50%;
+
+}
+.radio4 .check {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 30px;
+  width: 30px;
+  background-color:white;
+  border: 1px solid black;
+  border-radius: 50%;
+
+
+}
+/* on mouse-over, add border color */
+.radio1:hover input ~ .check {
+  border: 3px solid black;
+  
+}
+.radio2:hover input ~ .check {
+  border: 3px solid white;
+  
+}
+.radio3:hover input ~ .check {
+  border: 3px solid black;
+  
+}
+.radio4:hover input ~ .check {
+  border: 3px solid black;
+  
+}
+/* add background color when the radio is checked */
+.radio1 input:checked ~ .check {
+  background-color: red;
+  
+ height: 45px;
+  width: 45px;
+}
+.radio2 input:checked ~ .check {
+  background-color: black;
+ 
+  height: 45px;
+  width: 45px;
+}
+.radio3 input:checked ~ .check {
+  background-color: gray;
+
+  height: 45px;
+  width: 45px;
+}
+.radio4 input:checked ~ .check {
+  background-color: white;
+  height: 45px;
+  width: 45px;
+ 
+}
+
+
+
 
   /*-- TABLET --*/
 

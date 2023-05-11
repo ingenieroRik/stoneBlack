@@ -212,6 +212,13 @@ const productsController = {
       });
   },
 
+  pedido: async function (req, res) {
+    let ventas = await db.Ventas.findByPk(req.params.id, {
+      include: db.Ventas.Productos_por_venta,
+    });
+    // res.send(order);
+    return res.render("ordenCompra", { ventas });
+  }
 
 
 

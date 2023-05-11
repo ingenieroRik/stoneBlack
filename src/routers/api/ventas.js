@@ -9,6 +9,7 @@ const ventasAPIController = require('../../controllers/api/ventasAPIController')
 router.get('/', ventasAPIController.list);
 //Detalle por usuario
 //router.get('/:id', ventasAPIController.detail);
-
+router.post ("/checkout", ventasAPIController.checkout);  //<-----------  para la compra del carrito
+//router.get ("/checkout", ventasAPIController.checkout);
 
 module.exports = router;

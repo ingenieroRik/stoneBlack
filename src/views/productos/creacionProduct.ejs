@@ -22,6 +22,16 @@
             <h2 class="titulo-principal">SUBI TU NUEVO PRODUCTO:</h2>
         </div>
         <section>
+               
+             <!-- para indicar si se cargo bien -->
+                     
+             <%  if (locals.err && err.pieFormCreateProd) {  %> 
+    
+                <div name="pieFormCreateProduct">
+                    <p class="pie-form-crear-prod" ><%= err.pieFormCreateProd.msg %> </p>
+                </div>
+                <% } %> 
+
             <!-- forEach PARA MOSTRAR MSG DE ERRORES -->
              <%if (locals.errors) { errors.forEach(error=> { %>
                 <p class="errores" style="color: blue">
@@ -55,13 +65,13 @@
                                 <label for="">Talle de artículo:</label>
                                 <br>
                                 <input type="radio" name="talle" class=""
-                                                         value="s" id="color"> S<br>
+                                                         value="S" id="color"> S<br>
                                 <input type="radio" name="talle" class=""
-                                                        value="m" id="color"> L<br>
+                                                        value="M" id="color"> L<br>
                                 <input type="radio" name="talle"class=""
-                                                        value="l" id="color"> M<br>
+                                                        value="L" id="color"> M<br>
                                 <input type="radio" name="talle" class=""
-                                                         value="xl" id="color"> XL<br>
+                                                         value="XL" id="color"> XL<br>
 
 
 
@@ -98,6 +108,18 @@
                                     value="<%= locals.old && old.color ? old.color : '' %>" id="color" />
                               -->
                             </div>
+
+
+                            <!-- CANTIDAD DE ARTICULOS -->
+                            <div>
+                                <label for="foto">Cantidad:</label>
+                                <input type="text" name="cantidad"
+                                    value="<%= locals.old && locals.cantidad ? old.cantidad : '' %>"
+                                    placeholder="Cantidad de articulos" class="form-control" id="cantidad" />
+                            </div>
+
+
+
 
                             <!-- PRECIO ARTICULO -->
                             <div>
@@ -150,6 +172,10 @@
                             </div>
                         </div>
                     </form>
+
+
+                    
+                    
         </section>
     </main>
     <script src="/js/creacionProduct.js"></script>

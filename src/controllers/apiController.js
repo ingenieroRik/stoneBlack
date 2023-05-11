@@ -14,7 +14,7 @@ const db = require("../database/models");
     let order = await db.Ventas.create(
       { ...req.body, userId: req.session.userLogged.id },
       {
-        include: db.Ventas.OrderItems,
+        include: db.Ventas.Productos_por_venta,
       }
     );
     res.json({ ok: true, status: 200, order: order });

@@ -22,6 +22,46 @@ const ventasAPIController = {
                 res.json(respuesta);
             })
     },
+
+    checkout: async function (req, res) {
+        //return res.send({ ...req.body, userId: JSON.parse(req.session.usuarioLogueado.id)});
+        
+        
+        
+        let order = await db.Ventas.create(
+          { ...req.body, id_usuario: req.session.usuarioLogueado.id },
+          {
+            include: db.Ventas.Productos_por_venta,
+          }
+        );
+        res.json({ ok: true, status: 200, order: order });
+
+        
+      },
+
+       /*
+    'checkout': (req, res) => {
+       
+         db.Ventas.create(
+          { ...req.body, userId: req.session.userLogged.id },
+          {
+            include: db.Ventas.Productos_por_venta,
+          }
+        ).then(ventas => {
+            let respuesta = {
+                meta: {
+                    status : 200,
+                    total: ventas.total,
+                    url: '/api/ventas/checkout'
+                },
+                data: ventas
+            }
+
+
+        res.json({ ok: true, status: 200, order: ventas });
+      })
+    }
+
     /*
     'detail': (req, res) => {
         db.Usuarios.findByPk(req.params.id,{attributes :["id" ,  "nombre_y_apellido" ,"nombre_usuario",  "email", "uri_avatar"]} ) 

@@ -19,7 +19,8 @@ let alias = "Productos";
     descuento:{type: DataTypes.DECIMAL, notNull: true},  
     img: {type: DataTypes.STRING(1000) },
     uri_foto2: {type: DataTypes.STRING(1000) },
-    uri_foto3: {type: DataTypes.STRING(1000) }
+    uri_foto3: {type: DataTypes.STRING(1000) },
+    cantidad: {type: DataTypes.INTEGER, notNull : true}
         };
  let config =  {
     tableName : 'productos',

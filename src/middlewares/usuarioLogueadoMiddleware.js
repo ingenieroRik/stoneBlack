@@ -7,6 +7,9 @@ async function usuarioLogueadoMiddleware (req, res,next){
     if (req.session  && req.session.usuarioLogueado){ 
         res.locals.isLogged = true;
         res.locals.usuarioLogueado = req.session.usuarioLogueado;
+        
+        //console.log("usuario logueado :" + JSON.parse(req.session.usuarioLogueado.id));
+
     } else {
             res.locals.isLogged = false;
 
