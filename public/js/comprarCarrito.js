@@ -104,7 +104,7 @@ let formCheckout = document.querySelector("#checkoutCart");
 formCheckout.onsubmit = (e) => {
   e.preventDefault();
   const formData = {
-    //productos_por_ventas: products,  //aca uso la asociacion del modelo de la tabla Ventas (ventas.js) con la tabla Productos_por _ventas
+    productos_por_venta: products,  //aca uso la asociacion del modelo de la tabla Ventas (ventas.js) con la tabla Productos_por _ventas
     //paymentMethod: formCheckout.paymentMethod.value,
     //shippingMethod: formCheckout.shippingMethod.value,
     fecha : Date(),
@@ -122,19 +122,22 @@ formCheckout.onsubmit = (e) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(formData),
+   
   })
     .then((r) => r.json())
     .then((res) => {
+
+
+      console.log(res);
+      alert("Confirmar compra");
+
       if (res.ok) {
-        //borro el carrito
+        //borro el carrito    
         vaciarCarrito();
-        //location.href = `/ordenCompra/${res.ventas.numero_factura}?creado=true`;
-        //location.href = `/ordenCompra`;
+        //location.href = `/`;  // despues de comprar va al inicio
 
-        alert("Confirmar compra");
-        location.href = `/`;  // despues de comprar va al inicio
-
-
+        location.href = `./ordenCompra/${res.ventas.numero_factura}`;// despues de comprar va a la orden de compra
+        //location.href = `./ordenCompra`
       } else {
         alert("No se pudo realizar la compra, intente mas tarde");
       }

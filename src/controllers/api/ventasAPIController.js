@@ -28,13 +28,13 @@ const ventasAPIController = {
         
         
         
-        let order = await db.Ventas.create(
+        let ventas = await db.Ventas.create(
           { ...req.body, id_usuario: req.session.usuarioLogueado.id },
           {
             include: db.Ventas.Productos_por_venta,
           }
         );
-        res.json({ ok: true, status: 200, order: order });
+        res.json({ ok: true, status: 200, ventas: ventas });
 
         
       },

@@ -98,6 +98,9 @@ router.get ('/formUsuario/:id', userController.editarUsuarioAdmin);
 //procesa el pedido post con ruta /formUsuario ------> ese nombre va en el action del HTML
 router.put ('/formUsuario/:id', upload.single("imagenUsuarioEditada"), userController.procesoEdicionUsuarioAdmin);
 
+//procesa el pedido del perfil de usuario 
+router.get ('/perfilUsuario/:id', userController.perfilUsuario);
+
 
 // *************** eliminar un usuario *********************
 //procesa el pedido delete con ruta /listaUsuarios  <------ ese nombre va en el action del HTML

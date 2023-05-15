@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <%- include('../partials/head') %>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link  rel="stylesheet" href="/css/perfilUsuario.css">
+</head>
+
+<body>
+   
+    <%- include('../partials/header') %>
+       
+        <main class="mt-5 pt-4">
+            <div class="container wow fadeIn animated">
+                <h2 class="mt-5 mb-3 h2 text-center">
+                    Perfil de <%= locals.usuarioLogueado.nombre_y_apellido %>
+                </h2>
+                <div class="card mb-5">
+                    <div class="card-header">
+                        Mis Datos
+                    </div>
+                    <div class="card-body">
+                        <p><span class="font-weight-bold mr-2">Nombre: </span>
+                            <%= locals.usuarioLogueado.nombre_y_apellido %>
+                        </p>
+                        <p><span class="font-weight-bold mr-2">Email: </span>
+                            <%= locals.usuarioLogueado.email %>
+                        </p>
+                        <a href="/formEditarUsuario/<%= usuarioLogueado.id %>" class="btn btn-info ml-0">Editar mi perfil</a>
+                        <a href="/" class="btn btn-danger ml-0">Volver</a>
+                    </div>
+                </div>
+                <div class="card mb-5">
+                    <div class="card-header">
+                        Mis Pedidos
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-responsive-md mb-0">
+                            <thead>
+                                <tr>
+                                    <th >
+                                        <strong>Numero de Factura</strong>
+                                    </th>
+                                    <th class="th-lg">
+                                        <strong>Fecha</strong>
+                                    </th>
+                                    
+                                    <th>
+                                        <strong>Total</strong>
+                                    </th>
+                                    <th style="width: 50px;"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% ventas.forEach((venta,index)=> { %>
+                                    <tr>
+                                        
+                                        <td>
+                                            <%= venta.numero_factura %>
+                                        </td>
+                                        <td>
+                                            <%= venta.fecha %>
+                                        </td>
+                                        
+                                        
+                                        <td>$ <%= venta.total %>
+                                        </td>
+                                        <td><a class="btn btn-warning btn-sm" href="<%= `/ordenCompra/${venta.numero_factura}` %> "><i
+                                                    class="fas fa-eye"></i></a>
+                                        </td>
+                                    </tr>
+                                    <% }); %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!--Main layout-->
+        <%- include('../partials/footer') %>
+        <script src="/js/carrito.js"></script>
+</body>
+
+</html>

@@ -213,15 +213,30 @@ const productsController = {
   },
 
   pedido: async function (req, res) {
-    let ventas = await db.Ventas.findByPk(req.params.id, {
-      include: db.Ventas.Productos_por_venta,
+
+    //let numero_factura = req.params.id
+    let ventas = await db.Ventas.findAll(
+    {attributes :["numero_factura" ,  "fecha" , "total", "id_usuario"],// * si no restrinjo atributos marca error de campo id 
+    raw: true,// <-------  se agrega para que no traiga todos los metadatos que no usamos
+      where: {numero_factura: req.params.id},
+      include: db.Ventas.Productos_por_venta
+    }
+    );
+    //return res.send("ordenCompra");
+    console.log(req.params.id)
+   
+    console.log(ventas)
+    //console.log(ventas[0].numero_factura)
+    return res.render("./productos/ordenCompra", { ventas : ventas });
+  },
+  /*
+  pedido: (req, res) => {
+    db.Ventas.findByPk(req.params.numero_factura).then((ventas) => {
+      res.render("./productos/ordenCompra.ejs", { ventas: ventas });
     });
-    // res.send(order);
-    return res.render("ordenCompra", { ventas });
-  }
 
-
-
+  },
+  */
 
 
 

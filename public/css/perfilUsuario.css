@@ -1,0 +1,6 @@
+.img-ban, .lupa, .carrito-compras, .burger-menu, .barra-menu {
+    display: none;
+}
+.container {
+    margin-top: 70px;
+}

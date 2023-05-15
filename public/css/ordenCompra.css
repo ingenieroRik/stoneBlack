@@ -1,0 +1,11 @@
+/* header */
+.img-ban, .lupa, .carrito-compras, .burger-menu, .barra-menu {
+    display: none;
+}
+main {
+    margin-top: 10px;
+    padding-bottom: 90px;
+}
+.container {
+    margin-top: 70px;
+}

@@ -419,6 +419,16 @@ procesoEdicionUsuarioUser: async (req, res) => {
       })
       .catch((error) => res.send("No se puede eliminar este usuario, tiene facturas asociadas"));
   },
+  // ****************************************************************************************************
+  perfilUsuario: async function (req, res) {
+    let ventas = await db.Ventas.findAll( {attributes :["numero_factura" ,  "fecha" , "total", "id_usuario"],// * si no restrinjo atributos marca error de campo id 
+    raw: true,
+      where: { id_usuario: req.params.id },
+    });
+    // return res.send(orders);
+    return res.render("./usuarios/perfilUsuario", { ventas });
+  },
+
 
   // **********************************************************************************************************************
   crearDevolucion: async (req, res) => {

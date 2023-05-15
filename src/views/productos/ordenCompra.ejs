@@ -2,58 +2,57 @@
 <html lang="en">
 
 <head>
-    <%- include('./partials/head') %>
+    <%- include('../partials/head') %>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link  rel="stylesheet" href="/css/ordenCompra.css">
 </head>
-
 <body>
-    <%- include('./partials/header') %>
+    <%- include('../partials/header') %>
         <main class="mt-5 pt-4">
             <div class="container wow fadeIn animated">
-                <h2 class="mt-5 mb-3 h2 text-center"> Pedido Nro <%= ventas.numero_factura %>
+                <h2 class="mt-5 mb-3 h2 text-center"> Pedido Nro <%= ventas[0].numero_factura %>
                 </h2>
                 <div class="card my-5">
                     <div class="card-body">
                         <table class="table table-responsive-md mb-0">
                             <thead>
                                 <tr>
-                                    <th style="width: 50px;">
-                                        <strong>#</strong>
-                                    </th>
+                                    
                                     <th class="th-lg">
-                                        <strong>Producto</strong>
+                                        <strong>Fecha</strong>
                                     </th>
                                     <th class="th-lg ">
-                                        <strong>Precio</strong>
+                                        <strong>ID Usuario</strong>
                                     </th>
                                     <th class="text-center">
-                                        <strong>Cantidad</strong>
+                                        <strong>Número Factura</strong>
                                     </th>
                                     <th class="text-center">
-                                        <strong>Subtotal</strong>
+                                        <strong>Total $</strong>
                                     </th>
                                 </tr>
                             </thead>
 
 
-
-                            <!--
+                            <tbody class="cartRows">
+                                <% for( let i=0; i < ventas.length; i++ ) { %>
+                                    
+                                       
 
                             <tbody class="cartRows">
-                                <% for( let i=0; i < order.productos_por_venta.length; i++ ) { %>
+                               
                                     <tr>
-                                        <th scope="row">
-                                            <%= i + 1 %>
-                                        </th>
-                                        <td>
-                                            <%= ventas.productos_por_venta[i].nombre %>
+                                        
+                                        <td >
+                                            <%= ventas[i].fecha %>
                                         </td>
-                                        <td>$ <%= ventas.productos_por_venta[i].precio%>
+                                        <td > <%= ventas[i].id_usuario %>
                                         </td>
                                         <td class="text-center">
-                                            <%= ventas.productos_por_venta[i].cantidad%>
+                                            <%= ventas[i].numero_factura %>
                                         </td>
                                         <td class="text-center">$
-                                            <%= ventas.productos_por_venta[i].precio * ventas.productos_por_venta[i].cantidad%>
+                                            <%= ventas[i].total %>
                                         </td>
                                     </tr>
 
@@ -61,7 +60,7 @@
                             </tbody>
                         </table>
                         <div class="card-footer text-right">
-                            <h2>Total: <span class="totalAmount">$ <%= ventas.total %> </span></h2>
+                            <h2>Total: <span class="totalAmount">$ <%= ventas[0].total %> </span></h2>
                         </div>
                     </div>
                 </div>
@@ -73,27 +72,30 @@
                         <div class="row">
                             <div class=" col-md-6">
                                 <p class="mb-0"><strong>Tipo Envio:</strong>
-                                    <%= ventas.shippingMethod %>
+                                    <%= ventas %>
                                 </p>
                             </div>
                             <div class=" col-md-6">
                                 <p class="mb-0"><strong>Pago:</strong>
-                                    <%= ventas.paymentMethod %>
+                                    <%= ventas %>
                                 </p>
                             </div>
                         </div>
                     </div>
                     <div class="card-footer">
-                        <a href="/profile" class="btn btn-primary btn-block">Volver a mis pedidos</a>
+                        <a href="/" class="btn btn-primary btn-block">Volver al inicio</a>
                     </div>
 
 
-                    -->
+                  
                 </div>
             </div>
         </main>
-        <%- include('./partials/footer') %>
+        <%- include('../partials/footer') %>
+        <script src="/js/carrito.js"></script>
            
 </body>
+
+
 
 </html>
