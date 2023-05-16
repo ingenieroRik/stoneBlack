@@ -209,9 +209,14 @@ const userController = {
 
   // ***********************************************************************************************************
   editarUsuarioAdmin: (req, res) => {
+    try {
+
     db.Usuarios.findByPk(req.params.id).then((usuarioFiltrado) => {
       res.render("./usuarios/formUsuario.ejs", { usuario: usuarioFiltrado });
     });
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
   },
 
   // ************************************************************************************************************************
@@ -318,9 +323,13 @@ procesoEdicionUsuario: (req, res) => {
 */
     // ***********************************************************************************************************
 editarUsuarioUser: (req, res) => {
+  try {
   db.Usuarios.findByPk(req.params.id).then((usuarioFiltrado) => {
     res.render("./usuarios/formEditarUsuario.ejs", { usuario: usuarioFiltrado });
   });
+} catch (error) {
+  return res.status(500).json({ message: error.message });
+}
 },
 
 // ************************************************************************************************************
@@ -421,12 +430,18 @@ procesoEdicionUsuarioUser: async (req, res) => {
   },
   // ****************************************************************************************************
   perfilUsuario: async function (req, res) {
+    try {
     let ventas = await db.Ventas.findAll( {attributes :["numero_factura" ,  "fecha" , "total", "id_usuario"],// * si no restrinjo atributos marca error de campo id 
     raw: true,
       where: { id_usuario: req.params.id },
     });
     // return res.send(orders);
     return res.render("./usuarios/perfilUsuario", { ventas });
+
+
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
   },
 
 

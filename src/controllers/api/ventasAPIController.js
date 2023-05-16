@@ -20,10 +20,13 @@ const ventasAPIController = {
                 data: ventas
             }
                 res.json(respuesta);
-            })
+            }).catch(err => {  
+                res.send(err)
+                });
     },
 
     checkout: async function (req, res) {
+        try {
         //return res.send({ ...req.body, userId: JSON.parse(req.session.usuarioLogueado.id)});
         
         
@@ -36,7 +39,9 @@ const ventasAPIController = {
         );
         res.json({ ok: true, status: 200, ventas: ventas });
 
-        
+    } catch (error) {
+        return res.status(500).json({ message: error.message });
+      }
       },
 
        /*

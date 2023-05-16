@@ -29,6 +29,7 @@ const productsController = {
   // manejo del pedido get con ruta /
 
   detalleProd: async (req, res) => {
+    try {
     const id  = req.params.id;
 
     const ProductosRelacionados = await Productos.findAll()
@@ -37,7 +38,10 @@ const productsController = {
     .then(Productos => {
       res.render("./productos/productDetail", {Productos, ProductosRelacionados})
     })
-    
+
+    } catch (error) {
+      return res.status(500).json({ message: error.message });
+    }
   },
 
   detalleCarrito: (req, res) => {
@@ -47,6 +51,7 @@ const productsController = {
   },
 
   edicionProd: (req, res) => {
+    try {
     const { id } = req.params;
 
     Productos.findByPk(req.params.id)
@@ -54,11 +59,17 @@ const productsController = {
       res.render("./productos/edicionProduct", {Productos})
       
     });
-
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
   },
 
   procesoEdicion: async (req, res) => {
+    try {
     let productoId = req.params.id;
+    } catch (error) {
+      return res.status(500).json({ message: error.message });
+    }
     
      await Productos
     .update(
@@ -99,6 +110,7 @@ const productsController = {
   },
   
   buscarProd: async (req, res) => {
+    try {
     // en loBuscado esta la descripcion que viene del formulario html
     let loBuscado = req.query.buscar.toLowerCase();
     //creo array vacio donde pondremos los productos encontrado
@@ -118,21 +130,27 @@ const productsController = {
         allProducts: resultadoBuscar,
       });
     // sinó indicamos que no hay productos que coincidan
-  } else {
-    return res.render("index.ejs", { allProducts: remerasTodas ,
-      errors:{ buscar: { msg: "No se encontró ningún producto"}}  }) ;
-        }
+        } else {
+          return res.render("index.ejs", { allProducts: remerasTodas ,
+            errors:{ buscar: { msg: "No se encontró ningún producto"}}  }) ;
+              }
 
+      } catch (error) {
+        return res.status(500).json({ message: error.message });
+      }
   },
 
   destroy: async (req, res) => {
+    try {
     let id = req.params.id;
     console.log("entro a borrar");
     await Productos
     .destroy({where: {id: id}, force: true}) // force: true es para asegurar que se ejecute la acción
     
     return res.render("index.ejs", { allProducts: remerasTodas })
-
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
   },
 
   creacionProd: (req, res) => {
@@ -140,6 +158,7 @@ const productsController = {
   },
 
   procesoCreacion: async (req, res) => {
+    try {
     /* const remeras = JSON.parse(fs.readFileSync(remerasFilePath, "utf-8")); */
     let errors = validationResult(req);
      /* console.log(req.files[0]) */
@@ -167,26 +186,42 @@ const productsController = {
 			{errors: errors.array(),
 			old: req.body })
     }
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
   },
+
   listaProduct: async (req, res) => {
+    try {
     var remerasTodas =  await db.Productos.findAll();
     return res.render("./productos/listadoProductos.ejs", {
       allProducts: remerasTodas,
     });
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
   },
 
   listarProd: async (req, res) => {
+    try { 
     var remerasTodas =  await db.Productos.findAll();
     return res.render("./productos/listadoProductos.ejs", {
       allProducts: remerasTodas,
     });
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
   },
 
   listarProdBuscado: async (req, res) => {
+    try {
     var remerasTodas =  await db.Productos.findAll();
     return res.render("./productos/listarProdBuscado.ejs", {
       allProducts: remerasTodas,
     });
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
   },
   
   /*
@@ -198,6 +233,7 @@ const productsController = {
   },
  */
   listarVentas: (req, res) => {
+    try {
     db.Ventas.findAll(
       {attributes :["numero_factura" ,  "fecha" , "total", "id_usuario"]},// * si no restrinjo atributos marca error de campo id
       {raw: true} // <-------  se agrega para que no traiga todos los metadatos que no usamos
@@ -210,10 +246,14 @@ const productsController = {
       .catch((err) => {
         res.send(err);
       });
+
+    } catch (error) {
+      return res.status(500).json({ message: error.message });
+    }
   },
 
   pedido: async function (req, res) {
-
+    try {
     //let numero_factura = req.params.id
     let ventas = await db.Ventas.findAll(
     {attributes :["numero_factura" ,  "fecha" , "total", "id_usuario"],// * si no restrinjo atributos marca error de campo id 
@@ -228,6 +268,10 @@ const productsController = {
     console.log(ventas)
     //console.log(ventas[0].numero_factura)
     return res.render("./productos/ordenCompra", { ventas : ventas });
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+
   },
   /*
   pedido: (req, res) => {

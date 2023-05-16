@@ -20,7 +20,10 @@ const usuariosAPIController = {
                 data: usuarios
             }
                 res.json(respuesta);
-            })
+                
+            }).catch(err => {  
+                res.send(err)
+                });
     },
     
     'detail': (req, res) => {
@@ -36,7 +39,9 @@ const usuariosAPIController = {
                     data: usuarios
                 }
                 res.json(respuesta);
-            });
+            }).catch(err => {  
+                res.send(err)
+                });
     },
 }
     module.exports = usuariosAPIController;

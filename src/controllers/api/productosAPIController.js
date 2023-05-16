@@ -7,6 +7,7 @@ const Op = sequelize.Op;
 
 const productosAPIController = {
   list : (req, res) => {
+    try {
     db.Productos.findAll()
     .then(productos => {
       let respuesta = {
@@ -19,9 +20,13 @@ const productosAPIController = {
       };
       res.json(respuesta);
     });
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
   },
 
   detail: (req, res) => {
+    try {
     db.Productos.findByPk(req.params.id)
       //solo campos id / nombre / nombre_usuario / email / uri_avatar(imágen)
       .then(productos => {
@@ -35,6 +40,9 @@ const productosAPIController = {
         };
         res.json(respuesta);
       });
+    } catch (error) {
+      return res.status(500).json({ message: error.message });
+    }
   },
  
 };

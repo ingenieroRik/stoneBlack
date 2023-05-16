@@ -26,9 +26,14 @@ const Op = sequelize.Op;
 const indexController = {
   //--------------------------------------------------------------------------------------------------------------------
   index: async (req, res) => {
+    try {
     var remeras =  await db.Productos.findAll();
     //return res.render ('index.ejs', {'allProducts':data} ); // data es un archivo js
     return res.render("index.ejs", { allProducts: remeras }); // remeras es un js
+
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
   },
 //--------------------------------------------------------------------------------------------------------------------
   verLogin : (req, res) => {
