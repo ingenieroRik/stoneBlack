@@ -21,25 +21,29 @@ let alias = "Ventas";
     timestamps : false
               }; 
 
-    const venta = sequelize.define(alias, cols, config);
+    const Ventas = sequelize.define(alias, cols, config);
 
-   venta.associate = function (models) {
-         venta.hasMany (models.Devoluciones, { // una venta tiene muchas devoluciones
+   Ventas.associate = function (models) {
+         Ventas.hasMany (models.Devoluciones, { // una venta tiene muchas devoluciones
             as : "devoluciones",                    
             foreignKey : "id"
          })
 
-      venta.belongsTo(models.Usuarios, {  // muchas ventas pertenecen a un ususrio
+      Ventas.belongsTo(models.Usuarios, {  // muchas ventas pertenecen a un ususrio
       as: "usuarios",
       foreignKey: "id",
       });
 
-      venta.hasMany(models.Productos_por_venta, {  // una venta tiene muchos productos_por_venta
+      Ventas.hasMany(models.Productos_por_venta, {  // una venta tiene muchos productos_por_venta
          as: "productos_por_venta",
          foreignKey: "id_venta",
       });
 
+      //Ventas.Productos_por_venta = Ventas.hasMany(models.Productos_por_venta, {
+       //  as: "productos_por_venta"
+     // });
+
    }
 
- 	return venta;
+ 	return Ventas;
 };

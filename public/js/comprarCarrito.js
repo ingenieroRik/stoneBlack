@@ -114,7 +114,7 @@ formCheckout.onsubmit = (e) => {
                                         //vaciarCarrito();  //al comprar vacio el carrito y voy a /
                                         //location.href = `/`;
 
-
+    console.log(formData)
   // para cargar los datos de la venta en la base de datos
   fetch("/api/ventas/checkout", {
     method: "POST",
@@ -128,16 +128,15 @@ formCheckout.onsubmit = (e) => {
     .then((res) => {
 
 
-      console.log(res);
+      //console.log(res);
       alert("Confirmar compra");
 
       if (res.ok) {
         //borro el carrito    
         vaciarCarrito();
-        //location.href = `/`;  // despues de comprar va al inicio
-
-        location.href = `./ordenCompra/${res.ventas.numero_factura}`;// despues de comprar va a la orden de compra
-        //location.href = `./ordenCompra`
+       
+         location.href = `./ordenCompra/${res.ventas.numero_factura}`;// despues de comprar va a la orden de compra
+       
       } else {
         alert("No se pudo realizar la compra, intente mas tarde");
       }
@@ -145,7 +144,7 @@ formCheckout.onsubmit = (e) => {
     .catch((error) => console.log(error));
 
     
-   //console.log(formCheckout.elements, formData, products);
+     console.log(formCheckout.elements, formData, products);
 
 
 

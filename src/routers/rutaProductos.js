@@ -4,6 +4,7 @@ let multer = require('multer');
 let path = require('path')
 const {body} = require('express-validator'); //requiero la propiedad body de express-validator
 const adminMiddleware = require('../middlewares/adminMiddleware.js');
+const userMiddleware = require('../middlewares/userMiddleware.js');
 
 /* MULTER PARA SUBIR ARCHIVOS */
 const storage = multer.diskStorage({
@@ -76,8 +77,9 @@ router.delete('/delete/:id', adminMiddleware, productsController.destroy); //<--
 router.get ('/product-cart', productsController.detalleCarrito);
 
 //muestra el pedido despues de realizar la compra
-router.get("/ordenCompra/:id", productsController.pedido);
+router.get("/ordenCompra/:id", userMiddleware, productsController.pedido);
 
+router.get("/detalleCompra/:id", userMiddleware, productsController.detalleCompra);
 
 //exportamos la variable router ya con todas las rutas guardadas, que se usará en app.js
 module.exports = router;

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head') %>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link  rel="stylesheet" href="/css/ordenCompra.css">
+</head>
+
+<body>
+    <%- include('../partials/header') %>
+        <main class="mt-5 pt-4">
+            <div class="container wow fadeIn animated">
+                <h2 class="mt-5 mb-3 h2 text-center"> Factura Nro <%= id_venta %>  de  <%= usuarioLogueado.nombre_y_apellido %>
+                </h2>
+                <div class="card my-5">
+                    <div class="card-body">
+                        <table class="table table-responsive-md mb-0">
+                            <thead>
+                                <tr>
+                                    <th style="width: 50px;">
+                                        <strong>#</strong>
+                                    </th>
+                                    
+                                    <th class="th-lg " >
+                                        <strong>Cantidad</strong>
+                                    </th>
+                                    <th class="text-center">
+                                        <strong>Talle</strong>
+                                    </th>
+                                    <th class="text-center">
+                                        <strong>Color</strong>
+                                    </th>
+                                    <th class="text-center">
+                                        <strong>Precio</strong>
+                                    </th>
+                                    <th class="th-lg">
+                                        <strong>Producto</strong>
+                                    </th>
+
+                                    <th class="text-center">
+                                        <strong>Total</strong>
+                                    </th>
+                                </tr>
+                            </thead>
+
+
+
+                         
+
+                            <tbody class="cartRows">
+                                <% for( let i=0; i < productos_por_venta.length; i++ ) { %>
+                                    <tr>
+                                        <th scope="row">
+                                            <%= i + 1 %>
+                                        </th>
+                                        <td >
+                                            <%= productos_por_venta[i].cantidad %>
+                                        </td>
+                                        <td class="text-center"> <%= productos_por_venta[i].talle%>
+                                        </td>
+                                        <td class="text-center">
+                                            <%= productos_por_venta[i].color%>
+                                        </td>
+                                        <td class="text-center">
+                                            <%= productos_por_venta[i].precio_unitario%>
+                                        </td>
+                                        <td >
+                                            <%= productos_por_venta[i].id_producto%>
+                                        </td>
+
+                                        <td class="text-center">$
+                                            <%= productos_por_venta[i].precio_unitario * productos_por_venta[i].cantidad %>
+                                        </td>
+                                    </tr>
+
+                                    <% } %>
+                            </tbody>
+                        </table>
+                        
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header text-center">
+                        Detalles de la compra
+                    </div>
+                    
+                    <div class="card-footer">
+                        <a href="/perfilUsuario/<%= usuarioLogueado.id %>" class="btn btn-primary btn-block">Volver a mis pedidos</a>
+                    </div>
+
+
+                  
+                </div>
+            </div>
+        </main>
+        <%- include('../partials/footer') %>
+           
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

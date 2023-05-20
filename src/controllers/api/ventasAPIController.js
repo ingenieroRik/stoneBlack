@@ -1,7 +1,7 @@
 const { json } = require("express");
 
 const sequelize = require ("sequelize"); //<------------ para usar Op
-const db = require('../../database/models/index.js');
+const db = require('../../database/models');
 const Op = sequelize.Op;
 
 
@@ -33,15 +33,41 @@ const ventasAPIController = {
         
         let ventas = await db.Ventas.create(
           { ...req.body, id_usuario: req.session.usuarioLogueado.id },
-          {
-            include: db.Ventas.Productos_por_venta,
-          }
-        );
-        res.json({ ok: true, status: 200, ventas: ventas });
+         
+             );
 
-    } catch (error) {
-        return res.status(500).json({ message: error.message });
-      }
+            // necesitamos saber el numero de factura que es el id de la venta que se generó recien
+            // para cargarlos en productos_por_venta
+            let numeroFactura = ventas.numero_factura;
+
+           //console.log(req.body.productos_por_venta);
+           //console.log(req.body.productos_por_venta[0].productId);
+           //console.log(req.body.numero_factura)
+        
+        for (let i=0; i < req.body.productos_por_venta.length; i++){
+            /*
+           let idProducto = req.body.productos_por_venta[0].productId;
+            let talle = req.body.productos_por_venta[0].talle;
+            let color = req.body.productos_por_venta[0].color;
+            let precio = req.body.productos_por_venta[0].precio;
+            let cantidad = req.body.productos_por_venta[0].cantidad;
+            */
+            await db.Productos_por_venta.create({
+          
+                id_producto : req.body.productos_por_venta[i].productId,
+                talle : req.body.productos_por_venta[i].talle,
+                color : req.body.productos_por_venta[i].color,
+                precio_unitario : req.body.productos_por_venta[i].precio,
+                cantidad : req.body.productos_por_venta[i].cantidad,
+                id_venta:numeroFactura
+            })
+        }
+        
+            res.json({ ok: true, status: 200, ventas: ventas });
+
+        } catch (error) {
+             return res.status(500).json({ message: error.message });
+        } 
       },
 
        /*
