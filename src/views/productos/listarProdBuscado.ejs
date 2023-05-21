@@ -27,17 +27,17 @@
 
                 
                 <div class="container2">
-                   
-                    <img src="/images/<%= allProducts[i].img%>" class="img1" alt="imagen" />
-                   
+                    <a href="/productDetail/<%= allProducts[i].id%>">
+                        <img src="/images/<%= allProducts[i].img%>" class="img1" alt="imagen" />
+                    </a>
                 </div>
                 <div class="container3">       
                     <section class="precio-dto">
                         <p class="descripcion"><%= "Descripcion: "+ allProducts[i].descripcion %></p>
                         <h4 class="precio"><%= "Precio = $ " + allProducts[i].precio %></h4>
                         <p class="descuento"><%= "Descuento: " + allProducts[i].descuento %></p>
-                        <p class="cuotas"><%= "Cuotas: " + allProducts[i].cuotas %></p>
-                        
+                       
+                         <p class="cuotas"><%= "Talle: " + allProducts[i].talle %></p>
                         
                     
                     </section>

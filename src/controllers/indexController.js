@@ -28,7 +28,7 @@ const indexController = {
   index: async (req, res) => {
     try {
     var remeras =  await db.Productos.findAll(
-      {where: { cantidad: { [Op.gt]: 0 } },} //solo traemos los productos que tengan stock >0
+      {where: { cantidad: { [Op.gt]: 0 } },} //solo traemos los productos que tengan stock > 0
     );
     //return res.render ('index.ejs', {'allProducts':data} ); // data es un archivo js
     return res.render("index.ejs", { allProducts: remeras }); // remeras es un js

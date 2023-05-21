@@ -113,25 +113,41 @@ const productsController = {
   buscarProd: async (req, res) => {
     try {
     // en loBuscado esta la descripcion que viene del formulario html
-    let loBuscado = req.query.buscar.toLowerCase();
+    let descripcion = req.query.buscar.toLowerCase();
+    console.log(req.query.buscar);
+    console.log(req.query.talle);
+    console.log(req.query.color);
+   
     //creo array vacio donde pondremos los productos encontrado
     let resultadoBuscar = [];
 
+      // buscamos en la BBDD color y talle primero
+    let resultadoColorTalle =  await db.Productos.findAll(
+      { where: {
+        [Op.and]: [
+          { talle: req.query.talle },
+          { color: req.query.color },
+        ],
+       },
+      }
+    );
 
-    var remerasTodas =  await db.Productos.findAll();
-    // recorremos las remeras buscando coincidencia
-    for (let i = 0; i < remerasTodas.length; i++) {
-      if (remerasTodas[i].descripcion.toLowerCase().includes(loBuscado) || remerasTodas[i].nombre.toLowerCase().includes(loBuscado) ) {
-        resultadoBuscar.push(remerasTodas[i]);
+    // si hay talle y color entonces el array resultadoBuscar no es cero lo mostramos
+    if (resultadoColorTalle.length){
+
+      // recorremos el array buscando coincidencia de nombre o descripcion
+    for (let i = 0; i < resultadoColorTalle.length; i++) {
+      if (resultadoColorTalle[i].descripcion.toLowerCase().includes(descripcion) ||
+                           resultadoColorTalle[i].nombre.toLowerCase().includes(descripcion))  {
+        resultadoBuscar.push(resultadoColorTalle[i]);
       }
     }
-    // si el array resultadoBuscar no es cero lo mostramos
-    if (resultadoBuscar.length){
       return res.render("./productos/listarProdBuscado", {
         allProducts: resultadoBuscar,
       });
     // sinó indicamos que no hay productos que coincidan
         } else {
+          var remerasTodas =  await db.Productos.findAll();
           return res.render("index.ejs", { allProducts: remerasTodas ,
             errors:{ buscar: { msg: "No se encontró ningún producto"}}  }) ;
               }
@@ -141,6 +157,8 @@ const productsController = {
       }
   },
 
+
+  
   destroy: async (req, res) => {
     try {
     let id = req.params.id;

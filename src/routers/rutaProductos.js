@@ -36,6 +36,7 @@ const validacionesForm = [
 // ******************* mostrar un producto ************************
 //procesa el pedido get con ruta /buscarProd <------ ese nombre va en el action del HTML
 router.get ('/buscarProd', productsController.buscarProd);
+
 //procesa el pedido get con ruta /productDetail <------ ese nombre va en el action del HTML
 router.get ('/productDetail/:id', productsController.detalleProd);
 //Envia el formulario de la compra de un producto hacia el carrito 

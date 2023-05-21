@@ -15,21 +15,42 @@
 <section id="buscar" class="modalDialog">
     <div class="modal">
         <form action="/buscarProd#buscar" method="GET">
-         <div class=" control-buscar  ">
-             <input type="text" name="buscar" class="control boton3" placeholder="Ingrese descripción" required>
-        </div> 
+            <div class=" control-buscar  ">
+                <input type="text" name="buscar" class="control boton3" placeholder="Ingrese nombre o descripción" required>
+               
+            </div> 
         
+        <div class="caja-talles control-buscar" style="flex-direction: row;">
+            <p style="margin-right: 10px; margin-top: 8px;">Elija el color:<p>  <h4 style="font-size: 30px;"></h4>                
+            <select id="color" name="color" class="add-to-a-cart">
+               <option class="listado-colores " value="Blanco" >Blanco</option>
+               <option  class="listado-colores" value="Negro" >Negro</option>
+               <option class="listado-colores" value="Gris"  >Gris</option>
+               <option class="listado-colores" value="Rojo" >Rojo</option> 
+            </select>
+         </div>
+        
+            <div class="caja-talles control-buscar" style="flex-direction: row;">
+                <p style="margin-right: 10px; margin-top: 8px;">Elija el talle:<p>  <h4 style="font-size: 30px;"></h4>                
+                <select id="talle" name="talle" class="add-to-a-cart">
+                   <option class="listado-talles " value="S" >S</option>
+                   <option  class="listado-talles" value="M" >M</option>
+                   <option class="listado-talles" value="L"  >L</option>
+                   <option class="listado-talles" value="XL" >XL</option> 
+                </select>
+             </div>
+
+            
         <%  if (locals.errors && errors.buscar) {  %> 
             <div class="texto-advertencia">
                 <p class="credenciales-invalidas" ><%= errors.buscar.msg %> </p>
             </div>
         <% } %>  
 
-
-
             <div class="reg-reset">
              <button class="register" type="reset" ><a href="/" title="Close" id="close1">Volver</a></button>
              <button type="submit" class="register" title="buscar" id="">Buscar</button>
+        
             </div>
         </form>
     </div>
