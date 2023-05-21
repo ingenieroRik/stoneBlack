@@ -67,9 +67,7 @@ const productsController = {
   procesoEdicion: async (req, res) => {
     try {
     let productoId = req.params.id;
-    } catch (error) {
-      return res.status(500).json({ message: error.message });
-    }
+    
     
      await Productos
     .update(
@@ -89,15 +87,15 @@ const productsController = {
      
       id: req.body.id,
       nombre: req.body.nombre,
-      img: req.files ? req.files[0].filename : " ",
+     //img: req.files ? req.files[0].filename : " ",
       descripcion: req.body.descripcion,
       precio: req.body.precio,
       descuento: req.body.descuento,
       talle: req.body.talle,
       color: req.body.color,
-      uri_foto2: req.files ? req.files[1].filename : " ",
-      uri_foto3: req.files ? req.files[2].filename : " ",
-    
+     // uri_foto2: req.files ? req.files[1].filename : " ",
+      //uri_foto3: req.files ? req.files[2].filename : " ",
+      cantidad: req.body.cantidad
     },
     {
       where: {id: productoId}
@@ -105,8 +103,11 @@ const productsController = {
 
     var remerasTodas =  await db.Productos.findAll();
     return res.render("./productos/listadoProductos.ejs", {allProducts: remerasTodas});
-  
-    //return res.redirect("/");
+
+    } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+
   },
   
   buscarProd: async (req, res) => {
@@ -177,6 +178,7 @@ const productsController = {
                   color: req.body.color,
                   uri_foto2: req.files ? req.files[1].filename : " ",
                   uri_foto3: req.files ? req.files[2].filename : " ",
+                  cantidad: req.body.cantidad
     })
     
     return res.render("./productos/creacionProduct");

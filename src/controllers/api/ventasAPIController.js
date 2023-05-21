@@ -26,7 +26,7 @@ const ventasAPIController = {
     },
 
     checkout: async function (req, res) {
-        try {
+       // try {
         //return res.send({ ...req.body, userId: JSON.parse(req.session.usuarioLogueado.id)});
         
         
@@ -39,6 +39,7 @@ const ventasAPIController = {
             // necesitamos saber el numero de factura que es el id de la venta que se generó recien
             // para cargarlos en productos_por_venta
             let numeroFactura = ventas.numero_factura;
+
 
            //console.log(req.body.productos_por_venta);
            //console.log(req.body.productos_por_venta[0].productId);
@@ -61,13 +62,24 @@ const ventasAPIController = {
                 cantidad : req.body.productos_por_venta[i].cantidad,
                 id_venta:numeroFactura
             })
+
+            //debemos sacar del stock los prodcutos vendidos
+            // va dentro del for porque pueden ser varios productos
+
+            let valor = req.body.productos_por_venta[i].cantidad;
+
+
+            await db.Productos.decrement(
+                    { cantidad :  valor }, { where : {id: req.body.productos_por_venta[i].productId,}}
+
+            )
         }
         
             res.json({ ok: true, status: 200, ventas: ventas });
 
-        } catch (error) {
-             return res.status(500).json({ message: error.message });
-        } 
+       // } catch (error) {
+            // return res.status(500).json({ message: error.message });
+       // } 
       },
 
        /*

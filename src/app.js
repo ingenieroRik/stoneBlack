@@ -52,8 +52,6 @@ const apiUsuariosRouter = require('./routers/api/usuarios.js');
 const apiProductosRouter = require('./routers/api/productos.js');
 const apiVentasRouter = require('./routers/api/ventas.js');
 
-//Aqui llamo a la ruta para la api de consumo del carrito
-const apiController = require('./routers/api.js')
 
 // usando los enrutadores importados
 app.use(rutaLogin);
@@ -65,8 +63,6 @@ app.use('/api/usuarios', apiUsuariosRouter);
 app.use("/api/productos", apiProductosRouter);
 app.use("/api/ventas", apiVentasRouter);
 
-//Aquí creo los recursos de mi API local
-app.use('/api/product', apiController);
 
 /*************************probamos conexion  con la base de datos REMOTA *********************/
 var mysql = require('mysql'); //<----- npm install mysql 
@@ -101,10 +97,6 @@ var conexion = mysql2.createConnection({
     });
     conexion.end(); */
 /***************************************************************************** */
-
-
-
-
 
 // ponemos a escuchar el servidor
 app.listen(process.env.PORT || 3044, () =>  // si subimos a un hosting este nos dará el puerto, sinó sera 3041

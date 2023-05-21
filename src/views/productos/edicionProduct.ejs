@@ -31,10 +31,10 @@
                 <!-- CAJA FORMULARIO -->
                 <div class="caja-formulario">
                 <!-- NUMERO DE ID -->
-                <div>
+                <!--<div>
                     <label for="">Numero de id:</label>
                     <input type="text" name="id" value="<%= Productos.id %>" class="form-control" id="id" required />
-                </div>
+                </div>-->
                 <!-- NOMBRE ARTICULO -->
                 <div>
                     <label for="">Nombre de articulo:</label>
@@ -47,14 +47,14 @@
                         placeholder="Descripcion de articulo" value="<%= Productos.descripcion %>" required />
                 </div>
                 <!-- FOTOS DE PRODUCTO -->
-                <div class="foto">
+                <!--<div class="foto">
                     <label for="foto">Fotos de producto:</label>
                     <input type="file" name="img" value=""
                         class="form-control" id="img" multiple="multiple" accept="image/*" />
-                </div>
+                </div>-->
+              
 
-
-
+                
                 <!-- FOTO DE PRODUCTO -->
                 <!--<div class="foto">
                     <label for="foto">Fotos de producto:</label>
@@ -73,27 +73,33 @@
 
 
                 <!-- PRECIO ARTICULO -->
-                <div>
-                    <label for="">Precio articulo:</label>
-                    <input type="text" name="precio" class="form-control" id="precio" value="<%= Productos.precio%>" required />
-                </div>
+                    <div>
+                        <label for="">Precio articulo:</label>
+                        <input type="text" name="precio" class="form-control" id="precio" value="<%= Productos.precio%>" required />
+                    </div>
                 <!-- DESCUENTO ARTICULO -->
-                <div>
-                    <label for="">Descuento articulo:</label>
-                    <input type="text" name="descuento" class="form-control" id="descuento" value="<%= Productos.descuento %>" required />
-                </div>
+                    <div>
+                        <label for="">Descuento articulo:</label>
+                        <input type="text" name="descuento" class="form-control" id="descuento" value="<%= Productos.descuento %>" required />
+                    </div>
                 <!-- Talle ARTICULO -->
-                <div>
-                    <label for="">Talle articulo:</label>
-                    <input type="text" name="talle" class="form-control" id="talle" value="<%= Productos.talle %>"/>
-                </div>
+                    <div>
+                        <label for="">Talle articulo:</label>
+                        <input type="text" name="talle" class="form-control" id="talle" value="<%= Productos.talle %>"/>
+                    </div>
                 <!-- COLOR ARTICULO -->
-                <div>
-                    <label for="">Color articulo:</label>
-                    <input type="text" name="color" id="color" class="form-control" value="<%= Productos.color %>"/>
+                    <div>
+                        <label for="">Color articulo:</label>
+                        <input type="text" name="color" id="color" class="form-control" value="<%= Productos.color %>"/>
+                    </div>
+               
+                 <!-- CANTIDAD DE ARTICULOS -->
+                    <div>
+                        <label for="">Cantidad:</label>
+                        <input type="text" name="cantidad"
+                            value="<%= Productos.cantidad  %>" class="form-control" id="cantidad" />
+                    </div>
                 </div>
-                </div>
-
                 <!-- CAJA BOTONES -->
                 <div class="caja-botones">
                 <!-- BOTON MODIFICAR ARTICULO -->

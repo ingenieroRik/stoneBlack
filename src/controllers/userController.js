@@ -617,8 +617,12 @@ procesoEdicionUsuarioUser: async (req, res) => {
     
    
 
-}
+},
+/* **************************************************************************************** */
 
+  losTresChiflados: (req, res) => {
+    return res.render("./usuarios/losTresChiflados.ejs");
+  },
 
 };
 module.exports = userController;

@@ -1,4 +1,11 @@
-
+:root {
+  --gris: #686963;
+  --morning-blue: #8aa29e;
+  --black-coral: #3d5467;
+  --silver-chalice: #a9aca9; 
+  --granite-gray:#6c6061;
+  --independence: #525b76;  
+  }
 /*--------------------------footer--------------------*/
 footer{
     box-sizing: border-box;
@@ -43,6 +50,16 @@ footer{
   
   .container1:hover{
     border: solid 1px var(--independence); 
+    }
+    .powered-by{
+      padding-left: 10px;
+      text-decoration: no;
+      font-size: 14px;
+      color: var(--granite-gray);
+      padding-bottom: 10px;
+    }
+    .powered-by:hover {
+      color:black;
     }
     
   /*  tablets    */

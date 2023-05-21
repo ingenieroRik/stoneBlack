@@ -42,7 +42,7 @@ window.onload = function () {
         if (descuento.value.length < 1) {
             errors.descuento = "Debes completar con un descuento valido"
         }
-
+        /*
         if (img.value.length < 4) {
             errors.img = "Debes completar con un imagen valida"
         }
@@ -54,7 +54,7 @@ window.onload = function () {
         if (img3.value.length < 3) {
             errors.img3 = "Debes completar con un imagen 3 valida"
         }
-
+        */
         console.log(errors)
 
         if (Object.keys(errors).length >= 1) {
@@ -66,9 +66,9 @@ window.onload = function () {
             ulErrores.innerHTML += (errors.color) ? "<li>" + errors.color + "</li>" : " ";
             ulErrores.innerHTML += (errors.precio) ? "<li>" + errors.precio + "</li>" : " ";
             ulErrores.innerHTML += (errors.descuento) ? "<li>" + errors.descuento + "</li>" : " ";
-            ulErrores.innerHTML += (errors.img) ? "<li>" + errors.img + "</li>" : " ";
-            ulErrores.innerHTML += (errors.img2) ? "<li>" + errors.img2 + "</li>" : " ";
-            ulErrores.innerHTML += (errors.img3) ? "<li>" + errors.img3 + "</li>" : " ";
+            //ulErrores.innerHTML += (errors.img) ? "<li>" + errors.img + "</li>" : " ";
+           // ulErrores.innerHTML += (errors.img2) ? "<li>" + errors.img2 + "</li>" : " ";
+           // ulErrores.innerHTML += (errors.img3) ? "<li>" + errors.img3 + "</li>" : " ";
         } else {
             ulErrores.innerHTML = " ";
             form.submit();
