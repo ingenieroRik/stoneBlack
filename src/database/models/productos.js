@@ -17,7 +17,7 @@ let alias = "Productos";
     precio: {type: DataTypes.DECIMAL, notNull : true },
     descripcion:{type: DataTypes.STRING(200), notNull: true},
     descuento:{type: DataTypes.DECIMAL, notNull: true},  
-    img: {type: DataTypes.STRING(1000) },
+    img: {type: DataTypes.STRING(1000), notNull: true },
     uri_foto2: {type: DataTypes.STRING(1000) },
     uri_foto3: {type: DataTypes.STRING(1000) },
     cantidad: {type: DataTypes.INTEGER, notNull : true}

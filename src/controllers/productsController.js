@@ -87,6 +87,7 @@ const productsController = {
      
       id: req.body.id,
       nombre: req.body.nombre,
+      img: req.file ? req.file.filename : " ",
      //img: req.files ? req.files[0].filename : " ",
       descripcion: req.body.descripcion,
       precio: req.body.precio,
@@ -312,12 +313,12 @@ const productsController = {
   
   destroy: async (req, res) => {
     try {
-    let id = req.params.id;
-    console.log("entro a borrar");
-    await Productos
-    .destroy({where: {id: id}, force: true}) // force: true es para asegurar que se ejecute la acción
+   
+    var remerasTodas =  await db.Productos.findAll();
+    console.log("entro a borrar producto");
+    await Productos.destroy({where: {id:req.params.id}, force: true}) // force: true es para asegurar que se ejecute la acción
     
-    return res.render("index.ejs", { allProducts: remerasTodas })
+    return res.render("./productos/listadoProductos.ejs", { allProducts: remerasTodas })
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
@@ -339,7 +340,8 @@ const productsController = {
     if(errors.isEmpty()){
             await Productos.create({
                   nombre: req.body.nombre,
-                  img: req.files ? req.files[0].filename : " ",
+                  img: req.file ? req.file.filename : " ",
+                  //img: req.files ? req.files[0].filename : " ",
                   descripcion: req.body.descripcion,
                   precio: req.body.precio,
                   descuento: req.body.descuento,

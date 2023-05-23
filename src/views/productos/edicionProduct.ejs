@@ -58,8 +58,11 @@
                 <!-- FOTO DE PRODUCTO -->
                 <!--<div class="foto">
                     <label for="foto">Fotos de producto:</label>
-                    <input type="text" name="img" id="img" class="form-control" value="<%= Productos.img %>"/>
+                   <input type="text" name="img" id="img" class="form-control" value="<%= Productos.img %>"/> 
+                    <input type="file"  name="imagenProducto" value="<%= locals.old && locals.img ? old.img : '' %>"
+                                    class="form-control" id="imagenProducto" />
                 </div>-->
+            
                 <!-- FOTO DE PRODUCTO 2-->
                 <!--<div class="foto">
                     <label for="foto">Fotos de producto:</label>
@@ -131,11 +134,11 @@
             </div>
             <div class="imagen-art">
                 <label>Imagen de tu articulo:</label>
-                <img src="/images/<%= Productos.uri_foto2%>" alt="FOTO DE PRUEBA">
+                <img src="/images/<%= Productos.img%>" alt="FOTO DE PRUEBA">
             </div>
             <div class="imagen-art">
                 <label>Imagen de tu articulo:</label>
-                <img src="/images/<%= Productos.uri_foto3%>" alt="FOTO DE PRUEBA">
+                <img src="/images/<%= Productos.img%>" alt="FOTO DE PRUEBA">
         </div>
     </div>
         </section>
