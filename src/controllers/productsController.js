@@ -110,9 +110,160 @@ const productsController = {
 
   },
   
+
   buscarProd: async (req, res) => {
     try {
-    // en loBuscado esta la descripcion que viene del formulario html
+    // en descripcion esta lo que hay que buscar que viene del formulario html
+    let descripcion = req.query.buscar.toLowerCase();
+    console.log(req.query.buscar);
+    console.log(req.query.talle);
+    console.log(req.query.color);
+
+      //creo array vacio donde pondremos los productos encontrado
+    let resultadoBuscar = [];
+
+    // ---------------- nombre/descripcion talle:todos color:todos ---------------------------------------------------------
+    if (req.query.color == "Todos" && req.query.talle == "Todos"){
+          // buscamos en la BBDD color y talle primero
+    let resultadoColorTalle =  await db.Productos.findAll(
+    );
+      
+       // si hay talle y color entonces el array resultadoBuscar no es cero lo mostramos
+    if (resultadoColorTalle.length > 0){
+      // recorremos el array buscando coincidencia de nombre o descripcion
+    for (let i = 0; i < resultadoColorTalle.length; i++) {
+      if (resultadoColorTalle[i].descripcion.toLowerCase().includes(descripcion) ||
+                           resultadoColorTalle[i].nombre.toLowerCase().includes(descripcion))  {
+              resultadoBuscar.push(resultadoColorTalle[i]);
+             }
+            }
+             if (resultadoBuscar.length){
+           
+        return res.render("./productos/listarProdBuscado", {
+          allProducts: resultadoBuscar,
+        });
+
+      // sinó indicamos que no hay productos que coincidan
+          } else {
+            var remerasTodas =  await db.Productos.findAll();
+            return res.render("index.ejs", { allProducts: remerasTodas ,
+              errors:{ buscar: { msg: "No se encontró ningún producto"}}  }) ;
+                }
+                        
+            }
+
+    // ----------------------         nombre/descripcion  color:todos talle:talle  -----------------------------------------------
+    } else if (req.query.color == "Todos"){
+          // buscamos en la BBDD talle primero
+    let resultadoColorTalle =  await db.Productos.findAll(
+      { where: { talle: req.query.talle }}
+      );
+        // si hay talle entonces el array resultadoBuscar no es cero lo mostramos
+         if (resultadoColorTalle.length){
+  
+        // recorremos el array buscando coincidencia de nombre o descripcion
+        for (let i = 0; i < resultadoColorTalle.length; i++) {
+          if (resultadoColorTalle[i].descripcion.toLowerCase().includes(descripcion) ||
+                             resultadoColorTalle[i].nombre.toLowerCase().includes(descripcion))  {
+          resultadoBuscar.push(resultadoColorTalle[i]);
+        }
+      }
+            if (resultadoBuscar.length){
+           return res.render("./productos/listarProdBuscado", {
+                     allProducts: resultadoBuscar,
+          });
+          
+          // sinó indicamos que no hay productos que coincidan
+         } else {
+          var remerasTodas =  await db.Productos.findAll();
+          return res.render("index.ejs", { allProducts: remerasTodas ,
+            errors:{ buscar: { msg: "No se encontró ningún producto"}}  }) ;
+        }
+      }   
+
+
+      // -----------------------------------   nombre/descripcion  color:color  talle:todos ----------------------------------------------
+      } else if (req.query.talle == "Todos"){
+
+        // buscamos en la BBDD color y talle primero
+    let resultadoColorTalle =  await db.Productos.findAll(
+      { where: { color: req.query.color }}
+      );
+        
+         // si hay talle y color entonces el array resultadoBuscar no es cero lo mostramos
+         if (resultadoColorTalle.length){
+  
+        // recorremos el array buscando coincidencia de nombre o descripcion
+        for (let i = 0; i < resultadoColorTalle.length; i++) {
+          if (resultadoColorTalle[i].descripcion.toLowerCase().includes(descripcion) ||
+                             resultadoColorTalle[i].nombre.toLowerCase().includes(descripcion))  {
+          resultadoBuscar.push(resultadoColorTalle[i]);
+        }
+      }
+          
+           if (resultadoBuscar.length){
+             return res.render("./productos/listarProdBuscado", {
+                     allProducts: resultadoBuscar,
+          });
+
+            // sinó indicamos que no hay productos que coincidan
+         } else {
+          var remerasTodas =  await db.Productos.findAll();
+          return res.render("index.ejs", { allProducts: remerasTodas ,
+            errors:{ buscar: { msg: "No se encontró ningún producto"}}  }) ;
+        }
+
+    }
+   // ----------------------------  nombre/descipcion  talle:talle color:color -------------------------------------------
+      } else  {
+           // buscamos en la BBDD color y talle primero
+    let resultadoColorTalle =  await db.Productos.findAll(
+      { where: {
+        [Op.and]: [
+          { talle: req.query.talle },
+          { color: req.query.color },
+        ],
+       },
+      }
+    );
+    // si hay talle y color entonces el array resultadoBuscar no es cero lo mostramos
+    if (resultadoColorTalle.length){
+
+      // recorremos el array buscando coincidencia de nombre o descripcion
+    for (let i = 0; i < resultadoColorTalle.length; i++) {
+      if (resultadoColorTalle[i].descripcion.toLowerCase().includes(descripcion) ||
+                           resultadoColorTalle[i].nombre.toLowerCase().includes(descripcion))  {
+        resultadoBuscar.push(resultadoColorTalle[i]);
+      }
+    }
+        
+       if (resultadoBuscar.length){
+             return res.render("./productos/listarProdBuscado", {
+                     allProducts: resultadoBuscar,
+      });
+    // sinó indicamos que no hay productos que coincidan
+        } else {
+          var remerasTodas =  await db.Productos.findAll();
+          return res.render("index.ejs", { allProducts: remerasTodas ,
+            errors:{ buscar: { msg: "No se encontró ningún producto"}}  }) ;
+          }
+        }
+      }
+           
+      } catch (error) {
+        return res.status(500).json({ message: error.message });
+      }
+    },
+    
+
+
+
+
+ /*
+  //sin opción todos
+  buscarProd1: async (req, res) => {
+    try {
+    // en descripcion esta lo que hay que buscar que viene del formulario html
     let descripcion = req.query.buscar.toLowerCase();
     console.log(req.query.buscar);
     console.log(req.query.talle);
@@ -156,7 +307,7 @@ const productsController = {
         return res.status(500).json({ message: error.message });
       }
   },
-
+*/
 
   
   destroy: async (req, res) => {
