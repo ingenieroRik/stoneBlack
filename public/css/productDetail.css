@@ -119,80 +119,14 @@ display: none;
   height: 35px;
 }
 
-.listado-color1 {
-  width: 36px;
-  height: 37px;
-  line-height: 50px;
-  font-family: "Klein Web Medium", sans-serif;
-  font-size: 0.875rem;
-  margin-right: 3%;
-
-  margin-top: 1%;
-  text-align: center;
-  background-color: red;
-  cursor: pointer;
-}
-
-.rojo {
-  background-color: red;
-}
-
-.listado-color2 {
-  width: 36px;
-  height: 37px;
-  line-height: 50px;
-  font-family: "Klein Web Medium", sans-serif;
-  font-size: 0.875rem;
-  border: 1px solid black;
-  margin-right: 3%;
-
-  margin-top: 1%;
-  text-align: center;
-  background-color: black;
-  cursor: pointer;
-}
-
-.listado-color3 {
-  width: 36px;
-  height: 37px;
-  line-height: 50px;
-  font-family: "Klein Web Medium", sans-serif;
-  font-size: 0.875rem;
-  border: 1px solid grey;
-  margin-right: 3%;
-
-  margin-top: 1%;
-  text-align: center;
-  background-color: grey;
-  cursor: pointer;
-}
-
-.listado-color4 {
-  width: 36px;
-  height: 37px;
-  line-height: 50px;
-  font-family: "Klein Web Medium", sans-serif;
-  font-size: 0.875rem;
-  border: 1px solid #a9a6a6;
-  margin-right: 3%;
-
-  margin-top: 1%;
-  text-align: center;
-  background-color: white;
-  cursor: pointer;
-}
-
 .border {
   border-radius: 50%;
   
 }  
-
-.titulo-ProductosRelacionados {
-  
+.titulo-ProductosRelacionados { 
     font-size: 1.3em;
     margin-top: revert;
     text-align: center;
-
 }
 
 /* DESCRIPCION ARTICULO */
@@ -208,7 +142,6 @@ display: none;
   font-size: 16px;
 }
 
-
 .boton-comprar {
   display: flex;
   margin: auto;
@@ -217,24 +150,21 @@ display: none;
   text-decoration: none;
   background: #666666;
   border: solid 1px #666666;
+  border-radius: 10px;
+  cursor: pointer;
   }
   
-
-
-
 /* PRODUCTOS RELACIONADOS */
  .titulo-productosRelacionados {
   margin: 18px;
   font-size: 16px;
  }
-
  .carrusel-items {
     display: flex;
     overflow-x: hidden;
     overflow-y: hidden;
     padding: 30px 0px;
  }
-
  .carrusel-item {
   min-width: 300px;
   max-width: 300px;
@@ -296,8 +226,6 @@ color: var(--celeste);
   .select-css option {
     font-weight:normal;
   }
-
- 
 
 
   /*-- TABLET --*/
