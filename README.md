@@ -25,17 +25,6 @@ https://www.dafiti.com.ar/
 
 
 
-Tipografía: 
-
-Familia: 'Baloo 2', cursive
-
-Tamaños tipográficos
-
-Cuerpos de texo: 14px
-Titulares: 16px
-Precios: 15px
-Descuentos:12px
-
 
 
 
