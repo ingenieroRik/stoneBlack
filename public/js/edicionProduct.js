@@ -42,11 +42,11 @@ window.onload = function () {
         if (descuento.value.length < 1) {
             errors.descuento = "Debes completar con un descuento valido"
         }
-        /*
+        
         if (img.value.length < 4) {
             errors.img = "Debes completar con un imagen valida"
         }
-
+        /*
         if (img2.value.length < 3) {
             errors.img2 = "Debes completar con un imagen 2 valida"
         }
@@ -66,7 +66,7 @@ window.onload = function () {
             ulErrores.innerHTML += (errors.color) ? "<li>" + errors.color + "</li>" : " ";
             ulErrores.innerHTML += (errors.precio) ? "<li>" + errors.precio + "</li>" : " ";
             ulErrores.innerHTML += (errors.descuento) ? "<li>" + errors.descuento + "</li>" : " ";
-            //ulErrores.innerHTML += (errors.img) ? "<li>" + errors.img + "</li>" : " ";
+            ulErrores.innerHTML += (errors.img) ? "<li>" + errors.img + "</li>" : " ";
            // ulErrores.innerHTML += (errors.img2) ? "<li>" + errors.img2 + "</li>" : " ";
            // ulErrores.innerHTML += (errors.img3) ? "<li>" + errors.img3 + "</li>" : " ";
         } else {
@@ -79,7 +79,7 @@ window.onload = function () {
     //BOTON BORRAR ARTICULO
 
     btnBorrar.addEventListener("click", function(e){
-        e.preventDefault()
+        //e.preventDefault()
 
          let confirma = confirm("¿Seguro deseas eliminar este articulo?")
 
