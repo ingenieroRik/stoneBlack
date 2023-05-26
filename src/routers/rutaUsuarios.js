@@ -45,7 +45,7 @@ const storage = multer.diskStorage({
     }
 });
 
-const upload = multer({storage: storage})
+const upload = multer({storage: storage});
 
 //en vez de app.get , utilizamos router.get . Esto va guardando en router
 //las distintas rutas, que luego exportamos
@@ -90,13 +90,13 @@ router.get ('/listaTodosUsuarios', supervisorMiddleware ,userController.listarTo
 router.get ('/formEditarUsuario/:id', userController.editarUsuarioUser); //<------------- por el usuario
 
 //procesa el pedido post con ruta /formUsuario ------> ese nombre va en el action del HTML
-router.put ('/formEditarUsuario/:id', upload.single("imagenUsuarioEditada"), userController.procesoEdicionUsuarioUser);
+router.put ('/formEditarUsuario/:id', upload.single("imagenUsuario"), userController.procesoEdicionUsuarioUser);
 
 //procesa el pedido get con ruta /formUsuario ------> ese nombre va en el action del HTML
 router.get ('/formUsuario/:id', userController.editarUsuarioAdmin);
 
 //procesa el pedido post con ruta /formUsuario ------> ese nombre va en el action del HTML
-router.put ('/formUsuario/:id', upload.single("imagenUsuarioEditada"), userController.procesoEdicionUsuarioAdmin);
+router.put ('/formUsuario/:id', upload.single("imagenUsuario"), userController.procesoEdicionUsuarioAdmin);
 
 //procesa el pedido del perfil de usuario 
 router.get ('/perfilUsuario/:id', userController.perfilUsuario);

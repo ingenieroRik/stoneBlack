@@ -157,7 +157,7 @@
                 <div class="carrusel-items">       
                     <% for(let i=0; i < ProductosRelacionados.length; i++) {%>
                     <div class="carrusel-item">
-                        <a href="/productDetail/<%= Productos.id%>">
+                        <a href="/productDetail/<%= ProductosRelacionados[i].id%>">
                     <img src="/images/<%= ProductosRelacionados[i].img%>">
                 </a>
                 </div>

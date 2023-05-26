@@ -48,10 +48,13 @@
               
                 
         <div class="foto">
-            <label for="imagenUsuario">Foto de perfil</label>
+            <label for="imagenUsuario">Foto de perfil: <%= usuario.uri_avatar %></label>
             <input type="file" name="imagenUsuario" class="boton3" id="foto" >
             
         </div>
+
+
+
             
             <div class="nombre">
                 <input type="email" name="email" class="boton3" id="emailUser" value="<%= usuario.email %>" placeholder="" >

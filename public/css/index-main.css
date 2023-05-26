@@ -13,12 +13,14 @@ body {
   }
 
 /* -------------------------main ---------------------*/
+
 main {
   width: 100%;
   margin: auto;
   box-sizing: border-box; 
  padding-bottom:30px;
   background-color: var(--grisClaro);
+  
 }
 .division {
   background-color: var(--granite-gray);

@@ -270,7 +270,7 @@ const userController = {
         {
           nombre_y_apellido: req.body.nombreYapellido,
           nombre_usuario: req.body.nombreUsuario,
-          uri_avatar: req.body.uri_avatar,
+          uri_avatar: req.file ? req.file.filename : " ",
           email: req.body.email,
           clave: bcryptjs.hashSync(req.body.clave, 10), // <------------ se encripta la clave
           rol: "usuario",
@@ -383,7 +383,7 @@ procesoEdicionUsuarioUser: async (req, res) => {
       {
         nombre_y_apellido: req.body.nombreYapellido,
         nombre_usuario: req.body.nombreUsuario,
-        uri_avatar: req.body.uri_avatar,
+        uri_avatar: req.file ? req.file.filename : " ",
         email: req.body.email,
         clave: bcryptjs.hashSync(req.body.clave, 10), // <------------ se encripta la clave
         rol: "usuario",
