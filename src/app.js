@@ -46,6 +46,7 @@ app.use(express.json()); // MUY IMPORTANTE!!!  para usar el metodo POST
 let rutaLogin = require ('./routers/rutaLogin.js');
 let rutaUsuarios = require('./routers/rutaUsuarios.js');
 let rutaProductos = require ('./routers/rutaProductos.js');
+let rutapagos = require ('./routers/rutapagos.js');
 
 //Aquí llamo a la ruta de las api de usarios para consumir en el dashboard con react
 const apiUsuariosRouter = require('./routers/api/usuarios.js');
@@ -57,6 +58,7 @@ const apiVentasRouter = require('./routers/api/ventas.js');
 app.use(rutaLogin);
 app.use(rutaUsuarios);
 app.use(rutaProductos);
+app.use(rutapagos);
 
 //Aquí creo los recursos de mis APIs para consumir en el dashboard con react
 app.use('/api/usuarios', apiUsuariosRouter);
@@ -99,8 +101,8 @@ var conexion = mysql2.createConnection({
 /***************************************************************************** */
 
 // ponemos a escuchar el servidor
-app.listen(process.env.PORT || 3044, () =>  // si subimos a un hosting este nos dará el puerto, sinó sera 3041
-console.log('Servidor corriendo en http://localhost:3044')
+app.listen(process.env.PORT || process.env.PORT_LOCAL , () =>  // si subimos a un hosting este nos dará el puerto, sinó sera 3041
+console.log('Servidor corriendo en http://localhost:process.env.PORT_LOCAL')
 );
 
 // subido a RENDER  como  https://stoneblack.onrender.com

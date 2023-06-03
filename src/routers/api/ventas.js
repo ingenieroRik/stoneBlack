@@ -10,7 +10,8 @@ const userMiddleware = require('../../middlewares/userMiddleware.js');
 router.get('/', ventasAPIController.list);
 //Detalle por usuario
 //router.get('/:id', ventasAPIController.detail);
-router.post ("/checkout", userMiddleware, ventasAPIController.checkout);  //<-----------  para la compra del carrito
+router.post ("/checkout", userMiddleware, ventasAPIController.checkout);  //<-----------  para la compra del carrito//
 router.get ("/checkout", userMiddleware, ventasAPIController.checkout);
+
 
 module.exports = router;

@@ -4,6 +4,8 @@ const sequelize = require ("sequelize"); //<------------ para usar Op
 const db = require('../../database/models');
 const Op = sequelize.Op;
 
+const mercadopago = require ("mercadopago");
+
 
 const ventasAPIController = {
     'list': (req, res) => {
@@ -26,11 +28,8 @@ const ventasAPIController = {
     },
 
     checkout: async function (req, res) {
-       // try {
-        //return res.send({ ...req.body, userId: JSON.parse(req.session.usuarioLogueado.id)});
-        
-        
-        
+        try {
+     
         let ventas = await db.Ventas.create(
           { ...req.body, id_usuario: req.session.usuarioLogueado.id },
          
@@ -77,9 +76,9 @@ const ventasAPIController = {
         
             res.json({ ok: true, status: 200, ventas: ventas });
 
-       // } catch (error) {
-            // return res.status(500).json({ message: error.message });
-       // } 
+        } catch (error) {
+            return res.status(500).json({ message: error.message });
+        } 
       },
 
        /*
@@ -122,5 +121,7 @@ const ventasAPIController = {
             });
     },
     */
+
+    
 }
     module.exports = ventasAPIController;

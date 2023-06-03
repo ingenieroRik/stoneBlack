@@ -69,7 +69,7 @@ const userController = {
       db.Usuarios.create({
         nombre_y_apellido: req.body.nombreYapellido,
         nombre_usuario: req.body.nombreUsuario,
-        uri_avatar: req.file ? req.file.filename : " ",
+        uri_avatar: req.file ? req.file.filename : " ", //<------------- preguntamos si hay imagen(que viene en el req.file) sino dejamos vacío
         email: req.body.email,
         clave: bcryptjs.hashSync(req.body.clave, 10), // <------------ se encripta la clave
         rol: "usuario",

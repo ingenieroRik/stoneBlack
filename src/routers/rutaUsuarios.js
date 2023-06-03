@@ -41,7 +41,9 @@ const storage = multer.diskStorage({
         cb(null, "public/images/usuarios")// se parte siempre de la raiz del proyecto a donde se guardaran los archivos
     },
     filename: function(req, file, cb) {
-        cb(null, file.fieldname + "-" + Date.now() + path.extname(file.originalname))
+		const newFilename = file.originalname + "_" + Date.now()+ path.extname(file.originalname);
+		cb(null, newFilename);
+        //cb(null, file.fieldname + "-" + Date.now() + path.extname(file.originalname))
     }
 });
 

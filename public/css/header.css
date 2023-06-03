@@ -333,7 +333,7 @@ label, .foto {
   .barra-menu{
 	margin-top: 90px; /* <-----------   para header fijo  */
 	position: fixed;
-	background-color:red; /* <---------------- para que se vea imagen y nombre debe ser tranaparent pero lo correjimos en el ejs */
+	background-color:transparent; /* <---------------- para que se vea imagen y nombre debe ser tranaparent pero lo correjimos en el ejs */
 	width: 100%;
 	height: 30px;
 	margin-bottom: 20px;

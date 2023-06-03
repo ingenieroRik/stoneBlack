@@ -11,7 +11,7 @@
     <%- include('../partials/header') %>
         <main class="mt-5 pt-4">
             <div class="container wow fadeIn animated">
-                <h2 class="mt-5 mb-3 h2 text-center"> Factura Nro <%= ventas[0].numero_factura %>
+                <h2 class="mt-5 mb-3 h2 text-center" > Factura Nro <%= ventas[0].numero_factura %>
                 </h2>
                 <div class="card my-5">
                     <div class="card-body">
@@ -84,16 +84,23 @@
                         </div>
                     </div>
                     <div class="card-footer">
-                        <a href="/" class="btn btn-primary btn-block">Volver al inicio</a>
-                    </div>
-
-
+                        
+                        <button id="checkout-payment"  class="btn btn-primary btn-block" value="<%= ventas[0].numero_factura %>" >Pagar</button>
+                   
+                     </div>
+                     <div class="card-footer">
+                        <a href="/" class="btn btn-primary btn-block card-volver">Volver al inicio</a>
+                    </div>  
                   
                 </div>
             </div>
         </main>
+
         <%- include('../partials/footer') %>
+
         <script src="/js/carrito.js"></script>
+
+        <script src="/js/pagarMercadopago.js"></script>
            
 </body>
 

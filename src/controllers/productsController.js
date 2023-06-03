@@ -436,10 +436,10 @@ const productsController = {
     }
     );
     //return res.send("ordenCompra");
-   // console.log(req.params.id)
-   
-    //console.log(ventas)
+     console.log("pedido " + req.params)
+     console.log(req.params.id + "   " + req.body.numero_factura)
     //console.log(ventas[0].numero_factura)
+
     return res.render("./productos/ordenCompra.ejs", { ventas : ventas });
   } catch (error) {
     return res.status(500).json({ message: error.message });
@@ -456,17 +456,17 @@ const productsController = {
   */
 
   detalleCompra: async (req, res) => {
-    //try {
-      console.log(req.params.id)
+    try {
+      //console.log(req.params.id)
     let productos_por_venta = await db.Productos_por_venta.findAll({
       where: {id_venta : req.params.id},});
      //console.log(productos_por_venta);
       res.render("./productos/detalleCompra.ejs", { productos_por_venta : productos_por_venta ,
       id_venta : req.params.id });
     
-  //} catch (error) {
-   // return res.status(500).json({ message: error.message });
- // }
+    } catch (error) {
+      return res.status(500).json({ message: error.message });
+    }
 
   },
   /*

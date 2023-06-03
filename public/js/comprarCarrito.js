@@ -102,6 +102,7 @@ if (localStorage.carrito && localStorage.carrito != "[]") {
 let formCheckout = document.querySelector("#checkoutCart"); 
 
 formCheckout.onsubmit = (e) => {
+
   e.preventDefault();
   const formData = {
     productos_por_venta: products,  //aca uso la asociacion del modelo de la tabla Ventas (ventas.js) con la tabla Productos_por _ventas
@@ -115,6 +116,14 @@ formCheckout.onsubmit = (e) => {
                                         //location.href = `/`;
 
     console.log(formData)
+
+
+       //console.log("comprarCarrito :"+ localStorage.numero_factura);
+
+
+    let confirmar = confirm("Confirmar compra");
+    if(confirmar){
+
   // para cargar los datos de la venta en la base de datos
   fetch("/api/ventas/checkout", {
     method: "POST",
@@ -129,24 +138,37 @@ formCheckout.onsubmit = (e) => {
 
 
       //console.log(res);
-      alert("Confirmar compra");
-
-      if (res.ok) {
+      
+       
+      if (res.ok ) {
         //borro el carrito    
         vaciarCarrito();
-       
+
+        
+
          location.href = `./ordenCompra/${res.ventas.numero_factura}`;// despues de comprar va a la orden de compra
+
+        // localStorage.numero_factura = res.ventas.numero_factura;
+         //console.log("comprarCarrito :"+ localStorage.numero_factura);
+        
+
+        
        
       } else {
         alert("No se pudo realizar la compra, intente mas tarde");
       }
+    
     })
     .catch((error) => console.log(error));
 
     
-     console.log(formCheckout.elements, formData, products);
+     //console.log(formCheckout.elements, formData, products);
 
-
+  }else {
+    alert("Compra cancelada");
+    location.href = `/`;// al cancelar compra va al inicio
+   
+  }
 
 };
 
