@@ -19,12 +19,13 @@ guardados en la carpeta data como Json (un array de objetos literales) */
 //const remeras = JSON.parse(fs.readFileSync(remerasFilePath, "utf-8"));
 //const usuariosJS = JSON.parse(fs.readFileSync(usuariosFilePath, "utf-8"));
 
-const devolucionesFilePath = path.join(__dirname, "../data/devoluciones.json");
+//const devolucionesFilePath = path.join(__dirname, "../data/devoluciones.json");
 
-const devoluciones = JSON.parse(fs.readFileSync(devolucionesFilePath, "utf-8"));
+//const devoluciones = JSON.parse(fs.readFileSync(devolucionesFilePath, "utf-8"));
 
 const sequelize = require("sequelize"); //<------------ para usar Op
 const db = require("../database/models/index.js");
+
 const Op = sequelize.Op;
 
 const userController = {
@@ -524,7 +525,7 @@ procesoEdicionUsuarioUser: async (req, res) => {
       });
   },
 
-  // **********************************************************
+  // **********************************************************************************************************
   olvidoClave : (req, res) => {
 
     return res.render("./usuarios/formOlvidoClave.ejs");

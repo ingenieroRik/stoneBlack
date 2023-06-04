@@ -6,6 +6,8 @@ const sequelize = db.sequelize;
 const { Op, where } = require("sequelize");
 const { json } = require("express");
 
+const path = require("path");
+
 
 const paymentMercadopagoController = {
 

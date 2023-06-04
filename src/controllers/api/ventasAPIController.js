@@ -1,14 +1,15 @@
 const { json } = require("express");
 
-const sequelize = require ("sequelize"); //<------------ para usar Op
-const db = require('../../database/models');
+
+const path = require("path");
+
+const { sequelize } = require('../../database/models'); // <-------------------- para usar transaction
 const Op = sequelize.Op;
 
-const mercadopago = require ("mercadopago");
-
+const db = require("../../database/models");
 
 const ventasAPIController = {
-    'list': (req, res) => {
+    list: (req, res) => {
         db.Ventas.findAll({attributes :["numero_factura" ,  "fecha" , "total"]})// solo usuarios y 3 campos
                                                   // id , nombre_usuario y email
                        
@@ -27,18 +28,24 @@ const ventasAPIController = {
                 });
     },
 
+    /***************************************************************************************************************************** */
     checkout: async function (req, res) {
-        try {
+
+        // Primero, iniciamos una transacción y la guardamos en una variable ver: https://runebook.dev/es/docs/sequelize/manual/transactions
+            const t = await sequelize.transaction();  
+          
+
+       try {
      
+
         let ventas = await db.Ventas.create(
           { ...req.body, id_usuario: req.session.usuarioLogueado.id },
-         
+          { transaction: t }      
              );
 
             // necesitamos saber el numero de factura que es el id de la venta que se generó recien
             // para cargarlos en productos_por_venta
             let numeroFactura = ventas.numero_factura;
-
 
            //console.log(req.body.productos_por_venta);
            //console.log(req.body.productos_por_venta[0].productId);
@@ -60,67 +67,36 @@ const ventasAPIController = {
                 precio_unitario : req.body.productos_por_venta[i].precio,
                 cantidad : req.body.productos_por_venta[i].cantidad,
                 id_venta:numeroFactura
-            })
-
+            }, 
+            { transaction: t }
+            )
             //debemos sacar del stock los prodcutos vendidos
             // va dentro del for porque pueden ser varios productos
 
             let valor = req.body.productos_por_venta[i].cantidad;
 
-
             await db.Productos.decrement(
-                    { cantidad :  valor }, { where : {id: req.body.productos_por_venta[i].productId,}}
-
+                    { cantidad :  valor }, { where : {id: req.body.productos_por_venta[i].productId,}}, 
+                    { transaction: t }
             )
         }
-        
+            
+            // Si la ejecución llega a esta línea, no se arrojaron errores.
+            // Confirmamos la transacción.
+            await t.commit();
+
             res.json({ ok: true, status: 200, ventas: ventas });
 
-        } catch (error) {
+       } catch (error) {
+
+
+             // Si la ejecución llega a esta línea, se arrojó un error.
+            // Revertimos la transacción.
+            await t.rollback();
             return res.status(500).json({ message: error.message });
         } 
       },
 
-       /*
-    'checkout': (req, res) => {
-       
-         db.Ventas.create(
-          { ...req.body, userId: req.session.userLogged.id },
-          {
-            include: db.Ventas.Productos_por_venta,
-          }
-        ).then(ventas => {
-            let respuesta = {
-                meta: {
-                    status : 200,
-                    total: ventas.total,
-                    url: '/api/ventas/checkout'
-                },
-                data: ventas
-            }
-
-
-        res.json({ ok: true, status: 200, order: ventas });
-      })
-    }
-
-    /*
-    'detail': (req, res) => {
-        db.Usuarios.findByPk(req.params.id,{attributes :["id" ,  "nombre_y_apellido" ,"nombre_usuario",  "email", "uri_avatar"]} ) 
-                                                                            //solo campos id / nombre / nombre_usuario / email / uri_avatar(imágen)
-            .then(usuarios => {
-                let respuesta = {
-                    meta: {
-                        status: 200,
-                        //total: usuarios.length,
-                        url: 'https://stoneblack.onrender.com/api/ventas/:id'
-                    },
-                    data: usuarios
-                }
-                res.json(respuesta);
-            });
-    },
-    */
 
     
 }

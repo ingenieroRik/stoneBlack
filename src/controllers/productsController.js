@@ -20,7 +20,7 @@ guardados en la carpeta data como Json (un array de objetos literales) */
 /* BASE DE DATOS */
   const db = require('../database/models');
 const sequelize = db.sequelize;
-const { Op, where } = require("sequelize");
+const { Op } = require("sequelize");
 const Productos = db.Productos
 
 
@@ -44,11 +44,14 @@ const productsController = {
     }
   },
 
+  /********************************************************************************************************************************* */
   detalleCarrito: (req, res) => {
     return res.render("./productos/product-cart", {
       usuario: "usuario no registrado",
     });
   },
+
+  /********************************************************************************************************************************* */
 
   edicionProd: (req, res) => {
     try {
@@ -63,6 +66,8 @@ const productsController = {
     return res.status(500).json({ message: error.message });
   }
   },
+
+  /**************************************************************************************************************************************************** */
 
   procesoEdicion: async (req, res) => {
     try {
@@ -110,7 +115,8 @@ const productsController = {
   }
 
   },
-  
+
+  /********************************************************************************************************************************* */
 
   buscarProd: async (req, res) => {
     try {
@@ -310,7 +316,7 @@ const productsController = {
   },
 */
 
-  
+/*********************************************************************************************************************** */
   destroy: async (req, res) => {
     try {
    
@@ -327,6 +333,7 @@ const productsController = {
   creacionProd: (req, res) => {
     return res.render("./productos/creacionProduct");
   },
+  /************************************************************************************************************* */
 
   procesoCreacion: async (req, res) => {
     try {
@@ -364,6 +371,7 @@ const productsController = {
   }
   },
 
+  /************************************************************************************************************************ */
   listaProduct: async (req, res) => {
     try {
     var remerasTodas =  await db.Productos.findAll();
@@ -375,6 +383,7 @@ const productsController = {
   }
   },
 
+  /*************************************************************************************************************** */
   listarProd: async (req, res) => {
     try { 
     var remerasTodas =  await db.Productos.findAll();
@@ -385,6 +394,7 @@ const productsController = {
     return res.status(500).json({ message: error.message });
   }
   },
+  /* ************************************************************************************************/
 
   listarProdBuscado: async (req, res) => {
     try {
@@ -405,6 +415,7 @@ const productsController = {
     });
   },
  */
+/* ***************************************************************************************************************/
   listarVentas: (req, res) => {
     try {
     db.Ventas.findAll(
@@ -425,6 +436,7 @@ const productsController = {
     }
   },
 
+  /* ******************************************************************************************************************************/
   pedido: async function (req, res) {
     try {
     //let numero_factura = req.params.id
@@ -455,6 +467,7 @@ const productsController = {
   },
   */
 
+  /********************************************************************************************************************* */
   detalleCompra: async (req, res) => {
     try {
       //console.log(req.params.id)

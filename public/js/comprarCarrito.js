@@ -106,8 +106,8 @@ formCheckout.onsubmit = (e) => {
   e.preventDefault();
   const formData = {
     productos_por_venta: products,  //aca uso la asociacion del modelo de la tabla Ventas (ventas.js) con la tabla Productos_por _ventas
-    //paymentMethod: formCheckout.paymentMethod.value,
-    //shippingMethod: formCheckout.shippingMethod.value,
+    paymentMethod: formCheckout.paymentMethod.value,
+    shippingMethod: formCheckout.shippingMethod.value,
     fecha : Date(),
     total: calcularTotal(products),
   };
