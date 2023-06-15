@@ -4,8 +4,8 @@ function loginVacioMiddleware (req, res, next){
 
 
     if (req.session.usuarioLogueado){
-        res.locals.loginVacio = false;// hay alguien por loguearse
-        res.locals.loginVacio = false;// hay alguien por loguearse   
+        res.locals.loginVacio = true;// hay alguien por loguearse
+         
         
         next();
     }else {

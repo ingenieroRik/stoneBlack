@@ -14,6 +14,7 @@ async function usuarioLogueadoMiddleware (req, res,next){
             res.locals.isLogged = false;
 
        //console.log(req.cookies.usuarioEmail);
+       // si hay una cookie con el mail del usuario,  entonces logueamos directamente al usuario
         if (req.cookies.usuarioEmail){
 
        let usuario = await db.Usuarios.findOne({

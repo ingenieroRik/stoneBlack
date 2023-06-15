@@ -12,7 +12,7 @@ const supervisorMiddleware = require('../middlewares/supervisorMiddleware');
 const devolverMiddleware = require('../middlewares/devolverMiddleware.js');
 const imageValidatorMiddleware = require('../middlewares/imageValidatorMiddleware.js');
 //const validacionRegistro = require('../middlewares/validateRegisterMiddleware.js');
-
+const userMiddleware = require('../middlewares/userMiddleware.js');
 
 const validacionesDev = [
 	body('nombreYapellido').notEmpty().withMessage('escribe un nombre'),	

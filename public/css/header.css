@@ -286,7 +286,7 @@ label, .foto {
 	transform: scale(1.2);
   }
   .avatar-usuario{  
-	width :40px
+	width :20px
  }
   
   .lupa {
@@ -341,8 +341,9 @@ label, .foto {
   }
   .menu{
 	display: none;/* <---------- baja y sube el menu  inicio...        registrar   devolver  */
-	
+	margin-top: 0px;/* <---------- baja y sube el menu  inicio...        registrar   devolver  */		
   }
+  
   .menu_visible{
 	display: flex;
 	flex-direction:row;
@@ -381,12 +382,15 @@ label, .foto {
 		  font-size: 30px;
 		}
 		.menu{
-			margin-top: -50px;/* <---------- baja y sube el menu  inicio...        registrar   devolver  */
+			margin-top: -30px;/* <---------- baja y sube el menu  inicio...        registrar   devolver  */
 			margin-left: 160px;
 			margin-right: 160px;
+			
 		  }
+		 
 		  .avatar-usuario{  
-			width :70px
+			width :30px;
+			
 		 }
 		.barra-menu ul{
 		  display: flex;
@@ -398,9 +402,7 @@ label, .foto {
 			margin-top: 100px;
 			background-color: white;
 		}
-		.banner {
-		  display: block;
-		}
+	
 		.navbar {
 		  display: flex;
 		  justify-content: space-between;
@@ -442,6 +444,10 @@ label, .foto {
 		.burger-menu{
 		  display: none;
 		}
+		.avatar-usuario{  
+			width :40px
+		 }
+		
 		.boton-inicio, .registrarse, .devolver{
 			font-size: 24px;
 		  }
@@ -453,7 +459,7 @@ label, .foto {
 			display: block;
 	  }
 	  .menu{                      /* <---------- baja y sube el menu  inicio...        registrar   devolver  */
-		margin-top: -55px;	
+		margin-top: -30px;	
 	  }
 
 	  .barra-menu{   /*  <-----------   HEADER FIJO  */
