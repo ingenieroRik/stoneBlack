@@ -100,7 +100,7 @@
             </div>
         
              <button class="register" type="reset" ><a href="/" title="Close" id="close1">Volver</a></button>
-             <button type="submit" id="btn-envio-login" class="register">Enviar</button> 
+             <button type="submit" id="btn-envio-login" class="register" >Enviar</button> 
         </div> 
 
             <div class="">
@@ -343,7 +343,10 @@
 <marquee scrollamount="10" class="marquesina">
     <div>
         <% if (locals.isLogged) {   %>
-            <p class="texto-marquesina">Hola <%= locals.usuarioLogueado.nombre_y_apellido %></p>
+            <p class="texto-marquesina" id="texto-bienvenida"  >Hola <%= locals.usuarioLogueado.nombre_y_apellido %>, bienvenida. Para editar tu perfil clickea sobre la imágen.</p>
+
+
+
         <% } else { %>
         <p class="texto-marquesina">Semana de ofertas increibles en StoneBlack!!!</p>
 
@@ -408,5 +411,7 @@
 </div>
 
 </header>
+
+
 <!----------------------------- fin del header ----------------------------------------------------------------->
 
