@@ -34,6 +34,12 @@ window.addEventListener('load', function() {
               if(Object.keys(errors).length >= 1){
                   errorNombreLogin.innerText = (errors.email) ? errors.email : ''; 
                   errorClaveLogin.innerText = (errors.clave) ? errors.clave : '';
+
+                // se reproduce mensaje
+                const mensaje = new SpeechSynthesisUtterance();
+                mensaje.text = "completa tu email y contraseña, por favor";           
+                speechSynthesis.speak(mensaje);
+
               } else {
               registerForm.submit();
               }
@@ -84,6 +90,12 @@ window.addEventListener('load', function() {
                   errorEmailRegUser.innerText = (errors.email) ? errors.email : '';
                   errorClaveRegUser.innerText = (errors.clave) ? errors.clave : '';
                   errorVerifClaveRegUser.innerText = (errors.confirmarClave) ? errors.confirmarClave : '';
+
+                // se reproduce mensaje
+                const mensaje = new SpeechSynthesisUtterance();
+                mensaje.text = "completa todos los datos, por favor";           
+                speechSynthesis.speak(mensaje);
+
               } else {
               registerFormUser.submit();
               }
@@ -135,6 +147,12 @@ let errorIdProdDevolver = document.querySelector(".errorIdProdDev");
                 errorFacturaDevolver.innerText = (errors.numeroDeFactura) ? errors.numeroDeFactura : '';
                 errorIdProdDevolver.innerText = (errors.idProducto) ? errors.idProducto : '';
                 errorFechaDevolver.innerText = (errors.fechaDeCompra) ? errors.fechaDeCompra : '';
+
+
+                // se reproduce mensaje
+                const mensaje = new SpeechSynthesisUtterance();
+                mensaje.text = "completa todos los datos, por favor";           
+                speechSynthesis.speak(mensaje);
 
                 
             } else {

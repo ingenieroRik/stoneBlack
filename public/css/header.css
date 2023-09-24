@@ -270,7 +270,7 @@ label, .foto {
 	margin-top: 40px; /*  <------- para acomodarla */
 	background-color: white; /* <----------  fondo blanco */
 	display: flex;
-	align-items: space-between;
+	
 	align-items: center;
 	width: 100%;
 	padding: 8px 30px ;  /* <-------------- fijo 8px antes 15  */
