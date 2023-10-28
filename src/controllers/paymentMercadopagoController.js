@@ -11,7 +11,6 @@ const path = require("path");
 
 const paymentMercadopagoController = {
 
- 
 
 createOrder : async (req, res) => {
   mercadopago.configure({

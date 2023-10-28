@@ -85,8 +85,11 @@
                     </div>
                     <div class="card-footer">
                         
-                        <button id="checkout-payment"  class="btn btn-primary btn-block" value="<%= ventas[0].numero_factura %>" >Pagar</button>
-                   
+                        <button id="checkout-payment"  class="btn btn-primary btn-block" value="<%= ventas[0].numero_factura %>" onclick="graciasPagar();"
+                           ><a   style="color: white;"   href="/" >Pagar</a></button>
+                    <!-- se modifica para que al presionar pagar no se comunique con mercadopago ver video https://www.youtube.com/watch?v=QqiDandkcBY-->
+
+
                      </div>
                      <div class="card-footer">
                         <a href="/" class="btn btn-primary btn-block card-volver">Volver al inicio</a>
