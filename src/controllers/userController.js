@@ -472,6 +472,67 @@ procesoEdicionUsuarioUser: async (req, res) => {
         oldData: req.body,
       });
     }
+    // hay que verificar todos los datos que faltan de la devolución
+    // verificamos número de factura y fecha
+         
+         try {
+          const numFactyFecha = await db.Ventas.findOne({attributes :["numero_factura" ,  "fecha" , "total", "id_usuario"],// si no restrinjo atributos marca error de campo id 
+            
+
+          // no verificamos fecha porque desde el formulario html viene en el formato dd/mm/yyyy y la bbdd lo acepta en yyyy/mm/dd
+          /*
+          where: {[Op.and]: [
+            { numero_factura: req.body.numeroDeFactura},
+            { fecha: req.body.fechaDeCompra}
+            ],         
+          },
+            raw: true,
+          });
+          */
+          
+          where : {numero_factura : req.body.numeroDeFactura},
+            raw: true,
+          });
+         
+
+          console.log(numFactyFecha);
+        
+          if (numFactyFecha == null) {
+
+            return res.render("index.ejs", {
+              allProducts: remerasTodas,
+              errors: { pieForm: { msg: "Los datos de factura y/o fecha no son correctos" } },
+              oldData: req.body,
+            });
+          }
+          
+        }
+        catch (error) {
+          return res.status(500).json({ message: error.message });
+
+        }
+        // verificamos id de producto
+        try {
+          const numProd = await db.Productos_por_venta.findOne({
+            where: { id_venta: req.body.numeroDeFactura},
+            raw: true,
+          });
+         
+          
+          if (numProd.id_producto != req.body.idProducto) {
+
+            return res.render("index.ejs", {
+              allProducts: remerasTodas,
+              errors: { pieForm: { msg: "Los datos del producto no son correctos" } },
+              oldData: req.body,
+            });
+          }
+          
+        }
+        catch (error) {
+          return res.status(500).json({ message: error.message });
+
+        }
 
     // hacemos una consulta para ver si esta devolución ya fue registrada antes
     var devolucion = await db.Devoluciones.findAll({
@@ -484,6 +545,7 @@ procesoEdicionUsuarioUser: async (req, res) => {
       },
       raw: true,
     });
+
 
     if (devolucion.length != 0) {
       return res.render("index.ejs", {
