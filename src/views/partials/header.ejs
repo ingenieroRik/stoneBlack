@@ -6,7 +6,6 @@
 
 
 
-
 <script>
     function enviar(token){
         document.getElementById("olvido-form").submit();
@@ -59,6 +58,7 @@
             </div>
         </form>
     </div>
+    
 </section>
 
 
@@ -72,7 +72,7 @@
     <% } else {%> 
 <section id="inicio-sesion" class="modalDialog">
     <div class="modal">
-        <form action="/#inicio-sesion"  class="form-login"  method="POST">
+        <form action="/#inicio-sesion"  class="form-login form-limpiar"  method="POST">
          <div class=" control-login">
              <input type="email" name="email" id="form-control-login" class="control boton3" <%= locals.errors && errors.email ? 'is-invalid' : null %>"
                              placeholder="e-mail" value="<%= locals.oldData ? oldData.email : null %>">
@@ -82,7 +82,7 @@
                         </div>
                     <% } %>        
                         <div class="texto-advertencia"> 
-                            <small class="errorNombreLogin"></small>
+                            <small class="errorNombreLogin error-text"></small>
                         </div>
                     
 
@@ -99,7 +99,7 @@
                         </div>
                     <% } %> 
                         <div  class="texto-advertencia">
-                            <small class="errorClaveLogin"></small>
+                            <small class="errorClaveLogin error-text"></small>
                         </div>
             </div>
         
@@ -131,7 +131,7 @@
 
 <section id="registro-usuario" class="modalDialog">
     <div class="modal">
-        <form action="/modalUsuario#registro-usuario" method="POST" class="formulario" enctype="multipart/form-data">
+        <form action="/modalUsuario#registro-usuario" method="POST" class="formulario limpiar-reg" enctype="multipart/form-data">
             <div class="nombre">   
                 
                 
@@ -145,7 +145,7 @@
                     </div>
                     <% } %> 
                     <div  class="texto-advertencia">
-                        <small class="errorNombreRegUser"></small>
+                        <small class="errorNombreRegUser er-text"></small>
                     </div>
             </div>
 
@@ -157,7 +157,7 @@
                     </div>
                     <% } %> 
                     <div  class="texto-advertencia">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
-                        <small class="errorNombreUsuarioRegUser"></small>
+                        <small class="errorNombreUsuarioRegUser er-text"></small>
                     </div>
             </div>
               
@@ -179,7 +179,7 @@
                     </div>
                     <% } %> 
                     <div  class="texto-advertencia">
-                        <small class="errorEmailRegUser"></small>
+                        <small class="errorEmailRegUser  er-text"></small>
                     </div>
             </div>
 
@@ -191,7 +191,7 @@
                     </div>
                     <% } %> 
                     <div  class="texto-advertencia">
-                        <small class="errorClaveRegUser"></small>
+                        <small class="errorClaveRegUser  er-text"></small>
                     </div>
             </div>
 
@@ -203,7 +203,7 @@
                     </div>
                     <% } %> 
                     <div  class="texto-advertencia">
-                        <small class="errorVerifClaveRegUser"></small>
+                        <small class="errorVerifClaveRegUser er-text"></small>
                     </div>
             </div>
 
@@ -253,7 +253,7 @@
             de Comercio Interior y no se traten de productos exceptuados como productos personalizados y
             todos los comprendidos en el art. 1116 del Código Civil y Comercial.</p>
 
-        <form action="/crearDevolucion#devolver" method="POST" class="formulario-devolver">
+        <form action="/crearDevolucion#devolver" method="POST" class="formulario-devolver limpiar-dev"  enctype="multipart/form-data">
             
             <div class="nombre">
                 <input type="text"  name="nombreYapellido" id="nombre-dev" class="boton3" class="form-control <%= locals.errors && errors.nombreYapellido ? 'is-invalid' : null %>"
@@ -266,7 +266,7 @@
                 </div>
                 <% } %> 
                 <div  class="texto-advertencia">
-                    <small class="errorNombreDev"></small>
+                    <small class="errorNombreDev err-text"></small>
                 </div>
             </div>
 
@@ -279,7 +279,7 @@
                         </div>
                         <% } %> 
                         <div  class="texto-advertencia">
-                            <small class="errorEmailDev"></small>
+                            <small class="errorEmailDev  err-text"></small>
                         </div>
 
             </div>
@@ -293,7 +293,7 @@
                         </div>
                         <% } %> 
                         <div  class="texto-advertencia">
-                            <small class="errorFactDev"></small>
+                            <small class="errorFactDev  err-text"></small>
                         </div>
             </div>
 
@@ -306,7 +306,7 @@
                     </div>
                     <% } %>   
                     <div  class="texto-advertencia">
-                        <small class="errorIdProdDev"></small>
+                        <small class="errorIdProdDev  err-text"></small>
                     </div>                                         
             </div>
 
@@ -319,7 +319,7 @@
                     </div>           
                     <% } %> 
                     <div  class="texto-advertencia">
-                        <small class="errorFechaDev"></small>
+                        <small class="errorFechaDev  err-text"></small>
                     </div>
             </div>
             
